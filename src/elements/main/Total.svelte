@@ -75,15 +75,19 @@
         z-index: 20;
     }
 
-    div.totalSection > div.container > .iconHolder {
+    div.totalSection > div.container > div.iconHolder {
         position: absolute;
         height: 100%;
         width: 100%;
         display: none;
     }
 
+    div.totalSection > div.container > div.iconHolder * {
+        position: absolute
+    }
+
     @media (min-width: 1000px) {
-        div.totalSection > div.container > .iconHolder {
+        div.totalSection > div.container > div.iconHolder {
             display: initial;
         }
     }
@@ -144,14 +148,14 @@
         left: 26rem;
     }
 
-    img.memeImg {
+    div.meme > img.memeImg {
         width: auto;
         max-width: 57px;
     }
-    img.memeImg.issued {
+    div.meme > img.memeImg.issued {
         transform: scaleX(-1);
     }
-    img.memeImg.burned {
+    div.meme > img.memeImg.burned {
         border-radius: 5px;
     }
 
@@ -199,11 +203,11 @@
             padding: 4px;
             border-radius: 10px;
         }
-        img.memeImg.burned {
+        div.meme > img.memeImg.burned {
             border-radius: 8px;
         }
 
-        img.memeImg {
+        div.meme > img.memeImg {
             max-width: 100px;
         }
 
@@ -221,7 +225,7 @@
         div.valueContainer > span.value {
             font-size: 23px;
         }
-        img.memeImg {
+        div.meme > img.memeImg {
             width: auto;
             max-width: 80px;
         }
