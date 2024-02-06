@@ -8,6 +8,13 @@
 	window.addEventListener('contextmenu', function(e) {
         e.preventDefault();
     });
+
+	// block zoom on desktop
+	document.body.addEventListener('wheel', function(e) {
+		if (e.ctrlKey) {
+			e.preventDefault();
+		}
+	}, { passive: false });
 </script>
 
 <main class="noselect">
