@@ -18,9 +18,20 @@
         event.target.src = `https://api.dicebear.com/7.x/thumbs/svg?seed=${getRandomRange(1, 5e2)}`;
     }
 
+    let throttledUpdateRandomUsers = null;
+    
+    const throttleUpdateRandomUsers = () => {
+        if (!throttledUpdateRandomUsers) {
+            throttledUpdateRandomUsers = setTimeout(() => {
+                updateRandomUsers();
+                throttledUpdateRandomUsers = null;
+            }, 1000);
+        }
+    };
+
     $: {
         if ($stat?.loading === false && $allStatUsers?.loading === false) {
-            updateRandomUsers();
+            throttleUpdateRandomUsers();
         }
     }
 </script>
