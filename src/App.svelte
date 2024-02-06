@@ -3,6 +3,7 @@
 
 	import Header from './elements/Header.svelte';
 	import Main from './elements/main/Main.svelte';
+	import Footer from './elements/Footer.svelte';
 
 	// block debug menu
 	window.addEventListener('contextmenu', function(e) {
@@ -22,6 +23,7 @@
 	
 	<Header />
 	<Main />
+	<Footer />
 </main>
 
 <style>

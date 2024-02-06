@@ -8,29 +8,33 @@
 
     import { onMount, onDestroy } from 'svelte';
     import { fetchData } from '../../api.js';
-    import { stat } from '../../store.js';
+    import { stat, allStatUsers } from '../../store.js';
 
-    let intervalId;
+    let intervalStat;
+    let intervalAllStatUsers;
+
+    const fetchAndUpdateData = async (endpoint, store) => {
+        store.update(prev => ({ ...prev }));
+
+        try {
+            const data = await fetchData(endpoint, { _convertStringToNumber: true });
+            store.set({ ...data, loading: false });
+        } catch (error) {
+            setTimeout(() => fetchAndUpdateData(endpoint, store), 1e3);
+        }
+    };
 
     onMount(async () => {
-        const fetchStatData = async () => {
-            stat.update(prev => ({ ...prev }));
+        fetchAndUpdateData('/clicker/core/stat', stat);
+        fetchAndUpdateData('/clicker/league/leaderboard/public/user/silver/all', allStatUsers);
 
-            try {
-                const data = await fetchData('/clicker/core/stat', { _convertStringToNumber: true });
-                stat.set({ ...data, loading: false });
-            } catch (error) {
-                setTimeout(fetchStatData, 1e3);
-            }
-        };
-
-        fetchStatData();
-
-        intervalId = setInterval(fetchStatData, 1e4);
+        intervalStat = setInterval(() => fetchAndUpdateData('/clicker/core/stat', stat), 15e3);
+        intervalAllStatUsers = setInterval(() => fetchAndUpdateData('/clicker/league/leaderboard/public/user/silver/all', allStatUsers), 15e3);
     });
 
     onDestroy(() => {
-        clearInterval(intervalId);
+        clearInterval(intervalStat);
+        clearInterval(intervalAllStatUsers);
     });
 </script>
 

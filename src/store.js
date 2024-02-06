@@ -11,3 +11,8 @@ export const stat = writable({
     teams: 0,
     loading: true
 });
+
+export const allStatUsers = writable({
+    leaderboard: [],
+    loading: true
+});

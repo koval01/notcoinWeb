@@ -1,4 +1,4 @@
-const BASE_API_URL = 'https://clicker-api.joincommunity.xyz';
+import { API_HOST } from './main.js';
 
 const convertStringToNumber = (obj) => {
     for (let key in obj) {
@@ -10,7 +10,7 @@ const convertStringToNumber = (obj) => {
 };
 
 export const fetchData = async (endpoint, options = {}) => {
-    const { domain = BASE_API_URL, _convertStringToNumber = false } = options;
+    const { domain = API_HOST, _convertStringToNumber = false } = options;
 
     try {
         const res = await fetch(`${domain}${endpoint}`);
