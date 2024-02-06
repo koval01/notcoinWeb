@@ -2,6 +2,9 @@
     import Hero from './Hero.svelte';
     import Balance from './Balance.svelte';
     import Online from './Online.svelte';
+    import Buttons from './Buttons.svelte';
+
+    import Total from './Total.svelte';
 
     import { onMount, onDestroy } from 'svelte';
     import { fetchData } from '../../api.js';
@@ -37,6 +40,9 @@
             <Hero />
             <Balance />
             <Online />
+            <Buttons />
+
+            <Total />
         </div>
     </div>
 </div>

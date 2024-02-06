@@ -158,15 +158,51 @@ picture {
     display: block;
 }
 
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+    -webkit-appearance: button;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
 .skeleton {
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     width: 100px;
-    height: 38px;
+    height: 36px;
     margin: 5px 0;
-    animation: pulse 1.4s cubic-bezier(.4,0,.6,1) infinite;
+    animation: pulse 1.4s cubic-bezier(.4, 0, .6, 1) infinite;
     background-color: #ffffff4d;
     border-radius: .5rem;
 }
@@ -174,13 +210,15 @@ picture {
 @media (min-width: 768px) {
     .skeleton {
         width: 200px;
-        height: 60px;
+        height: 48px;
         margin: 15px 0;
     }
 }
 
 @keyframes pulse {
-    0%,to {
+
+    0%,
+    to {
         opacity: 1
     }
 
