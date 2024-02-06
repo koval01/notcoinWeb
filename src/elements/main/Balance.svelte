@@ -62,6 +62,12 @@
             height: 4.5rem;
         }
         .balanceSection > div.container > div.value {
+            font-size: 3rem;
+        }
+    }
+
+    @media (min-width: 920px) {
+        .balanceSection > div.container > div.value {
             font-size: 3.75rem;
         }
     }

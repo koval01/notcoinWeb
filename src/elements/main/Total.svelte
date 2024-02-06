@@ -212,7 +212,7 @@
         }
 
         div.valueContainer > span.value {
-            font-size: 30px;
+            font-size: 29px;
         }
     }
 
