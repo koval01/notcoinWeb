@@ -157,3 +157,34 @@ picture {
     max-width: 100%;
     display: block;
 }
+
+.skeleton {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100px;
+    height: 38px;
+    margin: 5px 0;
+    animation: pulse 1.4s cubic-bezier(.4,0,.6,1) infinite;
+    background-color: #ffffff4d;
+    border-radius: .5rem;
+}
+
+@media (min-width: 768px) {
+    .skeleton {
+        width: 200px;
+        height: 60px;
+        margin: 15px 0;
+    }
+}
+
+@keyframes pulse {
+    0%,to {
+        opacity: 1
+    }
+
+    50% {
+        opacity: .3
+    }
+}

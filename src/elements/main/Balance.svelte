@@ -1,20 +1,20 @@
 <script>
-	import { onMount } from 'svelte';
-
-	let stat = 0;
-
-	onMount(async () => {
-		const res = await fetch(`https://clicker-api.joincommunity.xyz/clicker/core/stat`);
-		const data = await res.json();
-        stat = parseInt(data.data.balanceCoins).toLocaleString();
-	});
+    import { stat } from '../../store.js';
 </script>
 
 <div class="balanceSection">
     <h3 class="balanceTitle">total balance</h3>
     <div class="container">
         <img class="coin" src="/images/coin.png" draggable="false" alt="Coin">
-        <div class="value">{stat}</div>
+        <div class="value">
+            {#if $stat.loading}
+                <div class="skeleton" style="opacity: 1;">
+                    <div class="thickLine"></div>
+                </div>
+            {:else}
+                {$stat.balanceCoins.toLocaleString()}
+            {/if}
+        </div>
     </div>
 </div>
 
