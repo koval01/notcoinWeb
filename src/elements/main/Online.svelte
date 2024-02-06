@@ -1,30 +1,25 @@
 <script>
     import { stat, allStatUsers } from '../../store.js';
-    import { getRandomElements } from '../../utils.js';
+    import { getRandomElements, getRandomRange } from '../../utils.js';
 
     let usersTotal = [];
     let usersOnlineToday = [];
     let usersOnlineNow = [];
 
-    const getRandomUsers = (count, users) => {
-        const randomUsers = [];
-        if (users && users.length > 0) {
-            for (let i = 0; i < count; i++) {
-                const randomUser = users[Math.floor(Math.random() * users.length)];
-                randomUsers.push({ avatar: randomUser.avatar });
-            }
-        }
-        return randomUsers;
+    const updateRandomUsers = () => {
+        const usersWithAvatar = $allStatUsers.leaderboard.filter(user => user.avatar);
+
+        usersTotal = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
+        usersOnlineToday = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
+        usersOnlineNow = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
     };
 
-    const updateRandomUsers = () => {
-        usersTotal = getRandomUsers(3, $allStatUsers.leaderboard);
-        usersOnlineToday = getRandomUsers(3, $allStatUsers.leaderboard);
-        usersOnlineNow = getRandomUsers(3, $allStatUsers.leaderboard);
-    };
+    const handleImageError = (event) => {
+        event.target.src = `https://api.dicebear.com/7.x/thumbs/svg?seed=${getRandomRange(1, 5e2)}`;
+    }
 
     $: {
-        if ($stat && !$stat.loading) {
+        if ($stat?.loading === false && $allStatUsers?.loading === false) {
             updateRandomUsers();
         }
     }
@@ -35,9 +30,9 @@
         {#each [usersTotal, usersOnlineToday, usersOnlineNow] as users, i}
             <div class="onlineRow">
                 <div class="avatars">
-                    {#each users as { avatar }, j}
-                        <div class="avatar" key={i + '-' + j}>
-                            <img class="avatarImg" src={avatar} draggable="false" alt="Avatar">
+                    {#each users as { avatar }}
+                        <div class="avatar">
+                            <img class="avatarImg" src={avatar} draggable="false" onerror={handleImageError} alt="Avatar">
                         </div>
                     {/each}
                 </div>
