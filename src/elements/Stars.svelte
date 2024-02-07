@@ -68,14 +68,14 @@
     div.starsLeft {
         top: 50vh;
         left: 0;
-        z-index: 10;
+        z-index: 1;
         position: fixed;
         transform: translateY(-50%);
     }
     div.starsRight {
         top: 50vh;
         right: 0;
-        z-index: 10;
+        z-index: 1;
         position: fixed;
         transform: translateY(-50%);
     }

@@ -14,6 +14,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
+        z-index: 3;
     }
     div.tapToEarn > .button {
         border-radius: 1rem;
