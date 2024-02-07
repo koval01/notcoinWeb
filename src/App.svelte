@@ -25,7 +25,7 @@
 		{ passive: false },
 	);
 
-	let showSplash = true;
+	let showSplash = false;
 
 	onMount(() => {
 		setTimeout(() => {
