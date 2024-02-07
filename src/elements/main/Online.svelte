@@ -10,6 +10,8 @@
     let usersOnlineToday = [];
     let usersOnlineNow = [];
 
+    let preloadImgState = null;
+
     const updateRandomUsers = async () => {
         const usersWithAvatar = $allStatUsers.leaderboard.filter(
             (user) => user.avatar,
@@ -29,6 +31,9 @@
         usersOnlineNow = getRandomElements(usersWithAvatar, 3).map((user) => ({
             avatar: user.avatar,
         }));
+
+        // Set preloadImgState to true after preloading is done
+        preloadImgState = true;
     };
 
     const getAvatarThumb = () => {
@@ -65,7 +70,7 @@
         {#each [usersTotal, usersOnlineToday, usersOnlineNow] as users, i}
             <div class="onlineRow">
                 <div class="avatars">
-                    {#if $allStatUsers.loading}
+                    {#if preloadImgState === null}
                         {#each Array(3) as _, i}
                             <div class="avatar" key={i}>
                                 <img
