@@ -53,11 +53,21 @@
     }
 
     @keyframes tapAnimation {
-        0% { transform: translateZ(0) rotateX(0) rotateY(); }
-        10% { transform: translateZ(-5px) rotateX(-.91deg) rotateY(13.41deg); }
-        60% { transform: translateZ(0) rotateX(0) rotateY(); }
-        70% { transform: translateZ(-5px) rotateX(-.68deg) rotateY(-12.13deg); }
-        100% { transform: translateZ(0) rotateX(0) rotateY(); }
+        0% {
+            transform: translateZ(0) rotateX(0) rotateY();
+        }
+        10% {
+            transform: translateZ(-5px) rotateX(-0.91deg) rotateY(13.41deg);
+        }
+        60% {
+            transform: translateZ(0) rotateX(0) rotateY();
+        }
+        70% {
+            transform: translateZ(-5px) rotateX(-0.68deg) rotateY(-12.13deg);
+        }
+        100% {
+            transform: translateZ(0) rotateX(0) rotateY();
+        }
     }
 
     @media (min-width: 768px) {

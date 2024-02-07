@@ -1,13 +1,27 @@
 <header>
     <div>
-        <a class="headLink" href="https://cdn.joincommunity.xyz/notcoin/Notcoin_Whitepaper.pdf">Whitepaper</a>
+        <a
+            class="headLink"
+            href="https://cdn.joincommunity.xyz/notcoin/Notcoin_Whitepaper.pdf"
+            >Whitepaper</a
+        >
         <div></div>
         <div class="headSocials">
             <a href="https://twitter.com/thenotcoin">
-                <img src="/logos/x-logo.svg" alt="X logo" width="16" height="16">
+                <img
+                    src="/logos/x-logo.svg"
+                    alt="X logo"
+                    width="16"
+                    height="16"
+                />
             </a>
             <a href="https://t.me/notcoin">
-                <img src="/logos/tg-logo.svg" alt="Telegram logo" width="20" height="20">
+                <img
+                    src="/logos/tg-logo.svg"
+                    alt="Telegram logo"
+                    width="20"
+                    height="20"
+                />
             </a>
         </div>
     </div>
@@ -47,4 +61,3 @@
         gap: 1rem;
     }
 </style>
-  

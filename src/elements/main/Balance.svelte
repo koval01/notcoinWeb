@@ -1,7 +1,7 @@
 <script>
-    import { onMount } from 'svelte';
-    import { stat } from '../../store.js';
-    import { animateValue } from '../../utils.js';
+    import { onMount } from "svelte";
+    import { stat } from "../../store.js";
+    import { animateValue } from "../../utils.js";
 
     let obj;
 
@@ -19,7 +19,7 @@
 <div class="balanceSection">
     <h3 class="balanceTitle">total balance</h3>
     <div class="container">
-        <img class="coin" src="/images/coin.png" draggable="false" alt="Coin">
+        <img class="coin" src="/images/coin.png" draggable="false" alt="Coin" />
         <div class="value" bind:this={obj}>
             {#if $stat.loading}
                 <div class="skeleton" style="opacity: 1;">

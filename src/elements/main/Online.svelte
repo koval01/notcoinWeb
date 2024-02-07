@@ -1,32 +1,49 @@
 <script>
-    import { stat, allStatUsers } from '../../store.js';
-    import { getRandomElements, getRandomRange, preloadImage } from '../../utils.js';
+    import { stat, allStatUsers } from "../../store.js";
+    import {
+        getRandomElements,
+        getRandomRange,
+        preloadImage,
+    } from "../../utils.js";
 
     let usersTotal = [];
     let usersOnlineToday = [];
     let usersOnlineNow = [];
 
     const updateRandomUsers = async () => {
-        const usersWithAvatar = $allStatUsers.leaderboard.filter(user => user.avatar);
-        
-        // Preload avatars
-        await Promise.all(usersWithAvatar.map(user => preloadImage(user.avatar)));
+        const usersWithAvatar = $allStatUsers.leaderboard.filter(
+            (user) => user.avatar,
+        );
 
-        usersTotal = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
-        usersOnlineToday = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
-        usersOnlineNow = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
+        // Preload avatars
+        await Promise.all(
+            usersWithAvatar.map((user) => preloadImage(user.avatar)),
+        );
+
+        usersTotal = getRandomElements(usersWithAvatar, 3).map((user) => ({
+            avatar: user.avatar,
+        }));
+        usersOnlineToday = getRandomElements(usersWithAvatar, 3).map(
+            (user) => ({ avatar: user.avatar }),
+        );
+        usersOnlineNow = getRandomElements(usersWithAvatar, 3).map((user) => ({
+            avatar: user.avatar,
+        }));
     };
 
     const getAvatarThumb = () => {
-        return `https://api.dicebear.com/7.x/thumbs/svg?seed=${getRandomRange(1, 1e3)}`;
-    }
+        return `https://api.dicebear.com/7.x/thumbs/svg?seed=${getRandomRange(
+            1,
+            1e3,
+        )}`;
+    };
 
     const handleImageError = (event) => {
         event.target.src = getAvatarThumb();
-    }
+    };
 
     let throttledUpdateRandomUsers = null;
-    
+
     const throttleUpdateRandomUsers = () => {
         if (!throttledUpdateRandomUsers) {
             throttledUpdateRandomUsers = setTimeout(() => {
@@ -51,13 +68,24 @@
                     {#if $allStatUsers.loading}
                         {#each Array(3) as _, i}
                             <div class="avatar" key={i}>
-                                <img class="avatarImg" src={getAvatarThumb()} draggable="false" alt="Avatar">
+                                <img
+                                    class="avatarImg"
+                                    src={getAvatarThumb()}
+                                    draggable="false"
+                                    alt="Avatar"
+                                />
                             </div>
                         {/each}
                     {:else}
                         {#each users as { avatar }}
                             <div class="avatar">
-                                <img class="avatarImg" src={avatar} draggable="false" on:error={handleImageError} alt="Avatar">
+                                <img
+                                    class="avatarImg"
+                                    src={avatar}
+                                    draggable="false"
+                                    on:error={handleImageError}
+                                    alt="Avatar"
+                                />
                             </div>
                         {/each}
                     {/if}
@@ -67,14 +95,12 @@
                         <div class="skeleton" style="opacity: 1;">
                             <div class="thickLine"></div>
                         </div>
+                    {:else if i === 0}
+                        {$stat.users.toLocaleString()}
+                    {:else if i === 1}
+                        {$stat.onlineToday.toLocaleString()}
                     {:else}
-                        {#if i === 0}
-                            {$stat.users.toLocaleString()}
-                        {:else if i === 1}
-                            {$stat.onlineToday.toLocaleString()}
-                        {:else}
-                            {$stat.online.toLocaleString()}
-                        {/if}
+                        {$stat.online.toLocaleString()}
                     {/if}
                 </span>
                 <span class="label">
@@ -94,7 +120,7 @@
 <style>
     .onlineSection {
         display: flex;
-        gap: .5rem;
+        gap: 0.5rem;
         align-items: center;
         margin-bottom: 1.5rem;
         justify-content: center;
@@ -109,14 +135,14 @@
     }
     div.onlineRow > div.avatars {
         display: flex;
-        padding-right: .75rem;
+        padding-right: 0.75rem;
         min-width: 72px;
     }
     div.onlineRow > div.avatars > div.avatar {
-        padding: .25rem;
+        padding: 0.25rem;
         border-radius: 50%;
         background-color: #000;
-        margin-right: -.75rem;
+        margin-right: -0.75rem;
     }
 
     div.onlineRow > div.avatars > div.avatar > img.avatarImg {
@@ -140,7 +166,7 @@
 
     @media (min-width: 768px) {
         .onlineSection {
-            gap: .75rem;
+            gap: 0.75rem;
             margin-bottom: 2rem;
         }
         .onlineSection > div.online {

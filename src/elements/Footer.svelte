@@ -1,8 +1,14 @@
 <footer>
     <div class="footnote typeface-footnote margin">
-        Built with 😆 by <a href="https://openbuilders.xyz" target="_blank">Open Builders</a>
-        <br/>
-        <span>And reassembled by <a href="https://git.koval.page" target="_blank">Yaroslav Koval</a></span>
+        Built with 😆 by <a href="https://openbuilders.xyz" target="_blank"
+            >Open Builders</a
+        >
+        <br />
+        <span
+            >And reassembled by <a href="https://git.koval.page" target="_blank"
+                >Yaroslav Koval</a
+            ></span
+        >
     </div>
 </footer>
 

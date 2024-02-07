@@ -1,39 +1,43 @@
 <script>
-	import SplashScreen from './SplashScreen.svelte';
+	import SplashScreen from "./SplashScreen.svelte";
 
-	import Stars from './elements/Stars.svelte';
+	import Stars from "./elements/Stars.svelte";
 
-	import Header from './elements/Header.svelte';
-	import Main from './elements/main/Main.svelte';
-	import Footer from './elements/Footer.svelte';
+	import Header from "./elements/Header.svelte";
+	import Main from "./elements/main/Main.svelte";
+	import Footer from "./elements/Footer.svelte";
 
-	import { onMount } from 'svelte';
+	import { onMount } from "svelte";
 
 	// block debug menu
-	window.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-    });
+	window.addEventListener("contextmenu", function (e) {
+		e.preventDefault();
+	});
 
 	// block zoom on desktop
-	document.body.addEventListener('wheel', function(e) {
-		if (e.ctrlKey) {
-			e.preventDefault();
-		}
-	}, { passive: false });
+	document.body.addEventListener(
+		"wheel",
+		function (e) {
+			if (e.ctrlKey) {
+				e.preventDefault();
+			}
+		},
+		{ passive: false },
+	);
 
 	let showSplash = true;
 
-    onMount(() => {
-        setTimeout(() => {
-            showSplash = false;
-        }, 4e3);
-    });
+	onMount(() => {
+		setTimeout(() => {
+			showSplash = false;
+		}, 4e3);
+	});
 </script>
 
 <SplashScreen show={showSplash} />
 <main class="noselect">
 	<Stars />
-	
+
 	<Header />
 	<Main />
 	<Footer />
@@ -50,4 +54,3 @@
 										supported by Chrome, Edge, Opera and Firefox */
 	}
 </style>
-  

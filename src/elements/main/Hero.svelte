@@ -31,7 +31,7 @@
             font-size: 3.75rem;
         }
         h2.heroSubtitle {
-        font-size: 1.25rem;
-    }
+            font-size: 1.25rem;
+        }
     }
 </style>

@@ -1,26 +1,31 @@
 <script>
-    import { onMount } from 'svelte';
-    import { readable } from 'svelte/store';
+    import { onMount } from "svelte";
+    import { readable } from "svelte/store";
 
     const randPos = (offset = 2) => {
         return Math.round(Math.random() * 24 + offset);
-    }
+    };
 
     const generateStars = () => {
         const starsLeft = [];
         const starsRight = [];
 
         for (let i = 0; i < 4; i++) {
-            const size = Math.random() < .85 ? 'small' : ['medium', 'large', 'xlarge'][Math.floor(Math.random() * 3)];
+            const size =
+                Math.random() < 0.85
+                    ? "small"
+                    : ["medium", "large", "xlarge"][
+                          Math.floor(Math.random() * 3)
+                      ];
             starsLeft.push({
                 size,
                 top: `${randPos()}rem`,
-                left: `${randPos()}rem`
+                left: `${randPos()}rem`,
             });
             starsRight.push({
                 size,
                 top: `${randPos()}rem`,
-                right: `${randPos()}rem`
+                right: `${randPos()}rem`,
             });
         }
 
@@ -33,16 +38,28 @@
         stars = readable(generateStars());
     });
 </script>
-  
+
 <div>
     <div class="starsLeft">
         {#each $stars.starsLeft as { size, top, left }}
-            <img src="/images/small-star.svg" alt="small star" draggable="false" class="star {size}" style="top: {top}; left: {left};" />
+            <img
+                src="/images/small-star.svg"
+                alt="small star"
+                draggable="false"
+                class="star {size}"
+                style="top: {top}; left: {left};"
+            />
         {/each}
     </div>
     <div class="starsRight">
         {#each $stars.starsRight as { size, top, right }}
-            <img src="/images/small-star.svg" alt="small star" draggable="false" class="star {size}" style="top: {top}; right: {right};" />
+            <img
+                src="/images/small-star.svg"
+                alt="small star"
+                draggable="false"
+                class="star {size}"
+                style="top: {top}; right: {right};"
+            />
         {/each}
     </div>
 </div>

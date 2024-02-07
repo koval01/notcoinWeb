@@ -1,16 +1,36 @@
 <script>
-    import { stat } from '../../store.js';
+    import { stat } from "../../store.js";
 </script>
 
 <div class="totalSection">
     <div class="container">
         <div class="iconHolder">
-            <img class="penny1" src="/images/penny.png" draggable="false" alt="burned icon">
-            <img class="penny2" src="/images/penny.png" draggable="false" alt="burned icon">
-            <img class="penny3" src="/images/penny.png" draggable="false" alt="burned icon">
+            <img
+                class="penny1"
+                src="/images/penny.png"
+                draggable="false"
+                alt="burned icon"
+            />
+            <img
+                class="penny2"
+                src="/images/penny.png"
+                draggable="false"
+                alt="burned icon"
+            />
+            <img
+                class="penny3"
+                src="/images/penny.png"
+                draggable="false"
+                alt="burned icon"
+            />
         </div>
         <div class="meme">
-            <img class="memeImg issued" src="/images/memes/doge.png" draggable="false" alt="doge meme">
+            <img
+                class="memeImg issued"
+                src="/images/memes/doge.png"
+                draggable="false"
+                alt="doge meme"
+            />
         </div>
         <div class="valueContainer">
             <span class="value valueIssued">
@@ -27,15 +47,50 @@
     </div>
     <div class="container">
         <div class="iconHolder">
-            <img class="flame1" src="/images/flame.png" draggable="false" alt="burned icon">
-            <img class="flame2" src="/images/flame.png" draggable="false" alt="burned icon">
-            <img class="flame3" src="/images/flame.png" draggable="false" alt="burned icon">
-            <img class="flame4" src="/images/flame.png" draggable="false" alt="burned icon">
-            <img class="flame5" src="/images/flame.png" draggable="false" alt="burned icon">
-            <img class="flame6" src="/images/flame.png" draggable="false" alt="burned icon">
+            <img
+                class="flame1"
+                src="/images/flame.png"
+                draggable="false"
+                alt="burned icon"
+            />
+            <img
+                class="flame2"
+                src="/images/flame.png"
+                draggable="false"
+                alt="burned icon"
+            />
+            <img
+                class="flame3"
+                src="/images/flame.png"
+                draggable="false"
+                alt="burned icon"
+            />
+            <img
+                class="flame4"
+                src="/images/flame.png"
+                draggable="false"
+                alt="burned icon"
+            />
+            <img
+                class="flame5"
+                src="/images/flame.png"
+                draggable="false"
+                alt="burned icon"
+            />
+            <img
+                class="flame6"
+                src="/images/flame.png"
+                draggable="false"
+                alt="burned icon"
+            />
         </div>
         <div class="meme burned">
-            <img class="memeImg burned" src="/images/memes/fine.png" draggable="false" alt="this is fine meme">
+            <img
+                class="memeImg burned"
+                src="/images/memes/fine.png"
+                draggable="false"
+                alt="this is fine meme"
+            />
         </div>
         <div class="valueContainer">
             <span class="value valueBurned">
@@ -55,7 +110,7 @@
 <style>
     div.totalSection {
         display: grid;
-        grid-template-rows: repeat(2,minmax(0,1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
         grid-template-columns: none;
         gap: 1rem;
         margin-bottom: 1rem;
@@ -83,7 +138,7 @@
     }
 
     div.totalSection > div.container > div.iconHolder * {
-        position: absolute
+        position: absolute;
     }
 
     @media (min-width: 1000px) {
@@ -191,7 +246,7 @@
 
     @media (min-width: 768px) {
         div.totalSection {
-            grid-template-columns: repeat(2,minmax(0,1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             grid-template-rows: none;
         }
         div.totalSection > div.container {
