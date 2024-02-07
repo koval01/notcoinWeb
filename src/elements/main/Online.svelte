@@ -14,8 +14,12 @@
         usersOnlineNow = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
     };
 
+    const getAvatarThumb = () => {
+        return `https://api.dicebear.com/7.x/thumbs/svg?seed=${getRandomRange(1, 1e3)}`;
+    }
+
     const handleImageError = (event) => {
-        event.target.src = `https://api.dicebear.com/7.x/thumbs/svg?seed=${getRandomRange(1, 5e2)}`;
+        event.target.src = getAvatarThumb();
     }
 
     let throttledUpdateRandomUsers = null;
@@ -41,11 +45,19 @@
         {#each [usersTotal, usersOnlineToday, usersOnlineNow] as users, i}
             <div class="onlineRow">
                 <div class="avatars">
-                    {#each users as { avatar }}
-                        <div class="avatar">
-                            <img class="avatarImg" src={avatar} draggable="false" onerror={handleImageError} alt="Avatar">
-                        </div>
-                    {/each}
+                    {#if $allStatUsers.loading}
+                        {#each Array(3) as _, i}
+                            <div class="avatar" key={i}>
+                                <img class="avatarImg" src={getAvatarThumb()} draggable="false" alt="Avatar">
+                            </div>
+                        {/each}
+                    {:else}
+                        {#each users as { avatar }}
+                            <div class="avatar">
+                                <img class="avatarImg" src={avatar} draggable="false" on:error={handleImageError} alt="Avatar">
+                            </div>
+                        {/each}
+                    {/if}
                 </div>
                 <span class="value">
                     {#if $stat.loading}
