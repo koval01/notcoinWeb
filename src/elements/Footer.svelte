@@ -12,28 +12,27 @@
     </div>
 </footer>
 
-<style>
-    a {
-        color: rgb(254, 184, 3);
-        text-decoration: none;
-    }
+<style lang="sass">
+  a
+    color: rgb(254, 184, 3)
+    text-decoration: none
+  
+  .footnote
+    position: relative
+    text-align: center
+    z-index: 10
+  
+    > span > a
+      color: #fff
+  
+  .typeface-footnote
+    font-size: 13px
+    font-weight: 400
+    line-height: 18px
+  
+  .margin
+    margin: 16px 0
+    margin-top: 28px
+  
 
-    .footnote {
-        position: relative;
-        text-align: center;
-        z-index: 10;
-    }
-    .footnote > span > a {
-        color: #fff;
-    }
-
-    .typeface-footnote {
-        font-size: 13px;
-        font-weight: 400;
-        line-height: 18px;
-    }
-    .margin {
-        margin: 16px 0;
-        margin-top: 28px;
-    }
 </style>

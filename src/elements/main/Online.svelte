@@ -122,76 +122,71 @@
     </div>
 </div>
 
-<style>
-    .onlineSection {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-        margin-bottom: 1.5rem;
-        justify-content: center;
-    }
-    .onlineSection > div.online {
-        font-size: 1rem;
-    }
-    div.onlineRow {
-        display: flex;
-        align-items: center;
-        margin-bottom: 12px;
-        height: 36.98px;
-    }
-    div.onlineRow > div.avatars {
-        display: flex;
-        padding-right: 0.75rem;
-        min-width: 72px;
-    }
-    div.onlineRow > div.avatars > div.avatar {
-        padding: 0.25rem;
-        border-radius: 50%;
-        background-color: #000;
-        margin-right: -0.75rem;
-    }
+<style lang="sass">
+  .onlineSection
+    display: flex
+    gap: 0.5rem
+    align-items: center
+    margin-bottom: 1.5rem
+    justify-content: center
+  
+    > div.online
+      font-size: 1rem
+  
+  div.onlineRow
+    display: flex
+    align-items: center
+    margin-bottom: 12px
+    height: 36.98px
+  
+    >
+      div.avatars
+        display: flex
+        padding-right: 0.75rem
+        min-width: 72px
+  
+        > div.avatar
+          padding: 0.25rem
+          border-radius: 50%
+          background-color: #000
+          margin-right: -0.75rem
+  
+          > img.avatarImg
+            border-radius: 50%
+            height: 1.5rem
+  
+      span
+        &.value
+          font-variant-numeric: lining-nums tabular-nums
+          margin-left: 12px
+  
+        &.label
+          margin-left: 6px
+          color: #ebebf599
+  
+  .skeleton
+    height: 18px
+    width: 80px
+  
+  @media (min-width: 768px)
+    .onlineSection
+      gap: 0.75rem
+      margin-bottom: 2rem
+  
+      > div.online
+        font-size: 1.25rem
+  
+    div.onlineRow
+      height: 31.98px
+  
+      > div.avatars
+        min-width: 96px
+  
+        > div.avatar > img.avatarImg
+          height: 2rem
+  
+    .skeleton
+      height: 32px
+      width: 140px
 
-    div.onlineRow > div.avatars > div.avatar > img.avatarImg {
-        border-radius: 50%;
-        height: 1.5rem;
-    }
-
-    div.onlineRow > span.value {
-        font-variant-numeric: lining-nums tabular-nums;
-        margin-left: 12px;
-    }
-    div.onlineRow > span.label {
-        margin-left: 6px;
-        color: #ebebf599;
-    }
-
-    .skeleton {
-        height: 18px;
-        width: 80px;
-    }
-
-    @media (min-width: 768px) {
-        .onlineSection {
-            gap: 0.75rem;
-            margin-bottom: 2rem;
-        }
-        .onlineSection > div.online {
-            font-size: 1.25rem;
-        }
-        div.onlineRow {
-            height: 31.98px;
-        }
-        div.onlineRow > div.avatars {
-            min-width: 96px;
-        }
-
-        div.onlineRow > div.avatars > div.avatar > img.avatarImg {
-            height: 2rem;
-        }
-
-        .skeleton {
-            height: 32px;
-            width: 140px;
-        }
-    }
 </style>

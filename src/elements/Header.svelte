@@ -27,37 +27,37 @@
     </div>
 </header>
 
-<style>
-    header {
-        padding: 1rem;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 3.75rem;
-        background-color: #000;
-        z-index: 1001;
-        border-color: #fff3;
-        border-bottom-width: 1px;
-        border-bottom-style: solid;
-    }
-    header > div {
-        height: 100%;
-        margin: 0 auto;
-        max-width: 1040px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        align-items: center;
-        align-content: center;
-    }
-    .headLink {
-        font-weight: 600;
-        justify-self: start;
-    }
-    .headSocials {
-        justify-self: end;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
+<style lang="sass">
+  header
+    padding: 1rem
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 3.75rem
+    background-color: #000
+    z-index: 1001
+    border-color: #fff3
+    border-bottom-width: 1px
+    border-bottom-style: solid
+  
+    > div
+      height: 100%
+      margin: 0 auto
+      max-width: 1040px
+      display: grid
+      grid-template-columns: 1fr 1fr 1fr
+      align-items: center
+      align-content: center
+  
+  .headLink
+    font-weight: 600
+    justify-self: start
+  
+  .headSocials
+    justify-self: end
+    display: flex
+    align-items: center
+    gap: 1rem
+  
 </style>

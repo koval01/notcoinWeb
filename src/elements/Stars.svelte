@@ -64,39 +64,39 @@
     </div>
 </div>
 
-<style>
-    div.starsLeft {
-        top: 50vh;
-        left: 0;
-        z-index: 1;
-        position: fixed;
-        transform: translateY(-50%);
-    }
-    div.starsRight {
-        top: 50vh;
-        right: 0;
-        z-index: 1;
-        position: fixed;
-        transform: translateY(-50%);
-    }
-
-    .star {
-        position: relative;
-    }
-    .star.small {
-        width: .5rem;
-        height: .5rem;
-    }
-    .star.medium {
-        width: .75rem;
-        height: .75rem;
-    }
-    .star.large {
-        width: 1rem;
-        height: 1rem;
-    }
-    .star.xlarge {
-        width: 1.15rem;
-        height: 1.15rem;
-    }
+<style lang="sass">
+  div
+    &.starsLeft
+      top: 50vh
+      left: 0
+      z-index: 1
+      position: fixed
+      transform: translateY(-50%)
+  
+    &.starsRight
+      top: 50vh
+      right: 0
+      z-index: 1
+      position: fixed
+      transform: translateY(-50%)
+  
+  .star
+    position: relative
+  
+    &.small
+      width: .5rem
+      height: .5rem
+  
+    &.medium
+      width: .75rem
+      height: .75rem
+  
+    &.large
+      width: 1rem
+      height: 1rem
+  
+    &.xlarge
+      width: 1.15rem
+      height: 1.15rem
+  
 </style>
