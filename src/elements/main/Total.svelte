@@ -141,12 +141,6 @@
         position: absolute;
     }
 
-    @media (min-width: 1000px) {
-        div.totalSection > div.container > div.iconHolder {
-            display: initial;
-        }
-    }
-
     img.penny1 {
         width: 44px;
         height: 44px;
@@ -267,18 +261,24 @@
         }
 
         div.valueContainer > span.value {
-            font-size: 29px;
+            font-size: 27px;
+        }
+    }
+
+    @media (min-width: 1000px) {
+        div.totalSection > div.container > div.iconHolder {
+            display: initial;
         }
     }
 
     @media (max-width: 1092px) {
         div.valueContainer > span.value {
-            font-size: 26px;
+            font-size: 23px;
         }
     }
     @media (max-width: 960px) {
         div.valueContainer > span.value {
-            font-size: 23px;
+            font-size: 21px;
         }
         div.meme > img.memeImg {
             width: auto;
