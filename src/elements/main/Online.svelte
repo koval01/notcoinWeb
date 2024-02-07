@@ -1,13 +1,16 @@
 <script>
     import { stat, allStatUsers } from '../../store.js';
-    import { getRandomElements, getRandomRange } from '../../utils.js';
+    import { getRandomElements, getRandomRange, preloadImage } from '../../utils.js';
 
     let usersTotal = [];
     let usersOnlineToday = [];
     let usersOnlineNow = [];
 
-    const updateRandomUsers = () => {
+    const updateRandomUsers = async () => {
         const usersWithAvatar = $allStatUsers.leaderboard.filter(user => user.avatar);
+        
+        // Preload avatars
+        await Promise.all(usersWithAvatar.map(user => preloadImage(user.avatar)));
 
         usersTotal = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
         usersOnlineToday = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
