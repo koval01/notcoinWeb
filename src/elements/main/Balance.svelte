@@ -29,7 +29,7 @@
     .balanceTitle {
         color: #ffffff80;
         letter-spacing: .25rem;
-        font-size: .75rem;
+        font-size: .6rem;
         text-transform: uppercase;
     }
     .balanceSection > div.container {
@@ -42,9 +42,24 @@
         height: 2.5rem;
     }
     .balanceSection > div.container > div.value {
-        font-size: 2rem;
+        font-size: 1.3rem;
         font-weight: 800;
         font-variant-numeric: lining-nums tabular-nums;
+    }
+
+    @media (min-width: 420px) {
+        .balanceSection > div.container > div.value {
+            font-size: 1.6rem;
+        }
+    }
+
+    @media (min-width: 520px) {
+        .balanceTitle {
+            font-size: .75rem;
+        }
+        .balanceSection > div.container > div.value {
+            font-size: 2rem;
+        }
     }
 
     @media (min-width: 768px) {
