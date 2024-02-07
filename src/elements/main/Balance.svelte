@@ -6,12 +6,12 @@
     let obj;
 
     onMount(() => {
-        animateValue(obj, $stat.balanceCoins, 3e3);
+        animateValue(obj, $stat.balanceCoins, 2e3);
     });
 
     $: {
         if (obj) {
-            animateValue(obj, $stat.balanceCoins, 3e3);
+            animateValue(obj, $stat.balanceCoins, 2e3);
         }
     }
 </script>

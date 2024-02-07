@@ -18,6 +18,8 @@ export const preloadImage = (url) => {
 
 export const animateValue = (() => {
     let lastValue = 0;
+    
+    const easeInOutQuad = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 
     return (obj, end, duration) => {
         const start = lastValue;
@@ -26,7 +28,8 @@ export const animateValue = (() => {
         const step = (timestamp) => {
             if (!startTimestamp) startTimestamp = timestamp;
             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            const currentValue = Math.floor(progress * (end - start) + start);
+            const easedProgress = easeInOutQuad(progress); // Apply easing function
+            const currentValue = Math.floor(easedProgress * (end - start) + start);
             obj.innerHTML = currentValue.toLocaleString();
             if (progress < 1) {
                 window.requestAnimationFrame(step);
