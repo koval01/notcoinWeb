@@ -6,11 +6,14 @@
     let obj;
 
     onMount(() => {
-        animateValue(obj, $stat.balanceCoins, 2e3);
+        if (!$stat.loading) {
+            obj = document.querySelector('.value');
+            animateValue(obj, $stat.balanceCoins, 2e3);
+        }
     });
 
     $: {
-        if (obj) {
+        if (obj && !$stat.loading) {
             animateValue(obj, $stat.balanceCoins, 2e3);
         }
     }
