@@ -39,7 +39,7 @@
     const getAvatarThumb = () => {
         return `https://api.dicebear.com/7.x/thumbs/svg?seed=${getRandomRange(
             1,
-            1e3,
+            1e2,
         )}`;
     };
 
