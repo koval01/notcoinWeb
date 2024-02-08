@@ -19,12 +19,12 @@
   
     > .button
       border-radius: 1rem
-      background-color: #f90
+      background-color: #fff
       font-weight: 600
       padding: .75rem 1.5rem
       font-size: 1rem
       display: flex
-      color: #fff
+      color: #000
   
   @media (min-width: 768px)
     div.tapToEarn
