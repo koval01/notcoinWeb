@@ -32,8 +32,8 @@
     line-height: 18px
   
   .margin
-    margin: 16px 0
-    margin-top: 28px
+    margin: 20px 0
+    margin-top: 32px
   
 
 </style>
