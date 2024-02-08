@@ -56,10 +56,18 @@
         font-size: 1.3rem
         font-weight: 800
         font-variant-numeric: lining-nums tabular-nums
+
+        > .skeleton
+          width: 180px
+          height: 1.4rem
   
   @media (min-width: 420px)
     .balanceSection > div.container > div.value
       font-size: 1.6rem
+
+      > .skeleton
+        width: 200px
+        height: 1.6rem
   
   @media (min-width: 480px)
     .balanceTitle
@@ -68,9 +76,17 @@
     .balanceSection > div.container > div.value
       font-size: 2rem
 
+      > .skeleton
+        width: 220px
+        height: 2rem
+
   @media (min-width: 580px)
     .balanceSection > div.container > div.value
       font-size: 2.5rem
+
+      > .skeleton
+        width: 250px
+        height: 2.6rem
   
   @media (min-width: 768px)
     .balanceSection
@@ -90,9 +106,17 @@
   
         div.value
           font-size: 3rem
+
+          > .skeleton
+            width: 300px
+            height: 3rem
   
   @media (min-width: 920px)
     .balanceSection > div.container > div.value
       font-size: 3.75rem
+
+      > .skeleton
+        width: 400px
+        height: 3.8rem
   
 </style>

@@ -99,7 +99,7 @@
                         {/each}
                     {/if}
                 </div>
-                <span class="value">
+                <span class="value {i === 0 ? 'totalPlayers' : i === 1 ? 'onlineToday' : 'onlineNow'}">
                     {#if $stat.loading}
                         <div class="skeleton" style="opacity: 1;">
                             <div class="thickLine"></div>
@@ -129,7 +129,7 @@
 <style lang="sass">
   .onlineSection
     display: flex
-    gap: 0.5rem
+    gap: .5rem
     align-items: center
     margin-bottom: 1.5rem
     justify-content: center
@@ -146,14 +146,14 @@
     >
       div.avatars
         display: flex
-        padding-right: 0.75rem
+        padding-right: .75rem
         min-width: 72px
   
         > div.avatar
-          padding: 0.25rem
+          padding: .25rem
           border-radius: 50%
           background-color: #000
-          margin-right: -0.75rem
+          margin-right: -.75rem
   
           > img.avatarImg
             border-radius: 50%
@@ -164,18 +164,26 @@
         &.value
           font-variant-numeric: lining-nums tabular-nums
           margin-left: 12px
+
+        &.value > .skeleton
+          height: 1.3rem
+
+        &.value.totalPlayers > .skeleton
+          width: 130px
+
+        &.value.onlineToday > .skeleton
+          width: 110px
+
+        &.value.onlineNow > .skeleton
+          width: 90px
   
         &.label
           margin-left: 6px
           color: #ebebf599
   
-  .skeleton
-    height: 18px
-    width: 80px
-  
   @media (min-width: 768px)
     .onlineSection
-      gap: 0.75rem
+      gap: .75rem
       margin-bottom: 2rem
   
       > div.online
@@ -191,8 +199,17 @@
           height: 2rem
           width: 2rem
   
-    .skeleton
-      height: 32px
-      width: 140px
+    div.onlineRow > span
+      &.value > .skeleton
+        height: 2rem
+
+      &.value.totalPlayers > .skeleton
+        width: 160px
+
+      &.value.onlineToday > .skeleton
+        width: 140px
+
+      &.value.onlineNow > .skeleton
+        width: 110px
 
 </style>

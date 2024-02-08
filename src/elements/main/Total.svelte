@@ -146,6 +146,7 @@
   
         *
           position: absolute
+          z-index: 1
   
   img
     &.penny1
@@ -231,6 +232,10 @@
           font-size: 1.375rem
           font-weight: 800
           font-variant-numeric: lining-nums tabular-nums
+
+          > .skeleton
+            height: 1.4rem
+            width: 360px
   
         &.valueIssued
           color: #ffc224
@@ -271,6 +276,10 @@
   
       &.valueContainer > span.value
         font-size: 27px
+
+        > .skeleton
+            height: 29px
+            width: 300px
   
   @media (min-width: 1000px)
     div.totalSection > div.container > div.iconHolder
@@ -279,11 +288,19 @@
   @media (max-width: 1092px)
     div.valueContainer > span.value
       font-size: 23px
+
+      > .skeleton
+            height: 25px
+            width: 260px
   
   @media (max-width: 960px)
     div
       &.valueContainer > span.value
         font-size: 21px
+
+        > .skeleton
+            height: 23px
+            width: 200px
   
       &.meme > img.memeImg
         width: auto
@@ -292,5 +309,9 @@
   @media (max-width: 878px)
     div.valueContainer > span.value
       font-size: 18px
+
+      > .skeleton
+            height: 20px
+            width: 160px
   
 </style>
