@@ -7,7 +7,7 @@
 	import Main from "./elements/main/Main.svelte";
 	import Footer from "./elements/Footer.svelte";
 
-	import { PRODUCTION_BUILD } from './main.js';
+	import { PRODUCTION_BUILD } from './env.js';
 	import { onMount } from "svelte";
 
 	// block debug menu

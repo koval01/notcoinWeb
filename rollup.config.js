@@ -88,6 +88,7 @@ export default {
             }
         }),
 		replace({
+			preventAssignment: true,
             'process.env.PRODUCTION': production,
         }),
 	],

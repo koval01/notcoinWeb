@@ -1,4 +1,4 @@
-import { API_HOST } from './main.js';
+import { API_HOST } from './env.js';
 
 const convertStringToNumber = (obj) => {
     for (let key in obj) {
