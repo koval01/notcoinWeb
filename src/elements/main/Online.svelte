@@ -78,6 +78,7 @@
                                     src={getAvatarThumb()}
                                     draggable="false"
                                     alt="Avatar"
+                                    height="32px"
                                 />
                             </div>
                         {/each}
@@ -90,6 +91,7 @@
                                     draggable="false"
                                     on:error={handleImageError}
                                     alt="Avatar"
+                                    height="32px"
                                 />
                             </div>
                         {/each}
