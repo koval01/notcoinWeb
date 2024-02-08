@@ -39,7 +39,7 @@
                         <div class="thickLine"></div>
                     </div>
                 {:else}
-                    {$stat.minedCoins.toLocaleString()}
+                    {($stat.balanceCoins+$stat.burnedCoins).toLocaleString()}
                 {/if}
             </span>
             <span class="title">total issued</span>
