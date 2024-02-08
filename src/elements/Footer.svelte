@@ -22,9 +22,6 @@
     text-align: center
     z-index: 10
   
-    > span > a
-      color: #fff
-  
   .typeface-footnote
     font-size: 13px
     font-weight: 400
