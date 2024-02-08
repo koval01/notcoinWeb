@@ -3,7 +3,7 @@
     import { readable } from "svelte/store";
 
     const randPos = (offset = 2) => {
-        return Math.round(Math.random() * 24 + offset);
+        return Math.round(Math.random() * 18 + offset);
     };
 
     const generateStars = () => {
@@ -19,12 +19,12 @@
                       ];
             starsLeft.push({
                 size,
-                top: `${randPos()}rem`,
+                top: `${randPos(4)}rem`,
                 left: `${randPos()}rem`,
             });
             starsRight.push({
                 size,
-                top: `${randPos()}rem`,
+                top: `${randPos(4)}rem`,
                 right: `${randPos()}rem`,
             });
         }
