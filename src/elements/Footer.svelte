@@ -7,21 +7,24 @@
 
 <style lang="sass">
   a
-    color: #000
-    background: #ffce4e
-    padding: 3px
-    font-size: 11px
-    border-radius: 8px
-    font-weight: 600
+    color: #ffce4e
+    font-weight: 500
     text-decoration: none
 
+  span
+    transition: opacity .5s
+    opacity: .3
+
+  span:hover
+    opacity: 1
+
   span::before
-    content: "| "
+    content: "/ "
 
   .footnote
     position: relative
     text-align: center
-    z-index: 10
+    z-index: 5
 
   span:first-child::before
     content: ""
