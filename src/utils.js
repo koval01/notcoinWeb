@@ -17,12 +17,12 @@ export const preloadImage = (url) => {
 }
 
 export const animateValue = (() => {
-    const lastValues = {};
+    const lastValues = new WeakMap();
 
     const easeInOutQuad = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 
     return (obj, end, duration) => {
-        const start = lastValues[obj] || 0;
+        const start = lastValues.get(obj) || 0;
 
         let startTimestamp = null;
         const step = (timestamp) => {
@@ -34,7 +34,7 @@ export const animateValue = (() => {
             if (progress < 1) {
                 window.requestAnimationFrame(step);
             } else {
-                lastValues[obj] = currentValue;
+                lastValues.set(obj, currentValue);
             }
         };
         window.requestAnimationFrame(step);
