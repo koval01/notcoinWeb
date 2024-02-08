@@ -15,17 +15,6 @@
 		e.preventDefault();
 	});
 
-	// block zoom on desktop
-	document.body.addEventListener(
-		"wheel",
-		function (e) {
-			if (e.ctrlKey) {
-				e.preventDefault();
-			}
-		},
-		{ passive: false },
-	);
-
 	let showSplash = DISPLAY_SPLASH;
 
 	onMount(() => {
