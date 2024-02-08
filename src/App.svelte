@@ -12,7 +12,7 @@
 
 	// block debug menu
 	window.addEventListener("contextmenu", function (e) {
-		e.preventDefault();
+		PRODUCTION_BUILD ? e.preventDefault() : void 0;
 	});
 
 	let showSplash = PRODUCTION_BUILD;
