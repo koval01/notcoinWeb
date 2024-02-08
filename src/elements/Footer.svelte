@@ -14,7 +14,7 @@
 
 <style lang="sass">
   a
-    color: rgb(254, 184, 3)
+    color: rgb(255, 195, 40)
     text-decoration: none
   
   .footnote
