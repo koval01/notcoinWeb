@@ -1,5 +1,16 @@
 <script>
     import { stat } from "../../store.js";
+    import { animateValue } from "../../utils.js";
+
+    let objIssued;
+    let objBurned;
+
+    $: {
+        if ((objIssued && objBurned) && !$stat.loading) {
+            animateValue(objIssued, $stat.balanceCoins + $stat.burnedCoins, 2e3);
+            animateValue(objBurned, $stat.burnedCoins, 2e3);
+        }
+    }
 </script>
 
 <div class="totalSection">
@@ -33,13 +44,13 @@
             />
         </div>
         <div class="valueContainer">
-            <span class="value valueIssued">
+            <span class="value valueIssued" bind:this={objIssued}>
                 {#if $stat.loading}
                     <div class="skeleton" style="opacity: 1;">
                         <div class="thickLine"></div>
                     </div>
                 {:else}
-                    {($stat.balanceCoins+$stat.burnedCoins).toLocaleString()}
+                    {( $stat.balanceCoins + $stat.burnedCoins ).toLocaleString()}
                 {/if}
             </span>
             <span class="title">total issued</span>
@@ -93,7 +104,7 @@
             />
         </div>
         <div class="valueContainer">
-            <span class="value valueBurned">
+            <span class="value valueBurned" bind:this={objBurned}>
                 {#if $stat.loading}
                     <div class="skeleton" style="opacity: 1;">
                         <div class="thickLine"></div>

@@ -17,11 +17,12 @@ export const preloadImage = (url) => {
 }
 
 export const animateValue = (() => {
-    let lastValue = 0;
+    const lastValues = {};
+
     const easeInOutQuad = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 
     return (obj, end, duration) => {
-        const start = lastValue;
+        const start = lastValues[obj] || 0;
 
         let startTimestamp = null;
         const step = (timestamp) => {
@@ -33,7 +34,7 @@ export const animateValue = (() => {
             if (progress < 1) {
                 window.requestAnimationFrame(step);
             } else {
-                lastValue = currentValue;
+                lastValues[obj] = currentValue;
             }
         };
         window.requestAnimationFrame(step);

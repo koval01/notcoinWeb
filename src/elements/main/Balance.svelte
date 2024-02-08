@@ -1,16 +1,8 @@
 <script>
-    import { onMount } from "svelte";
     import { stat } from "../../store.js";
     import { animateValue } from "../../utils.js";
 
     let obj;
-
-    onMount(() => {
-        if (!$stat.loading) {
-            obj = document.querySelector('.value');
-            animateValue(obj, $stat.balanceCoins, 2e3);
-        }
-    });
 
     $: {
         if (obj && !$stat.loading) {
