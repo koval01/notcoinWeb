@@ -7,6 +7,7 @@
 	import Main from "./elements/main/Main.svelte";
 	import Footer from "./elements/Footer.svelte";
 
+	import { DISPLAY_SPLASH } from './main.js';
 	import { onMount } from "svelte";
 
 	// block debug menu
@@ -25,7 +26,7 @@
 		{ passive: false },
 	);
 
-	let showSplash = false;
+	let showSplash = DISPLAY_SPLASH;
 
 	onMount(() => {
 		setTimeout(() => {
