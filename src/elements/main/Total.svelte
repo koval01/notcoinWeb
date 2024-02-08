@@ -38,7 +38,6 @@
         <div class="meme">
             <img
                 class="memeImg issued"
-                src="/images/memes/doge.webp"
                 draggable="false"
                 alt="doge meme"
             />
@@ -98,7 +97,6 @@
         <div class="meme burned">
             <img
                 class="memeImg burned"
-                src="/images/memes/fine.webp"
                 draggable="false"
                 alt="this is fine meme"
             />
@@ -211,9 +209,11 @@
         max-width: 57px
   
         &.issued
+          content: url(/images/memes/doge-mobile.webp)
           transform: scaleX(-1)
   
         &.burned
+          content: url(/images/memes/fine-mobile.webp)
           border-radius: 5px
   
       &.burned
@@ -260,7 +260,11 @@
           border-radius: 10px
   
         > img.memeImg
+          &.issued
+            content: url(/images/memes/doge.webp)
+
           &.burned
+            content: url(/images/memes/fine.webp)
             border-radius: 8px
   
           max-width: 100px
@@ -283,7 +287,7 @@
   
       &.meme > img.memeImg
         width: auto
-        max-width: 80px
+        max-width: 64px
   
   @media (max-width: 878px)
     div.valueContainer > span.value
