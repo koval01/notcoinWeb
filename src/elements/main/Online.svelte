@@ -79,6 +79,7 @@
                                     draggable="false"
                                     alt="Avatar"
                                     height="32px"
+                                    width="32px"
                                 />
                             </div>
                         {/each}
@@ -92,6 +93,7 @@
                                     on:error={handleImageError}
                                     alt="Avatar"
                                     height="32px"
+                                    width="32px"
                                 />
                             </div>
                         {/each}
@@ -156,6 +158,7 @@
           > img.avatarImg
             border-radius: 50%
             height: 1.5rem
+            width: 1.5rem
   
       span
         &.value
@@ -186,6 +189,7 @@
   
         > div.avatar > img.avatarImg
           height: 2rem
+          width: 2rem
   
     .skeleton
       height: 32px
