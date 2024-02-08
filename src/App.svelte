@@ -1,6 +1,4 @@
 <script>
-	import SplashScreen from "./SplashScreen.svelte";
-
 	import Stars from "./elements/Stars.svelte";
 
 	import Header from "./elements/Header.svelte";
@@ -8,23 +6,13 @@
 	import Footer from "./elements/Footer.svelte";
 
 	import { PRODUCTION_BUILD } from './env.js';
-	import { onMount } from "svelte";
 
 	// block debug menu
 	window.addEventListener("contextmenu", function (e) {
 		PRODUCTION_BUILD ? e.preventDefault() : void 0;
 	});
-
-	let showSplash = PRODUCTION_BUILD;
-
-	onMount(() => {
-		setTimeout(() => {
-			showSplash = false;
-		}, 4e3);
-	});
 </script>
 
-<SplashScreen show={showSplash} />
 <main class="noselect">
 	<Stars />
 
