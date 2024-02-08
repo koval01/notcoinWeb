@@ -69,7 +69,6 @@
 <style lang="sass">
   div.wrapper
     position: relative
-    background-color: #000
     min-height: 100vh
   
     > div.container
