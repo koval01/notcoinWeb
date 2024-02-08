@@ -18,19 +18,19 @@
         <div class="iconHolder">
             <img
                 class="penny1"
-                src="/images/penny.png"
+                src="/images/penny.webp"
                 draggable="false"
                 alt="burned icon"
             />
             <img
                 class="penny2"
-                src="/images/penny.png"
+                src="/images/penny.webp"
                 draggable="false"
                 alt="burned icon"
             />
             <img
                 class="penny3"
-                src="/images/penny.png"
+                src="/images/penny.webp"
                 draggable="false"
                 alt="burned icon"
             />
@@ -38,7 +38,7 @@
         <div class="meme">
             <img
                 class="memeImg issued"
-                src="/images/memes/doge.png"
+                src="/images/memes/doge.webp"
                 draggable="false"
                 alt="doge meme"
             />
@@ -60,37 +60,37 @@
         <div class="iconHolder">
             <img
                 class="flame1"
-                src="/images/flame.png"
+                src="/images/flame.webp"
                 draggable="false"
                 alt="burned icon"
             />
             <img
                 class="flame2"
-                src="/images/flame.png"
+                src="/images/flame.webp"
                 draggable="false"
                 alt="burned icon"
             />
             <img
                 class="flame3"
-                src="/images/flame.png"
+                src="/images/flame.webp"
                 draggable="false"
                 alt="burned icon"
             />
             <img
                 class="flame4"
-                src="/images/flame.png"
+                src="/images/flame.webp"
                 draggable="false"
                 alt="burned icon"
             />
             <img
                 class="flame5"
-                src="/images/flame.png"
+                src="/images/flame.webp"
                 draggable="false"
                 alt="burned icon"
             />
             <img
                 class="flame6"
-                src="/images/flame.png"
+                src="/images/flame.webp"
                 draggable="false"
                 alt="burned icon"
             />
@@ -98,7 +98,7 @@
         <div class="meme burned">
             <img
                 class="memeImg burned"
-                src="/images/memes/fine.png"
+                src="/images/memes/fine.webp"
                 draggable="false"
                 alt="this is fine meme"
             />

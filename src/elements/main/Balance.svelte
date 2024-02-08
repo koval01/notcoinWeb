@@ -14,7 +14,7 @@
 <div class="balanceSection">
     <h3 class="balanceTitle">total balance</h3>
     <div class="container">
-        <img class="coin" src="/images/coin.png" draggable="false" alt="Coin" />
+        <img class="coin" src="/images/coin.webp" draggable="false" alt="Coin" />
         <div class="value" bind:this={obj}>
             {#if $stat.loading}
                 <div class="skeleton" style="opacity: 1;">

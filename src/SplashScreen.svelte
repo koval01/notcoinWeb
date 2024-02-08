@@ -39,7 +39,7 @@
             width: 300px
             height: 300px
             border-radius: 50%
-            background-image: url(/images/coin.png)
+            background-image: url(/images/coin.webp)
             background-size: cover
             transform-origin: center
             will-change: transform
