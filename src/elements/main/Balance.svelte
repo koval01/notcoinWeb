@@ -68,12 +68,16 @@
     .balanceSection > div.container > div.value
       font-size: 1.6rem
   
-  @media (min-width: 520px)
+  @media (min-width: 480px)
     .balanceTitle
       font-size: .75rem
   
     .balanceSection > div.container > div.value
       font-size: 2rem
+
+  @media (min-width: 580px)
+    .balanceSection > div.container > div.value
+      font-size: 2.5rem
   
   @media (min-width: 768px)
     .balanceSection
