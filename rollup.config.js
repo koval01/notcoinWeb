@@ -1,6 +1,7 @@
 import { spawn } from 'child_process';
 import svelte from 'rollup-plugin-svelte';
 import commonjs from '@rollup/plugin-commonjs';
+import replace from '@rollup/plugin-replace';
 import terser from '@rollup/plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
@@ -85,7 +86,10 @@ export default {
 				unsafe_arrows: true,
 				unsafe_methods: true,
             }
-        })
+        }),
+		replace({
+            'process.env.PRODUCTION': production,
+        }),
 	],
 	watch: {
 		clearScreen: false

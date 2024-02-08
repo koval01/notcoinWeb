@@ -7,7 +7,7 @@
 	import Main from "./elements/main/Main.svelte";
 	import Footer from "./elements/Footer.svelte";
 
-	import { DISPLAY_SPLASH } from './main.js';
+	import { PRODUCTION_BUILD } from './main.js';
 	import { onMount } from "svelte";
 
 	// block debug menu
@@ -15,7 +15,7 @@
 		e.preventDefault();
 	});
 
-	let showSplash = DISPLAY_SPLASH;
+	let showSplash = PRODUCTION_BUILD;
 
 	onMount(() => {
 		setTimeout(() => {
