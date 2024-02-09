@@ -17,7 +17,9 @@
   
     > .button
       border-radius: 1rem
-      background-color: #f90
+      background: rgba(0, 0, 0, 0)
+      border: 2px solid #f90
+      backdrop-filter: blur(5px)
       font-weight: 600
       padding: .75rem 1.5rem
       font-size: 1rem
