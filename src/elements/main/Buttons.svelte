@@ -1,6 +1,7 @@
 <script>
     const handleClick = () => {
         window.open("https://t.me/notcoin_bot/click", "_blank");
+        document.activeElement.blur();
     };
 </script>
 
