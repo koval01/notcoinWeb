@@ -13,6 +13,12 @@
 	});
 </script>
 
+<svelte:head>
+	{#if PRODUCTION_BUILD}
+	<script defer data-domain={document.location.host} src="https://plausible.joincommunity.xyz/js/script.js"></script>
+	{/if}
+</svelte:head>
+
 <main class="noselect">
 	<Stars />
 
