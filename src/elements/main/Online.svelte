@@ -136,7 +136,6 @@
     display: flex
     align-items: center
     margin-bottom: 12px
-    height: 36.98px
   
     >
       div.avatars
@@ -185,7 +184,6 @@
         font-size: 1.25rem
   
     div.onlineRow
-      height: 31.98px
   
       > div.avatars
         min-width: 96px
