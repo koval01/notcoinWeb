@@ -2,14 +2,16 @@
     import { stat, allStatUsers } from "../../store.js";
     import {
         getRandomElements,
-        getRandomRange,
+        getAvatarThumb,
         preloadImage,
+        animateValue
     } from "../../utils.js";
 
     let usersTotal = [];
     let usersOnlineToday = [];
     let usersOnlineNow = [];
 
+    let objValues = [null, null, null];
     let preloadImgState = null;
 
     const updateRandomUsers = async () => {
@@ -34,13 +36,6 @@
 
         // Set preloadImgState to true after preloading is done
         preloadImgState = true;
-    };
-
-    const getAvatarThumb = () => {
-        return `https://api.dicebear.com/7.x/thumbs/svg?seed=${getRandomRange(
-            1,
-            1e2,
-        )}`;
     };
 
     const handleImageError = (event) => {
@@ -99,17 +94,17 @@
                         {/each}
                     {/if}
                 </div>
-                <span class="value {i === 0 ? 'totalPlayers' : i === 1 ? 'onlineToday' : 'onlineNow'}">
+                <span class="value {i === 0 ? 'totalPlayers' : i === 1 ? 'onlineToday' : 'onlineNow'}" bind:this={objValues[i]}>
                     {#if $stat.loading}
                         <div class="skeleton" style="opacity: 1;">
                             <div class="thickLine"></div>
                         </div>
                     {:else if i === 0}
-                        {$stat.users.toLocaleString()}
+                        {animateValue(objValues[i], $stat.users, 2e3)}
                     {:else if i === 1}
-                        {$stat.onlineToday.toLocaleString()}
+                        {animateValue(objValues[i], $stat.onlineToday, 2e3)}
                     {:else}
-                        {$stat.online.toLocaleString()}
+                        {animateValue(objValues[i], $stat.online, 2e3)}
                     {/if}
                 </span>
                 <span class="label">

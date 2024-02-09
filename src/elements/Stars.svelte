@@ -1,36 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { readable } from "svelte/store";
-
-    const randPos = (offset = 2) => {
-        return Math.round(Math.random() * 18 + offset);
-    };
-
-    const generateStars = () => {
-        const starsLeft = [];
-        const starsRight = [];
-
-        for (let i = 0; i < 4; i++) {
-            const size =
-                Math.random() < 0.85
-                    ? "small"
-                    : ["medium", "large", "xlarge"][
-                          Math.floor(Math.random() * 3)
-                      ];
-            starsLeft.push({
-                size,
-                top: `${randPos(4)}rem`,
-                left: `${randPos()}rem`,
-            });
-            starsRight.push({
-                size,
-                top: `${randPos(4)}rem`,
-                right: `${randPos()}rem`,
-            });
-        }
-
-        return { starsLeft, starsRight };
-    };
+    import { generateStars } from "../utils";
 
     let stars = readable(generateStars());
 

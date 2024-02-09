@@ -2,26 +2,20 @@
     import { stat } from "../../store.js";
     import { animateValue } from "../../utils.js";
 
-    let obj;
-
-    $: {
-        if (obj && !$stat.loading) {
-            animateValue(obj, $stat.balanceCoins, 2e3);
-        }
-    }
+    let objValue;
 </script>
 
 <div class="balanceSection">
     <h3 class="balanceTitle">total balance</h3>
     <div class="container">
         <img class="coin" draggable="false" alt="Coin" />
-        <div class="value" bind:this={obj}>
+        <div class="value" bind:this={objValue}>
             {#if $stat.loading}
                 <div class="skeleton" style="opacity: 1;">
                     <div class="thickLine"></div>
                 </div>
             {:else}
-                {$stat.balanceCoins.toLocaleString()}
+                {animateValue(objValue, $stat.balanceCoins, 2e3)}
             {/if}
         </div>
     </div>

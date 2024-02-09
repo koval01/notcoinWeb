@@ -7,24 +7,11 @@
     import Total from "./Total.svelte";
 
     import { onMount, onDestroy } from "svelte";
-    import { fetchData } from "../../api.js";
+    import { fetchAndUpdateData } from "../../api.js";
     import { stat, allStatUsers } from "../../store.js";
 
     let intervalStat;
     let intervalAllStatUsers;
-
-    const fetchAndUpdateData = async (endpoint, store) => {
-        store.update((prev) => ({ ...prev }));
-
-        try {
-            const data = await fetchData(endpoint, {
-                _convertStringToNumber: true,
-            });
-            store.set({ ...data, loading: false });
-        } catch (error) {
-            setTimeout(() => fetchAndUpdateData(endpoint, store), 1e3);
-        }
-    };
 
     onMount(async () => {
         fetchAndUpdateData("/clicker/core/stat", stat);

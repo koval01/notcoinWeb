@@ -2,15 +2,7 @@
     import { stat } from "../../store.js";
     import { animateValue } from "../../utils.js";
 
-    let objIssued;
-    let objBurned;
-
-    $: {
-        if ((objIssued && objBurned) && !$stat.loading) {
-            animateValue(objIssued, $stat.balanceCoins + $stat.burnedCoins, 2e3);
-            animateValue(objBurned, $stat.burnedCoins, 2e3);
-        }
-    }
+    let objIssued, objBurned;
 </script>
 
 <div class="totalSection">
@@ -49,7 +41,7 @@
                         <div class="thickLine"></div>
                     </div>
                 {:else}
-                    {( $stat.balanceCoins + $stat.burnedCoins ).toLocaleString()}
+                    {animateValue(objIssued, $stat.balanceCoins + $stat.burnedCoins, 2e3)}
                 {/if}
             </span>
             <span class="title">total issued</span>
@@ -108,7 +100,7 @@
                         <div class="thickLine"></div>
                     </div>
                 {:else}
-                    {$stat.burnedCoins.toLocaleString()}
+                    {animateValue(objBurned, $stat.burnedCoins, 2e3)}
                 {/if}
             </span>
             <span class="title">total burned</span>

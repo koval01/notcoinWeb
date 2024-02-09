@@ -16,6 +16,13 @@ export const preloadImage = (url) => {
     });
 }
 
+export const getAvatarThumb = () => {
+    return `https://api.dicebear.com/7.x/thumbs/svg?seed=${getRandomRange(
+        1,
+        1e2,
+    )}`;
+}
+
 export const animateValue = (() => {
     const lastValues = new WeakMap();
 
@@ -44,3 +51,33 @@ export const animateValue = (() => {
         });
     };
 })();
+
+export const generateStars = () => {
+    const starsLeft = [];
+    const starsRight = [];
+
+    const randPos = (offset = 2) => {
+        return Math.round(Math.random() * 18 + offset);
+    };
+
+    for (let i = 0; i < 4; i++) {
+        const size =
+            Math.random() < 0.85
+                ? "small"
+                : ["medium", "large", "xlarge"][
+                      Math.floor(Math.random() * 3)
+                  ];
+        starsLeft.push({
+            size,
+            top: `${randPos(4)}rem`,
+            left: `${randPos()}rem`,
+        });
+        starsRight.push({
+            size,
+            top: `${randPos(4)}rem`,
+            right: `${randPos()}rem`,
+        });
+    }
+
+    return { starsLeft, starsRight };
+};

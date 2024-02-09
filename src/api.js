@@ -9,6 +9,19 @@ const convertStringToNumber = (obj) => {
     return obj;
 };
 
+export const fetchAndUpdateData = async (endpoint, store) => {
+    store.update((prev) => ({ ...prev }));
+
+    try {
+        const data = await fetchData(endpoint, {
+            _convertStringToNumber: true,
+        });
+        store.set({ ...data, loading: false });
+    } catch (error) {
+        setTimeout(() => fetchAndUpdateData(endpoint, store), 1e3);
+    }
+}
+
 export const fetchData = async (endpoint, options = {}) => {
     const { domain = API_HOST, _convertStringToNumber = false } = options;
 
