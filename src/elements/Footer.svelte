@@ -13,7 +13,7 @@
 
   span
     transition: opacity .5s
-    opacity: .3
+    opacity: .65
 
   span:hover
     opacity: 1
