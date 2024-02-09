@@ -14,6 +14,7 @@
     display: flex
     justify-content: center
     align-items: center
+    perspective: 200px
   
     > .button
       border-radius: 1rem
@@ -25,6 +26,9 @@
       font-size: 1rem
       display: flex
       color: #fff
+      filter: none
+      transform: none
+      transition: transform .6s, filter .9s
   
   @media (min-width: 768px)
     div.tapToEarn
@@ -32,5 +36,9 @@
   
       > .button
         font-size: 1.25rem
+
+        &:hover:hover
+          filter: drop-shadow(0 20px 10px #f90)
+          transform: rotate3d(1, 0, 0, 36deg) scale(1.6) translateY(14px) translateZ(22px)
   
 </style>
