@@ -5,6 +5,7 @@
     import Buttons from "./Buttons.svelte";
 
     import Total from "./Total.svelte";
+    import Leaderboard from "./leaderboard/Main.svelte";
 
     import { onMount, onDestroy } from "svelte";
     import { fetchAndUpdateData } from "../../api.js";
@@ -49,6 +50,7 @@
             <Buttons />
 
             <Total />
+            <Leaderboard />
         </div>
     </div>
 </div>

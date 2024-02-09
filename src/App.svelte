@@ -5,7 +5,7 @@
 	import Main from "./elements/main/Main.svelte";
 	import Footer from "./elements/Footer.svelte";
 
-	import { PRODUCTION_BUILD } from './env.js';
+	import { PRODUCTION_BUILD } from "./env.js";
 
 	// block debug menu
 	window.addEventListener("contextmenu", function (e) {
