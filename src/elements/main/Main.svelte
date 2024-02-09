@@ -9,35 +9,34 @@
 
     import { onMount, onDestroy } from "svelte";
     import { fetchAndUpdateData } from "../../api.js";
-    import { stat, allStatUsers } from "../../store.js";
+    import { stat, allStatUsers, allStatTeams } from "../../store.js";
 
-    let intervalStat;
-    let intervalAllStatUsers;
+    const allStatUrl = "/clicker/league/leaderboard/public/%s/silver/all";
+    const paths = {
+        stat: "/clicker/core/stat",
+        allStatUsers: allStatUrl.replace("%s", "user"),
+        allStatTeams: allStatUrl.replace("%s", "team")
+    };
 
-    onMount(async () => {
-        fetchAndUpdateData("/clicker/core/stat", stat);
-        fetchAndUpdateData(
-            "/clicker/league/leaderboard/public/user/silver/all",
-            allStatUsers,
-        );
+    const fetchData = async (path, store) => {
+        await fetchAndUpdateData(path, store);
+    };
 
-        intervalStat = setInterval(
-            () => fetchAndUpdateData("/clicker/core/stat", stat),
-            15e3,
-        );
-        intervalAllStatUsers = setInterval(
-            () =>
-                fetchAndUpdateData(
-                    "/clicker/league/leaderboard/public/user/silver/all",
-                    allStatUsers,
-                ),
-            15e3,
-        );
+    onMount(() => {
+        const intervals = [
+            { path: paths.stat, store: stat },
+            { path: paths.allStatUsers, store: allStatUsers },
+            { path: paths.allStatTeams, store: allStatTeams }
+        ];
+
+        intervals.forEach(({ path, store }) => {
+            fetchData(path, store);
+            setInterval(() => fetchData(path, store), 15e3);
+        });
     });
 
     onDestroy(() => {
-        clearInterval(intervalStat);
-        clearInterval(intervalAllStatUsers);
+        clearInterval(interval);
     });
 </script>
 

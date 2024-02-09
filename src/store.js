@@ -12,7 +12,9 @@ export const stat = writable({
     loading: true
 });
 
-export const allStatUsers = writable({
+const allStatTemplate = {
     leaderboard: [],
     loading: true
-});
+};
+export const allStatUsers = writable(allStatTemplate);
+export const allStatTeams = writable(allStatTemplate);
