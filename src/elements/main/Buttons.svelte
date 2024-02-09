@@ -29,7 +29,7 @@
       color: #fff
       filter: none
       transform: none
-      transition: transform .6s, filter .9s
+      transition: transform .6s cubic-bezier(0, 0, .2, 1), filter .9s
   
   @media (min-width: 768px)
     div.tapToEarn
