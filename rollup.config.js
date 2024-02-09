@@ -74,6 +74,11 @@ export default {
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
 		production && terser({
+			ecma: 5,
+			toplevel: true,
+			format: {
+				ascii_only: true
+			},
             compress: {
                 pure_getters: true,
 				drop_console: true,
@@ -84,7 +89,7 @@ export default {
 				unsafe_math: true,
                 unsafe_comps: true,
 				unsafe_arrows: true,
-				unsafe_methods: true,
+				unsafe_methods: true
             }
         }),
 		replace({
