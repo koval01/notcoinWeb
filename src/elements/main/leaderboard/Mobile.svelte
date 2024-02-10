@@ -40,20 +40,20 @@
                 {/if}
             </div>
             <img 
-                src={teamsDisplay ? d.logo : d.avatar ? d.avatar : getAvatarByName(d.user?.firstName)} 
+                src={teamsDisplay ? d.logo ? d.logo : getAvatarByName(d.name) : d.avatar ? d.avatar : getAvatarByName(d.user?.firstName)} 
                 alt="avatar" width="40" height="40" class="avatar" on:error={handleImageError}
             >
-            <a href="/">
+            <a href={`/${d.slug ? d.slug : ""}`}>
                 <div class="title">{teamsDisplay ? d.name : d.user?.firstName}</div>
                 {#if teamsDisplay}
-                    <div class="coins" bind:this={objValues[0][i]}>
+                    <div class="coins">
                         <img src={`${CDN_HOST}/clicker/penny.png`} alt="penny" width="20" height="20">
-                        <span class="rowCoins">{animateValue(objValues[0][i], d.coins, 2e3)}</span>
+                        <span class="rowCoins"  bind:this={objValues[0][i]}>{animateValue(objValues[0][i], d.coins, 2e3)}</span>
                     </div>
                 {:else}
-                    <div class="coins" bind:this={objValues[1][i]}>
+                    <div class="coins">
                         <img src={`${CDN_HOST}/clicker/penny.png`} alt="penny" width="20" height="20">
-                        <span class="rowCoins">{animateValue(objValues[1][i], d.totalCoins, 2e3)}</span>
+                        <span class="rowCoins" bind:this={objValues[1][i]}>{animateValue(objValues[1][i], d.totalCoins, 2e3)}</span>
                     </div>
                 {/if}
             </a>
