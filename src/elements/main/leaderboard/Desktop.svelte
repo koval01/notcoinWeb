@@ -45,7 +45,9 @@
           {animateValue(objValues[0][i], d.totalCoins, 2e3)}
         </span>
       </div>
-      <hr class="hr">
+      {#if i < 99}
+        <hr class="hr">
+      {/if}
     {/each}
     <!-- Template end -->
 </div>
@@ -75,7 +77,9 @@
           {animateValue(objValues[1][i], d.coins, 2e3)}
         </span>
       </a>
-      <hr class="hr">
+      {#if i < 99}
+        <hr class="hr">
+      {/if}
     {/each}
     <!-- Template end -->
 </div>
