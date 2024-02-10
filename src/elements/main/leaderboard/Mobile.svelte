@@ -37,7 +37,7 @@
             </div>
             <img 
                 src={user.avatar ? user.avatar : getAvatarByName(user.user?.firstName)} 
-                alt="avatar" width="40" height="40" class="avatar" on:error={getAvatarThumb}
+                alt="avatar" width="40" height="40" class="avatar" on:error={handleImageError}
             >
             <a href="/">
                 <div class="title">{user.user?.firstName}</div>
