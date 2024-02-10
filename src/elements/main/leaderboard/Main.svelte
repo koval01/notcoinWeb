@@ -1,6 +1,5 @@
 <script>
     import { onMount } from "svelte";
-    import { PRODUCTION_BUILD } from "$/env.js";
 
     import Desktop from "./Desktop.svelte";
     import Mobile from "./Mobile.svelte";
@@ -18,9 +17,6 @@
     });
 </script>
 
-{#if PRODUCTION_BUILD}
-<!-- Nothing here -->
-{:else}
 <div class="leaderboardSection">
     {#if isDesktop}
         <Desktop />
@@ -28,7 +24,6 @@
         <Mobile />
     {/if}
 </div>
-{/if}
 
 <style lang="sass">
     .leaderboardSection
