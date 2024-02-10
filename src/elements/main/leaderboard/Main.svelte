@@ -7,7 +7,7 @@
     let isDesktop = false;
 
     const checkScreenWidth = () => {
-        isDesktop = window.innerWidth >= 768;
+        isDesktop = window.innerWidth >= 890;
     }
 
     window.addEventListener('resize', checkScreenWidth);

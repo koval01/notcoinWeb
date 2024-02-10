@@ -18,74 +18,69 @@
   }
 </script>
 
-<div class="boxes">
-    <div class="container">
-        <div class="thNumber">#</div>
-        <h4 class="thTitle">top miners</h4>
-        <hr class="hr">
-        <!-- Template -->
-        {#each usersList as d, i}
-          <div class="rowIndex">
-            {#if i < 3}
-                <span class="text-medal">{['🥇','🥈','🥉'][i]}</span>
-            {:else}
-                <span>{i+1}</span>
-            {/if}
-          </div>
-          <div class="rowTitle">
-            <img 
-              src={d.avatar ? d.avatar : getAvatarByName(d.user?.firstName)} 
-              alt="avatar" width="40" height="40" class="avatar" on:error={handleImageError}
-            >
-            <div class="rowName">{d.user?.firstName}</div>
-          </div>
-          <div class="rowValue">
-            <img src={`${CDN_HOST}/clicker/penny.png`} alt="penny" width="20" height="20">
-            <span class="rowCoins" bind:this={objValues[0][i]}>
-              {animateValue(objValues[0][i], d.totalCoins, 2e3)}
-            </span>
-          </div>
-          <hr class="hr">
-        {/each}
-        <!-- Template end -->
-    </div>
-    <div class="container">
-        <div class="thNumber">#</div>
-        <h4 class="thTitle">top teams</h4>
-        <hr class="hr">
-        <!-- Template -->
-        {#each teamsList as d, i}
-          <a class="rowIndex" href={`/${d.slug ? d.slug : ""}`}>
-            {#if i < 3}
-                <span class="text-medal">{['🥇','🥈','🥉'][i]}</span>
-            {:else}
-                <span>{i+1}</span>
-            {/if}
-          </a>
-          <a class="rowTitle" href={`/${d.slug ? d.slug : ""}`}>
-            <img 
-              src={d.logo ? d.logo : getAvatarByName(d.name)} 
-              alt="avatar" width="40" height="40" class="avatar" on:error={handleImageError}
-            >
-            <div class="rowName">{d.name}</div>
-          </a>
-          <a class="rowValue" href={`/${d.slug ? d.slug : ""}`}>
-            <img src={`${CDN_HOST}/clicker/penny.png`} alt="penny" width="20" height="20">
-            <span class="rowCoins" bind:this={objValues[1][i]}>
-              {animateValue(objValues[1][i], d.coins, 2e3)}
-            </span>
-          </a>
-          <hr class="hr">
-        {/each}
-        <!-- Template end -->
-    </div>
+
+<div class="container">
+    <div class="thNumber">#</div>
+    <h4 class="thTitle">top miners</h4>
+    <hr class="hr">
+    <!-- Template -->
+    {#each usersList as d, i}
+      <div class="rowIndex">
+        {#if i < 3}
+            <span class="text-medal">{['🥇','🥈','🥉'][i]}</span>
+        {:else}
+            <span>{i+1}</span>
+        {/if}
+      </div>
+      <div class="rowTitle">
+        <img 
+          src={d.avatar ? d.avatar : getAvatarByName(d.user?.firstName)} 
+          alt="avatar" width="40" height="40" class="avatar" on:error={handleImageError}
+        >
+        <div class="rowName">{d.user?.firstName}</div>
+      </div>
+      <div class="rowValue">
+        <img src={`${CDN_HOST}/clicker/penny.png`} alt="penny" width="20" height="20">
+        <span class="rowCoins" bind:this={objValues[0][i]}>
+          {animateValue(objValues[0][i], d.totalCoins, 2e3)}
+        </span>
+      </div>
+      <hr class="hr">
+    {/each}
+    <!-- Template end -->
+</div>
+<div class="container">
+    <div class="thNumber">#</div>
+    <h4 class="thTitle">top teams</h4>
+    <hr class="hr">
+    <!-- Template -->
+    {#each teamsList as d, i}
+      <a class="rowIndex" href={`/${d.slug ? d.slug : ""}`}>
+        {#if i < 3}
+            <span class="text-medal">{['🥇','🥈','🥉'][i]}</span>
+        {:else}
+            <span>{i+1}</span>
+        {/if}
+      </a>
+      <a class="rowTitle" href={`/${d.slug ? d.slug : ""}`}>
+        <img 
+          src={d.logo ? d.logo : getAvatarByName(d.name)} 
+          alt="avatar" width="40" height="40" class="avatar" on:error={handleImageError}
+        >
+        <div class="rowName">{d.name}</div>
+      </a>
+      <a class="rowValue" href={`/${d.slug ? d.slug : ""}`}>
+        <img src={`${CDN_HOST}/clicker/penny.png`} alt="penny" width="20" height="20">
+        <span class="rowCoins" bind:this={objValues[1][i]}>
+          {animateValue(objValues[1][i], d.coins, 2e3)}
+        </span>
+      </a>
+      <hr class="hr">
+    {/each}
+    <!-- Template end -->
 </div>
 
 <style lang="sass">
-  .boxes
-    display: flex
-    gap: 1rem
-
   .container
     background-color: #ebebf520
     border-radius: .75rem

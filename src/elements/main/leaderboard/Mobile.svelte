@@ -43,7 +43,7 @@
                 src={teamsDisplay ? d.logo ? d.logo : getAvatarByName(d.name) : d.avatar ? d.avatar : getAvatarByName(d.user?.firstName)} 
                 alt="avatar" width="40" height="40" class="avatar" on:error={handleImageError}
             >
-            <a href={`/${d.slug ? d.slug : ""}`}>
+            <a href={"/"+d.slug ? d.slug : ""}>
                 <div class="title">{teamsDisplay ? d.name : d.user?.firstName}</div>
                 {#if teamsDisplay}
                     <div class="coins">
