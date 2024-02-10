@@ -1,3 +1,5 @@
+import BezierEasing from './libs/bezierEasing.js';
+
 export const getRandomElements = (list, count) => {
     const shuffled = list.sort(() => 0.5 - Math.random());
     return shuffled.slice(0, count);
@@ -30,25 +32,18 @@ export const getAvatarByName = (name) => {
 export const animateValue = (() => {
     const lastValues = new WeakMap();
 
-    const cubicBezier = t => {
-        const p1 = .7;
-        const p2 = .9;
-        const p3 = 1;
-        
-        const t1 = 1 - t;
-        return 3 * t1 * t1 * t * p1 + 3 * t1 * t * t * p2 + t * t * t * p3;
-    };
-
     return async (obj, end, duration) => {
         if (!obj) return;
         const start = lastValues.get(obj) || 0;
 
         await new Promise(resolve => {
+            const easing = BezierEasing(0, 0, .1, 1);
+
             const step = (timestamp) => {
                 if (!startTimestamp) startTimestamp = timestamp;
                 const elapsed = timestamp - startTimestamp;
-                const progress = cubicBezier(Math.min(elapsed / duration, 1)); // Apply easing function
-                const currentValue = Math.floor(progress * (end - start) + start);
+                const progress = Math.min(elapsed / duration, 1);
+                const currentValue = Math.floor(easing(progress) * (end - start) + start); // Applying the easing function
                 obj.innerHTML = currentValue.toLocaleString();
                 if (elapsed < duration) {
                     window.requestAnimationFrame(step);
@@ -57,6 +52,7 @@ export const animateValue = (() => {
                     resolve(); // Resolve the promise when animation is complete
                 }
             };
+
             let startTimestamp = performance.now();
             window.requestAnimationFrame(step);
         });
