@@ -41,24 +41,34 @@
             </div>
             <img 
                 src={teamsDisplay ? d.logo ? d.logo : getAvatarByName(d.name) : d.avatar ? d.avatar : getAvatarByName(d.user?.firstName)} 
-                alt="avatar" width="40" height="40" class="avatar" on:error={handleImageError}
+                alt="avatar" width="40" height="40" class="avatar" draggable="false" on:error={handleImageError}
             >
             <a href={"/"+d.slug ? d.slug : ""}>
                 <div class="title">{teamsDisplay ? d.name : d.user?.firstName}</div>
                 {#if teamsDisplay}
                     <div class="coins">
-                        <img src={`${CDN_HOST}/clicker/penny.png`} alt="penny" width="20" height="20">
+                        <img 
+                            src={`${CDN_HOST}/clicker/penny.png`} 
+                            alt="penny" width="20" height="20" draggable="false"
+                        >
                         <span class="rowCoins"  bind:this={objValues[0][i]}>{animateValue(objValues[0][i], d.coins, 2e3)}</span>
                     </div>
                 {:else}
                     <div class="coins">
-                        <img src={`${CDN_HOST}/clicker/penny.png`} alt="penny" width="20" height="20">
+                        <img 
+                            src={`${CDN_HOST}/clicker/penny.png`} 
+                            alt="penny" width="20" height="20" draggable="false"
+                        >
                         <span class="rowCoins" bind:this={objValues[1][i]}>{animateValue(objValues[1][i], d.totalCoins, 2e3)}</span>
                     </div>
                 {/if}
             </a>
             {#if teamsDisplay}
-                <img src="/images/chevron.svg" alt="chevron" class="chevron">
+                <img 
+                    src="/images/chevron.svg" 
+                    alt="chevron" class="chevron"
+                    draggable="false"
+                >
             {:else}
                 <div></div>
             {/if}
