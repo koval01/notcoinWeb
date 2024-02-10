@@ -35,4 +35,5 @@
     @media (min-width: 768px)
       .leaderboardSection
         margin-top: 0
+
 </style>

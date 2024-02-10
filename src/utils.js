@@ -23,6 +23,10 @@ export const getAvatarThumb = () => {
     )}`;
 }
 
+export const getAvatarByName = (name) => {
+    return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=000&color=fff`;
+}
+
 export const animateValue = (() => {
     const lastValues = new WeakMap();
 

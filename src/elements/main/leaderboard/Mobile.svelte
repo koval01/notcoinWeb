@@ -1,10 +1,22 @@
 <script>
+    import { allStatUsers } from "../../../store.js";
+    import { CDN_HOST } from "../../../env.js";
+    import { getAvatarByName, getAvatarThumb } from "../../../utils.js";
     import { FlatButtonContainer, FlatButton } from '../../misc/flatbutton';
 
     let teamsDisplay = false;
+    let usersList = [];
 
     const updateDisplays = (state) => {
         teamsDisplay = state;
+    }
+
+    const handleImageError = (event) => {
+        event.target.src = getAvatarThumb();
+    };
+
+    $: {
+        usersList = $allStatUsers.leaderboard;
     }
 </script>
 
@@ -15,46 +27,27 @@
     </FlatButtonContainer>
 
     <div class="container">
-        <div class="index"><span class="text-medal">🥇</span></div>
-        <img src="https://ui-avatars.com/api/?name=Dyorist&amp;background=NaN&amp;color=fff" alt="avatar" width="40" height="40" class="avatar">
-        <a href="/">
-            <div class="title">Dyorist</div>
-            <div class="coins">
-                <img src="https://cdn.joincommunity.xyz/clicker/penny.png" alt="penny" width="20" height="20">
-                <span class="rowCoins">34,895,807</span>
+        {#each usersList as user, i}
+            <div class="index">
+                {#if i < 3}
+                <span class="text-medal">{['🥇','🥈','🥉'][i]}</span>
+                {:else}
+                <span>{i+1}</span>
+                {/if}
             </div>
-        </a>
-        <div></div>
-        <div class="index"><span class="text-medal">🥈</span></div>
-        <img src="https://ui-avatars.com/api/?name=https%3A%2F%2Ft.me%2FDyoristN&amp;background=NaN&amp;color=fff" alt="avatar" width="40" height="40" class="avatar">
-        <a href="/">
-            <div class="title">https://t.me/DyoristN</div>
-            <div class="coins">
-                <img src="https://cdn.joincommunity.xyz/clicker/penny.png" alt="penny" width="20" height="20">
-                <span class="rowCoins">31,969,810</span>
-            </div>
-        </a>
-        <div></div>
-        <div class="index"><span class="text-medal">🥉</span></div>
-        <img src="https://ui-avatars.com/api/?name=mbstr&amp;background=NaN&amp;color=fff" alt="avatar" width="40" height="40" class="avatar">
-        <a href="/">
-            <div class="title">mbstr</div>
-            <div class="coins">
-                <img src="https://cdn.joincommunity.xyz/clicker/penny.png" alt="penny" width="20" height="20">
-                <span class="rowCoins">28,438,567</span>
-            </div>
-        </a>
-        <div></div>
-        <div class="index"><span>4</span></div>
-        <img src="https://ui-avatars.com/api/?name=Savva&amp;background=NaN&amp;color=fff" alt="avatar" width="40" height="40" class="avatar">
-        <a href="/">
-            <div class="title">Savva</div>
-            <div class="coins">
-                <img src="https://cdn.joincommunity.xyz/clicker/penny.png" alt="penny" width="20" height="20">
-                <span class="rowCoins">28,417,905</span>
-            </div>
-        </a>
-        <div></div>
+            <img 
+                src={user.avatar ? user.avatar : getAvatarByName(user.user?.firstName)} 
+                alt="avatar" width="40" height="40" class="avatar" on:error={getAvatarThumb}
+            >
+            <a href="/">
+                <div class="title">{user.user?.firstName}</div>
+                <div class="coins">
+                    <img src={`${CDN_HOST}/clicker/penny.png`} alt="penny" width="20" height="20">
+                    <span class="rowCoins">{user.totalCoins}</span>
+                </div>
+            </a>
+            <div></div>
+        {/each}
     </div>
 </div>
 
