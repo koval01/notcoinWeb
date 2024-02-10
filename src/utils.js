@@ -40,9 +40,7 @@ export const animateValue = (() => {
     };
 
     return async (obj, end, duration) => {
-        if (!obj) {
-            return;
-        }
+        if (!obj) return;
         const start = lastValues.get(obj) || 0;
 
         await new Promise(resolve => {
