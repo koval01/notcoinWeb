@@ -1,11 +1,14 @@
 <script>
-    import { allStatUsers } from "../../../store.js";
     import { CDN_HOST } from "../../../env.js";
-    import { getAvatarByName, getAvatarThumb } from "../../../utils.js";
     import { FlatButtonContainer, FlatButton } from '../../misc/flatbutton';
 
+    import { allStatUsers, allStatTeams } from "../../../store.js";
+    import { getAvatarByName, getAvatarThumb, animateValue } from "../../../utils.js";
+
     let teamsDisplay = false;
+    let objValues = [[],[]];
     let usersList = [];
+    let teamsList = [];
 
     const updateDisplays = (state) => {
         teamsDisplay = state;
@@ -17,6 +20,7 @@
 
     $: {
         usersList = $allStatUsers.leaderboard;
+        teamsList = $allStatTeams.leaderboard;
     }
 </script>
 
@@ -27,26 +31,37 @@
     </FlatButtonContainer>
 
     <div class="container">
-        {#each usersList as user, i}
+        {#each teamsDisplay ? teamsList : usersList as d, i}
             <div class="index">
                 {#if i < 3}
-                <span class="text-medal">{['🥇','🥈','🥉'][i]}</span>
+                    <span class="text-medal">{['🥇','🥈','🥉'][i]}</span>
                 {:else}
-                <span>{i+1}</span>
+                    <span>{i+1}</span>
                 {/if}
             </div>
             <img 
-                src={user.avatar ? user.avatar : getAvatarByName(user.user?.firstName)} 
+                src={teamsDisplay ? d.logo : d.avatar ? d.avatar : getAvatarByName(d.user?.firstName)} 
                 alt="avatar" width="40" height="40" class="avatar" on:error={handleImageError}
             >
             <a href="/">
-                <div class="title">{user.user?.firstName}</div>
-                <div class="coins">
-                    <img src={`${CDN_HOST}/clicker/penny.png`} alt="penny" width="20" height="20">
-                    <span class="rowCoins">{user.totalCoins}</span>
-                </div>
+                <div class="title">{teamsDisplay ? d.name : d.user?.firstName}</div>
+                {#if teamsDisplay}
+                    <div class="coins" bind:this={objValues[0][i]}>
+                        <img src={`${CDN_HOST}/clicker/penny.png`} alt="penny" width="20" height="20">
+                        <span class="rowCoins">{animateValue(objValues[0][i], d.coins, 2e3)}</span>
+                    </div>
+                {:else}
+                    <div class="coins" bind:this={objValues[1][i]}>
+                        <img src={`${CDN_HOST}/clicker/penny.png`} alt="penny" width="20" height="20">
+                        <span class="rowCoins">{animateValue(objValues[1][i], d.totalCoins, 2e3)}</span>
+                    </div>
+                {/if}
             </a>
-            <div></div>
+            {#if teamsDisplay}
+                <img src="/images/chevron.svg" alt="chevron" class="chevron">
+            {:else}
+                <div></div>
+            {/if}
         {/each}
     </div>
 </div>
@@ -74,6 +89,11 @@
 
         > .text-medal
           font-size: 28px
+
+    > .chevron
+        transform: rotate(180deg)
+        height: 18px
+        opacity: .3
     
     > .avatar
       width: 48px

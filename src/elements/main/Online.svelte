@@ -11,7 +11,7 @@
     let usersOnlineToday = [];
     let usersOnlineNow = [];
 
-    let objValues = [null, null, null];
+    let objValues = [];
     let preloadImgState = null;
 
     const updateRandomUsers = async () => {
