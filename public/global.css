@@ -142,6 +142,11 @@ dd {
     margin: 0;
 }
 
+hr {
+    height: 0;
+    color: inherit;
+}
+
 a {
     text-decoration: none;
     color: #fff;
