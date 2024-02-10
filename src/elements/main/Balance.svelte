@@ -15,7 +15,7 @@
                     <div class="thickLine"></div>
                 </div>
             {:else}
-                {animateValue(objValue, $stat.balanceCoins, 2e3)}
+                {animateValue(objValue, $stat.balanceCoins, 4e3)}
             {/if}
         </div>
     </div>

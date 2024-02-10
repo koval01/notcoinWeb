@@ -30,7 +30,14 @@ export const getAvatarByName = (name) => {
 export const animateValue = (() => {
     const lastValues = new WeakMap();
 
-    const easeInOutQuad = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    const cubicBezier = t => {
+        const p1 = .7;
+        const p2 = .9;
+        const p3 = 1;
+        
+        const t1 = 1 - t;
+        return 3 * t1 * t1 * t * p1 + 3 * t1 * t * t * p2 + t * t * t * p3;
+    };
 
     return async (obj, end, duration) => {
         if (!obj) {
@@ -38,22 +45,21 @@ export const animateValue = (() => {
         }
         const start = lastValues.get(obj) || 0;
 
-        let startTimestamp = null;
-
         await new Promise(resolve => {
             const step = (timestamp) => {
                 if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const easedProgress = easeInOutQuad(progress); // Apply easing function
-                const currentValue = Math.floor(easedProgress * (end - start) + start);
+                const elapsed = timestamp - startTimestamp;
+                const progress = cubicBezier(Math.min(elapsed / duration, 1)); // Apply easing function
+                const currentValue = Math.floor(progress * (end - start) + start);
                 obj.innerHTML = currentValue.toLocaleString();
-                if (progress < 1) {
+                if (elapsed < duration) {
                     window.requestAnimationFrame(step);
                 } else {
                     lastValues.set(obj, currentValue);
                     resolve(); // Resolve the promise when animation is complete
                 }
             };
+            let startTimestamp = performance.now();
             window.requestAnimationFrame(step);
         });
     };
