@@ -35,12 +35,18 @@
       <div class="rowTitle">
         <img 
           src={d.avatar ? d.avatar : getAvatarByName(d.user?.firstName)} 
-          alt="avatar" width="40" height="40" class="avatar" draggable="false" on:error={handleImageError}
+          alt="avatar" width="40" height="40" 
+          class="avatar" draggable="false" 
+          on:error={handleImageError}
         >
         <div class="rowName">{d.user?.firstName}</div>
       </div>
       <div class="rowValue">
-        <img src={`${CDN_HOST}/clicker/penny.png`} alt="penny" draggable="false" width="20" height="20">
+        <img 
+          src={`${CDN_HOST}/clicker/penny.png`} 
+          alt="penny" draggable="false" 
+          width="20" height="20"
+        >
         <span class="rowCoins" bind:this={objValues[0][i]}>
           {animateValue(objValues[0][i], d.totalCoins, 2e3)}
         </span>
@@ -51,6 +57,7 @@
     {/each}
     <!-- Template end -->
 </div>
+
 <div class="container">
     <div class="thNumber">#</div>
     <h4 class="thTitle">top teams</h4>
@@ -67,12 +74,18 @@
       <a class="rowTitle" href={`/${d.slug ? d.slug : ""}`}>
         <img 
           src={d.logo ? d.logo : getAvatarByName(d.name)} 
-          alt="avatar" width="40" height="40" class="avatar" draggable="false" on:error={handleImageError}
+          alt="avatar" width="40" height="40" 
+          class="avatar" draggable="false" 
+          on:error={handleImageError}
         >
         <div class="rowName">{d.name}</div>
       </a>
       <a class="rowValue" href={`/${d.slug ? d.slug : ""}`}>
-        <img src={`${CDN_HOST}/clicker/penny.png`} alt="penny" draggable="false" width="20" height="20">
+        <img 
+          src={`${CDN_HOST}/clicker/penny.png`} 
+          alt="penny" draggable="false" 
+          width="20" height="20"
+        >
         <span class="rowCoins" bind:this={objValues[1][i]}>
           {animateValue(objValues[1][i], d.coins, 2e3)}
         </span>
