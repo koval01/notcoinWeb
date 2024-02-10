@@ -30,6 +30,7 @@
       display: flex
       gap: 1rem
       margin-top: .5rem
+      width: 100%
 
     @media (min-width: 768px)
       .leaderboardSection
