@@ -31,10 +31,15 @@ export const getAvatarByName = (name) => {
 
 export const animateValue = (() => {
     const lastValues = new WeakMap();
+    const currentlyAnimating = new WeakSet();
 
     return async (obj, end, duration) => {
         if (!obj) return;
+        if (currentlyAnimating.has(obj)) return;
+
         const start = lastValues.get(obj) || 0;
+
+        currentlyAnimating.add(obj);
 
         await new Promise(resolve => {
             const easing = BezierEasing(0, 0, .1, 1);
@@ -49,6 +54,7 @@ export const animateValue = (() => {
                     window.requestAnimationFrame(step);
                 } else {
                     lastValues.set(obj, currentValue);
+                    currentlyAnimating.delete(obj);
                     resolve(); // Resolve the promise when animation is complete
                 }
             };
