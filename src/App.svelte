@@ -1,9 +1,8 @@
 <script>
-	import Stars from "./elements/Stars.svelte";
+	import { Router, Route } from "svelte-routing";
 
-	import Header from "./elements/Header.svelte";
-	import Main from "./elements/main/Main.svelte";
-	import Footer from "./elements/Footer.svelte";
+	import Home from "./routes/Home.svelte";
+	import Battle from "./routes/Battle.svelte";
 
 	import { PRODUCTION_BUILD } from "./env.js";
 
@@ -11,6 +10,8 @@
 	window.addEventListener("contextmenu", function (e) {
 		PRODUCTION_BUILD ? e.preventDefault() : void 0;
 	});
+
+	export let url = "";
 </script>
 
 <svelte:head>
@@ -19,13 +20,12 @@
 	{/if}
 </svelte:head>
 
-<main class="noselect">
-	<Stars />
-
-	<Header />
-	<Main />
-	<Footer />
-</main>
+<Router {url}>
+	<main class="noselect">
+		<Route path="/"><Home /></Route>
+		<Route path="/battle"><Battle /></Route>
+	</main>
+</Router>
 
 <style lang="sass">
   .noselect

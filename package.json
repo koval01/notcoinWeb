@@ -17,7 +17,8 @@
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-svelte": "^7.1.6",
     "sass": "^1.70.0",
-    "svelte": "^4.2.10"
+    "svelte": "^4.2.10",
+    "svelte-routing": "^2.11.0"
   },
   "dependencies": {
     "@rollup/plugin-replace": "^5.0.5",

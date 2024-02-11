@@ -1,0 +1,1 @@
+<h1>Hello, this is Battle.svelte</h1>
