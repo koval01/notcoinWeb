@@ -33,13 +33,13 @@
         transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)
 
       25%
-        transform: rotateX(6deg) rotateY(6deg) rotateZ(6deg)
+        transform: rotateX(8deg) rotateY(8deg) rotateZ(8deg)
 
       50%
-        transform: rotateX(-6deg) rotateY(-6deg) rotateZ(-6deg)
+        transform: rotateX(-8deg) rotateY(-8deg) rotateZ(-8deg)
 
       75%
-        transform: rotateX(6deg) rotateY(6deg) rotateZ(6deg)
+        transform: rotateX(8deg) rotateY(8deg) rotateZ(8deg)
 
       100%
         transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)
