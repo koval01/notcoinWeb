@@ -30,12 +30,13 @@
       transform: none
       transition: transform .6s cubic-bezier(0, 0, .2, 1), filter .9s
   
-    .button:hover
-      filter: drop-shadow(0 20px 10px #f90)
-      transform: rotate3d(1, 0, 0, 36deg) scale(1.6) translateY(14px) translateZ(22px)
-  
-    .button:focus
-      filter: drop-shadow(0 16px 7px #f90)
-      transform: rotate3d(1, 0, 0, 33deg) scale(1.5) translateY(14px) translateZ(20px)
+    @media (min-width: 768px)
+      .button:hover
+        filter: drop-shadow(0 20px 10px #f90)
+        transform: rotate3d(1, 0, 0, 36deg) scale(1.6) translateY(14px) translateZ(22px)
+    
+      .button:focus
+        filter: drop-shadow(0 16px 7px #f90)
+        transform: rotate3d(1, 0, 0, 33deg) scale(1.5) translateY(14px) translateZ(20px)
 
 </style>

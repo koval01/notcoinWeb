@@ -13,7 +13,9 @@
 
 <div class="tapToEarn">
   <AnimatedButton onClick={handleTap}>Tap-to-earn</AnimatedButton>
-  <CrownButton onClick={goBattle} />
+  <div class="crowButtonContainer">
+    <CrownButton onClick={goBattle} />
+  </div>
 </div>
 
 <style lang="sass">
@@ -26,5 +28,8 @@
   @media (min-width: 768px)
     div.tapToEarn
       margin-bottom: 8rem
+
+    .crowButtonContainer
+      margin-left: 5rem
 
 </style>
