@@ -20,7 +20,7 @@ function serve() {
 	return {
 		writeBundle() {
 			if (server) return;
-			server = spawn('npm', ['run', 'start', '--', '--dev'], {
+			server = spawn('npm', ['run', 'start', '--', '--dev', '--single'], {
 				stdio: ['ignore', 'inherit', 'inherit'],
 				shell: true
 			});
