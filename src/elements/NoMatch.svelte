@@ -1,14 +1,7 @@
 <script>
     import AppleButton from "../elements/misc/AppleButton.svelte";
-
     import Footer from "./Footer.svelte";
-
-    const goHome = () => {
-        window.open("/", "_self");
-    };
-    const goBack = () => {
-        history.back();
-    };
+    import { goHome, goBack } from "../utils";
 </script>
 
 <div class="content">

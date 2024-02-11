@@ -101,3 +101,10 @@ export const limitStringLength = (string, maxLength) => {
     }
     return `${string.slice(0, maxLength-3)}...`;
 }
+
+export const goHome = () => {
+    window.open("/", "_self");
+};
+export const goBack = () => {
+    history.back();
+};

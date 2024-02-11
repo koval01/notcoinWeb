@@ -3,14 +3,10 @@
 
     import Crown from "./elements/Crown.svelte";
     import Hero from "./elements/Hero.svelte";
-
     import Leaderboard from "./leaderboard/Main.svelte";
-
     import Footer from "../Footer.svelte";
 
-    const goHome = () => {
-        window.open("/", "_self");
-    };
+    import { goHome } from "../../utils";
 </script>
 
 <div class="pageInner">
