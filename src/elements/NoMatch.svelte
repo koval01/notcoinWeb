@@ -1,4 +1,6 @@
 <script>
+    import AppleButton from "../elements/misc/AppleButton.svelte";
+
     import Footer from "./Footer.svelte";
 
     const goHome = () => {
@@ -16,8 +18,8 @@
         </div>
         <p>It seems... <span>{window.location.pathname}</span> does not exist</p>
         <div class="buttonsContainer">
-            <button on:click={goHome}>Home</button>
-            <button on:click={goBack}>Back</button>
+          <AppleButton onClick={goHome}>Home</AppleButton>
+          <AppleButton onClick={goBack}>Back</AppleButton>
         </div>
     </div>
 </div>
@@ -26,37 +28,9 @@
 </div>
 
 <style lang="sass">
-  div.buttonsContainer 
-    margin-top: 3rem
+  .buttonsContainer
     display: flex
-
-  button  
-    display: flex
-    align-items: center
-    padding: 0.5rem 1rem
-    background: none
-    color: #fff
-    cursor: pointer
-    transition: opacity .3s
-
-    &:hover
-      opacity: .6
-
-  button
-    margin: 0 1rem
-    position: relative
-
-    &:before
-      content: ""
-      background-image: url(/images/chevron.svg)
-      background-size: cover
-      width: 2rem
-      height: 2rem
-      position: absolute
-      left: -.7rem
-      top: 50%
-      transform: translateY(-50%)
-
+    margin-top: 24px
 
   p, span
     font-size: 1rem
