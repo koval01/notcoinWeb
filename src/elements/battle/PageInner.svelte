@@ -6,6 +6,8 @@
 
     import Leaderboard from "./leaderboard/Main.svelte";
 
+    import Footer from "../Footer.svelte";
+
     const goHome = () => {
         window.open("/", "_self");
     };
@@ -18,6 +20,8 @@
         <AppleButton onClick={goHome}>Home</AppleButton>
 
         <Leaderboard />
+
+        <Footer />
     </div>
 </div>
 
