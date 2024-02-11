@@ -6,6 +6,9 @@
 </footer>
 
 <style lang="sass">
+  footer
+    position: relative
+
   a
     color: #ffce4e
     font-weight: 500
