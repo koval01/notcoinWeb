@@ -22,6 +22,7 @@
 
 <Router {url}>
 	<main class="noselect">
+		<Route patth="*"><Home /></Route>
 		<Route path="/"><Home /></Route>
 		<Route path="/battle"><Battle /></Route>
 	</main>
