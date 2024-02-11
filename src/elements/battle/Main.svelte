@@ -9,8 +9,13 @@
     const battleRoyaleStatUrl = "/clicker/battle";
     let interval;
 
+    const fetchData = async (path, store) => {
+        await fetchAndUpdateData(path, store);
+    };
+
     onMount(() => {
-      interval = setInterval(fetchAndUpdateData(battleRoyaleStatUrl, battleRoyaleStat), 15e3);
+      fetchData(battleRoyaleStatUrl, battleRoyaleStat);
+      interval = setInterval(() => {fetchData(battleRoyaleStatUrl, battleRoyaleStat)}, 15e3);
     });
 
     onDestroy(() => {
