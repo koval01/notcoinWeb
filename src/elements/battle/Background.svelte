@@ -40,4 +40,8 @@
   .theme-battle
     background-image: url(/images/bg-battle.webp)
 
+  @media (min-width: 768px)
+    .theme-battle
+      opacity: .5
+
 </style>
