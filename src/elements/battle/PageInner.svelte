@@ -1,14 +1,21 @@
 <script>
+    import AppleButton from "../misc/AppleButton.svelte";
+
     import Crown from "./elements/Crown.svelte";
     import Hero from "./elements/Hero.svelte";
 
     import Leaderboard from "./leaderboard/Main.svelte";
+
+    const goHome = () => {
+        window.open("/", "_self");
+    };
 </script>
 
 <div class="pageInner">
     <div class="intro align-center direction-column">
         <Crown />
         <Hero />
+        <AppleButton onClick={goHome}>Home</AppleButton>
 
         <Leaderboard />
     </div>
