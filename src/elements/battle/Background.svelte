@@ -42,6 +42,6 @@
 
   @media (min-width: 768px)
     .theme-battle
-      opacity: .5
+      opacity: .8
 
 </style>
