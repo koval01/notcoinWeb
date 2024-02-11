@@ -1,32 +1,16 @@
 <script>
-    import { stat } from "../../store.js";
-    import { animateValue } from "../../utils.js";
+    import { stat } from "../../../store.js";
+    import { animateValue } from "../../../utils.js";
+
+    import Flame from "./Flame.svelte";
+    import Penny from "./Penny.svelte";
 
     let objIssued, objBurned;
 </script>
 
 <div class="totalSection">
     <div class="container">
-        <div class="iconHolder">
-            <img
-                class="penny1"
-                src="/images/penny.webp"
-                draggable="false"
-                alt="burned icon"
-            />
-            <img
-                class="penny2"
-                src="/images/penny.webp"
-                draggable="false"
-                alt="burned icon"
-            />
-            <img
-                class="penny3"
-                src="/images/penny.webp"
-                draggable="false"
-                alt="burned icon"
-            />
-        </div>
+        <Penny />
         <div class="meme">
             <img
                 class="memeImg issued"
@@ -48,44 +32,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="iconHolder">
-            <img
-                class="flame1"
-                src="/images/flame.webp"
-                draggable="false"
-                alt="burned icon"
-            />
-            <img
-                class="flame2"
-                src="/images/flame.webp"
-                draggable="false"
-                alt="burned icon"
-            />
-            <img
-                class="flame3"
-                src="/images/flame.webp"
-                draggable="false"
-                alt="burned icon"
-            />
-            <img
-                class="flame4"
-                src="/images/flame.webp"
-                draggable="false"
-                alt="burned icon"
-            />
-            <img
-                class="flame5"
-                src="/images/flame.webp"
-                draggable="false"
-                alt="burned icon"
-            />
-            <img
-                class="flame6"
-                src="/images/flame.webp"
-                draggable="false"
-                alt="burned icon"
-            />
-        </div>
+        <Flame />
         <div class="meme burned">
             <img
                 class="memeImg burned"
@@ -129,71 +76,6 @@
       -webkit-backdrop-filter: blur(5px)
       backdrop-filter: blur(5px)
       z-index: 20
-  
-      > div.iconHolder
-        position: absolute
-        height: 100%
-        width: 100%
-        display: none
-  
-        *
-          position: absolute
-          z-index: 1
-  
-  img
-    &.penny1
-      width: 44px
-      height: 44px
-      top: -1.5rem
-      left: 25rem
-  
-    &.penny2
-      width: 22px
-      height: 22px
-      top: 4rem
-      left: 27rem
-  
-    &.penny3
-      width: 27px
-      height: 27px
-      top: 6rem
-      left: 24rem
-  
-    &.flame1
-      width: 20px
-      height: 20px
-      top: -2.2rem
-      left: 1.5rem
-  
-    &.flame2
-      width: 40px
-      height: 40px
-      top: -1.5rem
-      left: -2rem
-  
-    &.flame3
-      width: 26px
-      height: 26px
-      top: -2.3rem
-      left: 20rem
-  
-    &.flame4
-      width: 38px
-      height: 38px
-      top: -1.5rem
-      left: 23rem
-  
-    &.flame5
-      width: 42px
-      height: 42px
-      top: 5rem
-      left: 22rem
-  
-    &.flame6
-      width: 32px
-      height: 32px
-      top: 3rem
-      left: 26rem
   
   div
     &.meme
@@ -272,10 +154,6 @@
         > .skeleton
             height: 29px
             width: 300px
-  
-  @media (min-width: 1000px)
-    div.totalSection > div.container > div.iconHolder
-      display: initial
   
   @media (max-width: 1092px)
     div.valueContainer > span.value

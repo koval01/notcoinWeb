@@ -4,7 +4,7 @@
     import Online from "./Online.svelte";
     import Buttons from "./Buttons.svelte";
 
-    import Total from "./Total.svelte";
+    import Total from "./total/Main.svelte";
     import Leaderboard from "./leaderboard/Main.svelte";
 
     import { onMount, onDestroy } from "svelte";
