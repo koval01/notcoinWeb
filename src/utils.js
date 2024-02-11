@@ -94,3 +94,10 @@ export const generateStars = () => {
 
     return { starsLeft, starsRight };
 };
+
+export const limitStringLength = (string, maxLength) => {
+    if (string.length <= maxLength) {
+        return string;
+    }
+    return `${string.slice(0, maxLength-3)}...`;
+}

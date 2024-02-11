@@ -18,3 +18,8 @@ const allStatTemplate = {
 };
 export const allStatUsers = writable(allStatTemplate);
 export const allStatTeams = writable(allStatTemplate);
+
+export const battleRoyaleStat = writable({
+    list: [],
+    loading: true
+});

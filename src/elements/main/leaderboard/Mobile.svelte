@@ -1,5 +1,4 @@
 <script>
-    import { CDN_HOST } from "../../../env.js";
     import { FlatButtonContainer, FlatButton } from '../../misc/flatbutton';
 
     import { allStatUsers, allStatTeams } from "../../../store.js";
@@ -48,15 +47,15 @@
                 {#if teamsDisplay}
                     <div class="coins">
                         <img 
-                            src={`${CDN_HOST}/clicker/penny.png`} 
+                            src="/images/penny.webp"
                             alt="penny" width="20" height="20" draggable="false"
                         >
-                        <span class="rowCoins"  bind:this={objValues[0][i]}>{animateValue(objValues[0][i], d.coins, 2e3)}</span>
+                        <span class="rowCoins" bind:this={objValues[0][i]}>{animateValue(objValues[0][i], d.coins, 2e3)}</span>
                     </div>
                 {:else}
                     <div class="coins">
                         <img 
-                            src={`${CDN_HOST}/clicker/penny.png`} 
+                            src="/images/penny.webp"
                             alt="penny" width="20" height="20" draggable="false"
                         >
                         <span class="rowCoins" bind:this={objValues[1][i]}>{animateValue(objValues[1][i], d.totalCoins, 2e3)}</span>

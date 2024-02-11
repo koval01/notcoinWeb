@@ -22,8 +22,10 @@
         await fetchAndUpdateData(path, store);
     };
 
+    let intervals = [];
+
     onMount(() => {
-        const intervals = [
+        intervals = [
             { path: paths.stat, store: stat },
             { path: paths.allStatUsers, store: allStatUsers },
             { path: paths.allStatTeams, store: allStatTeams }
@@ -31,12 +33,12 @@
 
         intervals.forEach(({ path, store }) => {
             fetchData(path, store);
-            setInterval(() => fetchData(path, store), 15e3);
+            store.intervalId = setInterval(() => fetchData(path, store), 15e3);
         });
     });
 
     onDestroy(() => {
-        clearInterval(interval);
+        intervals.forEach(({ store }) => clearInterval(store.intervalId));
     });
 </script>
 

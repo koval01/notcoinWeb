@@ -1,6 +1,4 @@
 <script>
-  import { CDN_HOST } from "../../../env.js";
-
   import { allStatUsers, allStatTeams } from "../../../store.js";
   import { getAvatarByName, getAvatarThumb, animateValue } from "../../../utils.js";
 
@@ -43,7 +41,7 @@
       </div>
       <div class="rowValue">
         <img 
-          src={`${CDN_HOST}/clicker/penny.png`} 
+          src="/images/penny.webp" 
           alt="penny" draggable="false" 
           width="20" height="20"
         >
@@ -82,7 +80,7 @@
       </a>
       <a class="rowValue" href={`/${d.slug ? d.slug : ""}`}>
         <img 
-          src={`${CDN_HOST}/clicker/penny.png`} 
+          src="/images/penny.webp" 
           alt="penny" draggable="false" 
           width="20" height="20"
         >
