@@ -53,7 +53,7 @@
       width: 2rem
       height: 2rem
       position: absolute
-      left: -.5rem
+      left: -.7rem
       top: 50%
       transform: translateY(-50%)
 
