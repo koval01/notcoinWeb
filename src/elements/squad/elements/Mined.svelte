@@ -50,19 +50,25 @@
         font-weight: 800
         font-variant-numeric: lining-nums tabular-nums
 
-    @media (min-width: 768px)
-      .minedTitle
-        font-size: 1rem
+        > .skeleton
+          width: 12rem
 
-      .container
-        gap: 1rem
+  @media (min-width: 768px)
+    .minedTitle
+      font-size: 1rem
 
-        >
-          .coin
-            width: 4.5rem
-            height: 4.5rem
+    .container
+      gap: 1rem
 
-          .value
-            font-size: 3.75rem
+      >
+        .coin
+          width: 4.5rem
+          height: 4.5rem
+
+        .value
+          font-size: 3.75rem
+
+          > .skeleton
+            width: 20rem
 
 </style>

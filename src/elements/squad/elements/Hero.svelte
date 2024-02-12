@@ -46,6 +46,9 @@
     max-width: 100%
     text-wrap: nowrap
 
+    > .skeleton
+      width: 16rem
+
   .avatar
     background-color: #fff
     padding: .5rem
@@ -56,16 +59,19 @@
       height: 7.5rem
       width: 7.5rem
 
-    @media (min-width: 768px)
-      .heroSection
-        gap: 1.5rem
-        margin-bottom: 3rem
+  @media (min-width: 768px)
+    .heroSection
+      gap: 1.5rem
+      margin-bottom: 3rem
 
-      .heroTitle
-        font-size: 3.75rem
+    .heroTitle
+      font-size: 3.75rem
 
-      .avatar > img
-        height: 11rem
-        width: 11rem
+      > .skeleton
+        width: 30rem
+
+    .avatar > img
+      height: 11rem
+      width: 11rem
 
 </style>
