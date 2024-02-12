@@ -1,3 +1,7 @@
+<script>
+    export let headTitle;
+</script>
+
 <header>
     <div>
         <a
@@ -5,7 +9,11 @@
             href="https://cdn.joincommunity.xyz/notcoin/Notcoin_Whitepaper.pdf"
             >Whitepaper</a
         >
-        <div></div>
+        {#if headTitle}
+            <a class="homeLink" href="/">{headTitle}</a>
+        {:else}
+            <div></div>
+        {/if}
         <div class="headSocials">
             <a href="https://twitter.com/thenotcoin">
                 <img
@@ -59,5 +67,10 @@
     display: flex
     align-items: center
     gap: 1rem
+
+  .homeLink
+    font-weight: 700
+    font-size: 1.5rem
+    justify-self: center
   
 </style>

@@ -19,5 +19,6 @@
         width: 160px
         height: 148px
         will-change: opacity, transform
+        filter: drop-shadow(4px -8px 28px black)
   
 </style>
