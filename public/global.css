@@ -203,6 +203,13 @@ button {
     cursor: pointer;
 }
 
+.buttonFlush {
+    border: none;
+    background: none;
+    padding: 0; 
+    display: inline-block;
+}
+
 .skeleton {
     top: 0;
     left: 0;

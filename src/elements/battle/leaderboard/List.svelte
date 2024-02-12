@@ -18,7 +18,7 @@
 </script>
 
 {#each teamsList as d, i}
-    <div class="innerWrapper padding-0 direction-row" on:click={goTeam(d.slug)}>
+    <button class="innerWrapper padding-0 direction-row buttonFlush" on:click={goTeam(d.slug)}>
         <div class="prefix">
             {#if i < 3}
                 <span class="medal">{['🥇','🥈','🥉'][i]}</span>
@@ -38,7 +38,7 @@
             </div>
         </div>
         <Chevron />
-    </div>
+    </button>
 {/each}
 
 <style lang="sass">

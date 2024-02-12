@@ -6,9 +6,9 @@
     }
 </script>
 
-<div class="crownButton" on:click={handleClick}>
+<button class="crownButton buttonFlush" on:click={handleClick}>
     <div class="crown"></div>
-</div>
+</button>
 
 <style lang="sass">
     .crownButton

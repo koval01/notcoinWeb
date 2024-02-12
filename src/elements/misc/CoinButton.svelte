@@ -6,9 +6,9 @@
     }
 </script>
 
-<div class="coinButton" on:click={handleClick}>
+<button class="coinButton buttonFlush" on:click={handleClick}>
     <div class="coin"></div>
-</div>
+</button>
 
 <style lang="sass">
     .coinButton

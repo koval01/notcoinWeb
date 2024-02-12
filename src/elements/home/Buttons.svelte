@@ -48,10 +48,8 @@
       height: 3rem
       transform: rotate(355deg)
 
-    div.tapToEarn
-      margin-bottom: 8rem
-
     div.headButtons
+      margin-bottom: 8rem
       gap: 8rem
 
       > div
