@@ -28,7 +28,7 @@
     
     @media (min-width: 768px)
       .coin:hover
-        animation: tapCoin .5s ease 3 alternate
+        animation: tapCoin .8s ease 3 alternate
     
     @keyframes tapCoin
       0%
