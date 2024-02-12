@@ -1,11 +1,22 @@
+<script>
+  import { squadData} from "../../../store";
+  import { animateValue } from "../../../utils.js";
+
+  let objValue;
+</script>
+
 <div class="minedSection">
     <h3 class="minedTitle">total mined</h3>
     <div class="container">
         <img class="coin" src="/images/coin.webp" draggable="false" alt="Coin">
-        <div class="value">
-            <div class="skeleton" style="opacity: 1;">
-                <div class="thickLine"></div>
-            </div>
+        <div class="value" bind:this={objValue}>
+          {#if $squadData.loading}
+              <div class="skeleton" style="opacity: 1;">
+                  <div class="thickLine"></div>
+              </div>
+          {:else}
+              {animateValue(objValue, $squadData.coins, 2e3)}
+          {/if}
         </div>
     </div>
 </div>

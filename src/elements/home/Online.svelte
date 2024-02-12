@@ -4,7 +4,8 @@
         getRandomElements,
         getAvatarThumb,
         preloadImage,
-        animateValue
+        animateValue,
+        handleImageError
     } from "../../utils.js";
 
     let usersTotal = [];
@@ -36,10 +37,6 @@
 
         // Set preloadImgState to true after preloading is done
         preloadImgState = true;
-    };
-
-    const handleImageError = (event) => {
-        event.target.src = getAvatarThumb();
     };
 
     let throttledUpdateRandomUsers = null;

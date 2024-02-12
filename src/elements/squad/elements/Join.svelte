@@ -1,9 +1,15 @@
 <script>
     import NotButton from "../../misc/NotButton.svelte";
+    import { squadData} from "../../../store";
 
+    let squadId = 0;
     const joinSquad = () => {
-        window.open("/", "_self");
+        window.open(`https://t.me/notcoin_bot?start=r_${squadId}_1`, "_self");
     };
+
+    $: {
+      squadId = $squadData.id;
+    }
 </script>
 
 <div class="joinSection">

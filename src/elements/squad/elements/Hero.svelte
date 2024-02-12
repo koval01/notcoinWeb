@@ -1,9 +1,30 @@
+<script>
+  import AppleButton from "../../misc/AppleButton.svelte";
+
+  import { squadData} from "../../../store";
+  import { getAvatarByName, handleImageError, goBack } from "../../../utils";
+
+  const avatar = (d) => {
+    if (d.loading) {
+      return;
+    }
+    return d.logo ? d.logo : getAvatarByName(d.name);
+  }
+</script>
+
 <div class="heroSection">
-    <div class="avatar"><img draggable="false" alt=""></div>
+    <AppleButton onClick={goBack}>Back</AppleButton>
+    <div class="avatar">
+      <img src={avatar($squadData)} draggable="false" alt="" on:error={handleImageError} />
+    </div>
     <div class="heroTitle">
-        <div class="skeleton" style="opacity: 1;">
-            <div class="thickLine"></div>
-        </div>
+        {#if $squadData.loading}
+            <div class="skeleton" style="opacity: 1;">
+                <div class="thickLine"></div>
+            </div>
+        {:else}
+            {$squadData.name}
+        {/if}
     </div>
 </div>
 

@@ -2,7 +2,12 @@
     import { FlatButtonContainer, FlatButton } from '../../misc/flatbutton';
 
     import { allStatUsers, allStatTeams } from "../../../store.js";
-    import { getAvatarByName, getAvatarThumb, animateValue, teamLink } from "../../../utils.js";
+    import { 
+        getAvatarByName, 
+        animateValue, 
+        teamLink, 
+        handleImageError 
+    } from "../../../utils.js";
 
     let teamsDisplay = false;
     let objValues = [[],[]];
@@ -12,10 +17,6 @@
     const updateDisplays = (state) => {
         teamsDisplay = state;
     }
-
-    const handleImageError = (event) => {
-        event.target.src = getAvatarThumb();
-    };
 
     $: {
         usersList = $allStatUsers.leaderboard;

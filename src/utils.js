@@ -116,3 +116,7 @@ export const goHome = () => {
 export const goBack = () => {
     history.back();
 };
+
+export const handleImageError = (event) => {
+    event.target.src = getAvatarThumb();
+};
