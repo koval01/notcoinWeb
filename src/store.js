@@ -23,3 +23,8 @@ export const battleRoyaleStat = writable({
     list: [],
     loading: true
 });
+
+export const squadData = writable({
+    data: [],
+    loading: true
+});

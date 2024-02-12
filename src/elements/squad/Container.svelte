@@ -3,9 +3,26 @@
     import Mined from "./elements/Mined.svelte";
     import Join from "./elements/Join.svelte";
 
-    export let slug;
+    import { onMount, onDestroy } from "svelte";
+    import { fetchAndUpdateData } from "../../api.js";
+    import { squadData } from "../../store.js";
 
-    console.log(slug);
+    export let slug;
+    const squadDataUrl = `/clicker/profile/team/slug/${slug}`;
+    let interval;
+
+    const fetchData = async (path, store) => {
+        await fetchAndUpdateData(path, store);
+    };
+
+    onMount(() => {
+      fetchData(squadDataUrl, squadData);
+      interval = setInterval(() => {fetchData(squadDataUrl, squadData)}, 15e3);
+    });
+
+    onDestroy(() => {
+        clearInterval(interval);
+    });
 </script>
 
 <div class="container">
