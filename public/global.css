@@ -205,9 +205,14 @@ button {
 
 .buttonFlush {
     border: none;
-    background: none;
-    padding: 0; 
-    display: inline-block;
+    background-color: transparent;
+    padding: inherit;
+    margin: inherit;
+    cursor: pointer;
+    font-size: inherit;
+    color: inherit;
+    outline: none;
+    text-align: inherit;
 }
 
 .skeleton {
