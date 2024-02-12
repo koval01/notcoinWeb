@@ -92,7 +92,8 @@ export default {
 				unsafe_math: true,
                 unsafe_comps: true,
 				unsafe_arrows: true,
-				unsafe_methods: true
+				unsafe_methods: true,
+				unsafe_Function: true
             }
         }),
 		replace({
