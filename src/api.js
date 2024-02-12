@@ -9,12 +9,12 @@ const convertStringToNumber = (obj) => {
     return obj;
 };
 
-export const fetchAndUpdateData = async (endpoint, store) => {
+export const fetchAndUpdateData = async (endpoint, store, first = false) => {
     store.update((prev) => ({ ...prev }));
 
     try {
         const data = await fetchData(endpoint, {
-            _convertStringToNumber: true,
+            _convertStringToNumber: true, _first: first
         });
         store.set({ ...data, loading: false });
     } catch (error) {
@@ -23,7 +23,7 @@ export const fetchAndUpdateData = async (endpoint, store) => {
 }
 
 export const fetchData = async (endpoint, options = {}) => {
-    const { domain = API_HOST, _convertStringToNumber = false } = options;
+    const { domain = API_HOST, _convertStringToNumber = false, _first = false } = options;
 
     try {
         const res = await fetch(`${domain}${endpoint}`);
@@ -36,7 +36,7 @@ export const fetchData = async (endpoint, options = {}) => {
             throw new Error('Server response was not ok');
         }
 
-        data = data.data;
+        data = _first ? data?.data[0] : data.data;
         if (_convertStringToNumber) {
             data = convertStringToNumber(data);
         }

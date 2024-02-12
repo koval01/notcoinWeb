@@ -25,6 +25,6 @@ export const battleRoyaleStat = writable({
 });
 
 export const squadData = writable({
-    data: [],
+    ...[],
     loading: true
 });

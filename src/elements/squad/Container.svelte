@@ -12,7 +12,7 @@
     let interval;
 
     const fetchData = async (path, store) => {
-        await fetchAndUpdateData(path, store);
+        await fetchAndUpdateData(path, store, true);
     };
 
     onMount(() => {
