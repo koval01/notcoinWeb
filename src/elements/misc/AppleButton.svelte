@@ -18,10 +18,11 @@
     background: none
     color: #fff
     cursor: pointer
-    transition: opacity .3s
+    transition: opacity .3s, transform .3s
 
     &:hover
       opacity: .6
+      transform: scale(1.1)
 
   button
     margin: 0 1rem
