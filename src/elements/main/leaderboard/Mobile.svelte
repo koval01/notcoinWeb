@@ -2,7 +2,7 @@
     import { FlatButtonContainer, FlatButton } from '../../misc/flatbutton';
 
     import { allStatUsers, allStatTeams } from "../../../store.js";
-    import { getAvatarByName, getAvatarThumb, animateValue } from "../../../utils.js";
+    import { getAvatarByName, getAvatarThumb, animateValue, teamLink } from "../../../utils.js";
 
     let teamsDisplay = false;
     let objValues = [[],[]];
@@ -42,7 +42,7 @@
                 src={teamsDisplay ? d.logo ? d.logo : getAvatarByName(d.name) : d.avatar ? d.avatar : getAvatarByName(d.user?.firstName)} 
                 alt="avatar" width="40" height="40" class="avatar" draggable="false" on:error={handleImageError}
             >
-            <a href={"/"+d.slug ? d.slug : ""}>
+            <a href={teamLink(d.slug)}>
                 <div class="title">{teamsDisplay ? d.name : d.user?.firstName}</div>
                 {#if teamsDisplay}
                     <div class="coins">

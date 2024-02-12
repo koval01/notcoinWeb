@@ -2,17 +2,13 @@
     import Chevron from "./elements/Chevron.svelte";
 
     import { battleRoyaleStat } from "../../../store.js";
-    import { getAvatarByName, getAvatarThumb, animateValue } from "../../../utils.js";
+    import { getAvatarByName, getAvatarThumb, animateValue, goTeam } from "../../../utils.js";
 
     let objValue = [];
     let teamsList = [];
 
     const handleImageError = (event) => {
         event.target.src = getAvatarThumb();
-    };
-
-    const goTeam = (slug) => {
-        window.open(`/${slug}`, "_self");
     };
 
     $: {

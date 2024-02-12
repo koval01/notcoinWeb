@@ -102,6 +102,14 @@ export const limitStringLength = (string, maxLength) => {
     return `${string.slice(0, maxLength-3)}...`;
 }
 
+export const teamLink = (slug) => {
+    return slug ? "/squad/" + slug : ""
+}
+
+export const goTeam = (slug) => {
+    window.open(`/squad/${slug}`, "_self");
+};
+
 export const goHome = () => {
     window.open("/", "_self");
 };

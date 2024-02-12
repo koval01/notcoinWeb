@@ -1,6 +1,6 @@
 <script>
   import { allStatUsers, allStatTeams } from "../../../store.js";
-  import { getAvatarByName, getAvatarThumb, animateValue } from "../../../utils.js";
+  import { getAvatarByName, getAvatarThumb, animateValue, teamLink } from "../../../utils.js";
 
   let objValues = [[],[]];
   let usersList = [];
@@ -62,14 +62,14 @@
     <hr class="hr">
     <!-- Template -->
     {#each teamsList as d, i}
-      <a class="rowIndex" href={`/${d.slug ? d.slug : ""}`}>
+      <a class="rowIndex" href={teamLink(d.slug)}>
         {#if i < 3}
             <span class="text-medal">{['🥇','🥈','🥉'][i]}</span>
         {:else}
             <span>{i+1}</span>
         {/if}
       </a>
-      <a class="rowTitle" href={`/${d.slug ? d.slug : ""}`}>
+      <a class="rowTitle" href={teamLink(d.slug)}>
         <img 
           src={d.logo ? d.logo : getAvatarByName(d.name)} 
           alt="avatar" width="40" height="40" 
@@ -78,7 +78,7 @@
         >
         <div class="rowName">{d.name}</div>
       </a>
-      <a class="rowValue" href={`/${d.slug ? d.slug : ""}`}>
+      <a class="rowValue" href={teamLink(d.slug)}>
         <img 
           src="/images/penny.webp" 
           alt="penny" draggable="false" 
