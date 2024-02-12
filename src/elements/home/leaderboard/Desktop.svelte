@@ -1,11 +1,11 @@
 <script>
+  import Index from "./desktop/Index.svelte";
+  import RowTitle from "./desktop/RowTitle.svelte";
+  import RowValue from "./desktop/RowValue.svelte";
+  import HorizontalLine from "./desktop/HorizontalLine.svelte";
+
   import { allStatUsers, allStatTeams } from "../../../store.js";
-  import { 
-    getAvatarByName, 
-    animateValue, 
-    teamLink, 
-    handleImageError 
-  } from "../../../utils.js";
+  import { teamLink } from "../../../utils.js";
 
   let objValues = [[],[]];
   let usersList = [];
@@ -24,35 +24,10 @@
     <hr class="hr">
     <!-- Template -->
     {#each usersList as d, i}
-      <div class="rowIndex">
-        {#if i < 3}
-            <span class="text-medal">{['🥇','🥈','🥉'][i]}</span>
-        {:else}
-            <span>{i+1}</span>
-        {/if}
-      </div>
-      <div class="rowTitle">
-        <img 
-          src={d.avatar ? d.avatar : getAvatarByName(d.user?.firstName)} 
-          alt="avatar" width="40" height="40" 
-          class="avatar" draggable="false" 
-          on:error={handleImageError}
-        >
-        <div class="rowName">{d.user?.firstName}</div>
-      </div>
-      <div class="rowValue">
-        <img 
-          src="/images/penny.webp" 
-          alt="penny" draggable="false" 
-          width="20" height="20"
-        >
-        <span class="rowCoins" bind:this={objValues[0][i]}>
-          {animateValue(objValues[0][i], d.totalCoins, 2e3)}
-        </span>
-      </div>
-      {#if i < 99}
-        <hr class="hr">
-      {/if}
+      <Index index={i} />
+      <RowTitle rowName={d.user?.firstName} avatar={d.avatar} />
+      <RowValue objValue={objValues[0][i]} coins={d.totalCoins} />
+      <HorizontalLine index={i} />
     {/each}
     <!-- Template end -->
 </div>
@@ -63,35 +38,10 @@
     <hr class="hr">
     <!-- Template -->
     {#each teamsList as d, i}
-      <a class="rowIndex" href={teamLink(d.slug)}>
-        {#if i < 3}
-            <span class="text-medal">{['🥇','🥈','🥉'][i]}</span>
-        {:else}
-            <span>{i+1}</span>
-        {/if}
-      </a>
-      <a class="rowTitle" href={teamLink(d.slug)}>
-        <img 
-          src={d.logo ? d.logo : getAvatarByName(d.name)} 
-          alt="avatar" width="40" height="40" 
-          class="avatar" draggable="false" 
-          on:error={handleImageError}
-        >
-        <div class="rowName">{d.name}</div>
-      </a>
-      <a class="rowValue" href={teamLink(d.slug)}>
-        <img 
-          src="/images/penny.webp" 
-          alt="penny" draggable="false" 
-          width="20" height="20"
-        >
-        <span class="rowCoins" bind:this={objValues[1][i]}>
-          {animateValue(objValues[1][i], d.coins, 2e3)}
-        </span>
-      </a>
-      {#if i < 99}
-        <hr class="hr">
-      {/if}
+      <Index index={i} href={teamLink(d.slug)} />
+      <RowTitle rowName={d.name} avatar={d.logo} href={teamLink(d.slug)} />
+      <RowValue objValue={objValues[1][i]} coins={d.coins} href={teamLink(d.slug)} />
+      <HorizontalLine index={i} />
     {/each}
     <!-- Template end -->
 </div>
@@ -132,52 +82,5 @@
       margin-bottom: 3px
       align-items: center
       text-transform: uppercase
-    
-    > .hr
-      background-color: #ffffff1a
-      height: 1px
-      grid-column: span 2/span 2
-      grid-column-start: 2
-      border: none
-      width: 100%
-
-    > .rowIndex
-      display: flex
-      align-items: center
-      justify-content: center
-      padding-left: 1rem
-
-      > .text-medal
-        font-size: 28px
-
-    > .rowTitle
-      display: flex
-      align-items: center
-      gap: .75rem
-
-      > .avatar
-        width: 40px
-        min-width: 40px
-        height: 40px
-        border-radius: 50%
-
-      > .rowName
-        font-weight: 500
-        width: 100%
-        text-overflow: ellipsis
-        white-space: nowrap
-        overflow: hidden
-        max-width: 120px
-    
-    > .rowValue
-      padding-right: 1.5rem
-      display: flex
-      align-items: center
-      justify-content: flex-end
-      gap: 6px
-      font-weight: 500
-
-      > .rowCoins
-        font-variant-numeric: lining-nums tabular-nums
 
 </style>
