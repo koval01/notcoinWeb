@@ -3,6 +3,7 @@
 
 	import Home from "./routes/Home.svelte";
 	import Battle from "./routes/Battle.svelte";
+	import Squad from "./routes/Squad.svelte";
 	import NoMatch from "./elements/NoMatch.svelte";
 
 	import { PRODUCTION_BUILD } from "./env.js";
@@ -26,6 +27,9 @@
 		<Route patth="*"><NoMatch /></Route>
 		<Route path="/"><Home /></Route>
 		<Route path="/battle"><Battle /></Route>
+		<Route path="/squad/:slug" let:params>
+			<Squad slug="{params.slug}" />
+		</Route>
 	</main>
 </Router>
 
