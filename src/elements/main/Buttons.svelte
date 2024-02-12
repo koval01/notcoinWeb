@@ -17,10 +17,14 @@
   </div>
   <div>
     <CrownButton onClick={goBattle} />
+    <div class="battle-text"></div>
   </div>
 </div>
 
 <style lang="sass">
+  .battle-text
+    display: none
+
   div.headButtons
     margin-bottom: 3.5rem
     display: flex
@@ -33,6 +37,17 @@
       height: 80px
   
   @media (min-width: 768px)
+    .battle-text
+      display: block
+      background-image: url(/images/battle-text.webp)
+      background-size: cover
+      position: relative
+      left: 4rem
+      bottom: 2rem
+      width: 8rem
+      height: 3rem
+      transform: rotate(355deg)
+
     div.tapToEarn
       margin-bottom: 8rem
 
