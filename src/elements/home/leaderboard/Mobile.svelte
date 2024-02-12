@@ -1,13 +1,12 @@
 <script>
     import { FlatButtonContainer, FlatButton } from '../../misc/flatbutton';
 
+    import Index from './mobile/Index.svelte';
+    import Avatar from './mobile/Avatar.svelte';
+    import Chevron from './mobile/Chevron.svelte';
+    import CoinsContainer from './mobile/CoinsContainer.svelte';
+
     import { allStatUsers, allStatTeams } from "../../../store.js";
-    import { 
-        getAvatarByName, 
-        animateValue, 
-        teamLink, 
-        handleImageError 
-    } from "../../../utils.js";
 
     let teamsDisplay = false;
     let objValues = [[],[]];
@@ -32,48 +31,10 @@
 
     <div class="container">
         {#each teamsDisplay ? teamsList : usersList as d, i}
-            <div class="index">
-                {#if i < 3}
-                    <span class="text-medal">{['🥇','🥈','🥉'][i]}</span>
-                {:else}
-                    <span>{i+1}</span>
-                {/if}
-            </div>
-            <img 
-                src={teamsDisplay ? d.logo ? d.logo : getAvatarByName(d.name) : d.avatar ? d.avatar : getAvatarByName(d.user?.firstName)} 
-                alt="avatar" width="40" height="40" class="avatar" draggable="false" on:error={handleImageError}
-            >
-            <a href={teamLink(d.slug)}>
-                <div class="title">{teamsDisplay ? d.name : d.user?.firstName}</div>
-                {#if teamsDisplay}
-                    <div class="coins">
-                        <img 
-                            src="/images/penny.webp"
-                            alt="penny" width="20" height="20" draggable="false"
-                        >
-                        <span class="rowCoins" bind:this={objValues[0][i]}>{animateValue(objValues[0][i], d.coins, 2e3)}</span>
-                    </div>
-                {:else}
-                    <div class="coins">
-                        <img 
-                            src="/images/penny.webp"
-                            alt="penny" width="20" height="20" draggable="false"
-                        >
-                        <span class="rowCoins" bind:this={objValues[1][i]}>{animateValue(objValues[1][i], d.totalCoins, 2e3)}</span>
-                    </div>
-                {/if}
-            </a>
-            {#if teamsDisplay}
-                <a href={teamLink(d.slug)}>
-                    <img 
-                        src="/images/chevron.svg" 
-                        alt="chevron" class="chevron"
-                        draggable="false"
-                    >
-                </a>
-            {:else}
-                <div></div>
-            {/if}
+            <Index index={i} />
+            <Avatar teamsDisplay={teamsDisplay} d={d} />
+            <CoinsContainer index={i} teamsDisplay={teamsDisplay} objValues={objValues} d={d} />
+            <Chevron teamsDisplay={teamsDisplay} d={d} />
         {/each}
     </div>
 </div>
@@ -95,38 +56,5 @@
     z-index: 20
     -webkit-backdrop-filter: blur(5px)
     backdrop-filter: blur(5px)
-
-    > .index
-        justify-self: center
-
-        > .text-medal
-          font-size: 28px
-
-    > a > .chevron
-        transform: rotate(180deg)
-        height: 18px
-        opacity: .3
-    
-    > .avatar
-      width: 48px
-      height: 48px
-      min-width: 48px
-      border-radius: 50%
-
-    > a
-      > .title
-        overflow: hidden
-        text-wrap: nowrap
-        text-overflow: ellipsis
-        max-width: 200px
-    
-      > .coins
-        display: flex
-        flex-direction: row
-        align-items: center
-        gap: .25rem
-
-        > .rowCoins
-          color: #ffffffbf
 
 </style>
