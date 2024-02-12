@@ -63,11 +63,13 @@
                 {/if}
             </a>
             {#if teamsDisplay}
-                <img 
-                    src="/images/chevron.svg" 
-                    alt="chevron" class="chevron"
-                    draggable="false"
-                >
+                <a href={teamLink(d.slug)}>
+                    <img 
+                        src="/images/chevron.svg" 
+                        alt="chevron" class="chevron"
+                        draggable="false"
+                    >
+                </a>
             {:else}
                 <div></div>
             {/if}
@@ -99,7 +101,7 @@
         > .text-medal
           font-size: 28px
 
-    > .chevron
+    > a > .chevron
         transform: rotate(180deg)
         height: 18px
         opacity: .3
