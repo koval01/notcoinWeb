@@ -12,6 +12,8 @@
 
 <style lang="sass">
     .crownButton
+      width: 100%
+      height: 100%
       transform: rotate(12deg)
       cursor: pointer
       perspective: 300px
@@ -19,14 +21,15 @@
     .crown
       background-image: url(/images/crown.webp)
       background-size: cover
-      width: 140px
-      height: 140px
+      width: 100%
+      height: 100%
       position: relative
       will-change: transform
       transform-style: preserve-3d
     
-    .crown:hover
-      animation: shakeAnimation .5s ease 3 alternate
+    @media (min-width: 768px)
+      .crown:hover
+        animation: shakeAnimation .5s ease 3 alternate
     
     @keyframes shakeAnimation
       0%

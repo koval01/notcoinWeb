@@ -1,5 +1,5 @@
 <script>
-    import AnimatedButton from "../misc/AnimatedButton.svelte";
+    import CoinButton from "../misc/CoinButton.svelte";
     import CrownButton from "../misc/CrownButton.svelte";
 
     const handleTap = () => {
@@ -11,25 +11,36 @@
     };
 </script>
 
-<div class="tapToEarn">
-  <AnimatedButton onClick={handleTap}>Tap-to-earn</AnimatedButton>
-  <div class="crowButtonContainer">
+<div class="headButtons">
+  <div>
+    <CoinButton onClick={handleTap} />
+  </div>
+  <div>
     <CrownButton onClick={goBattle} />
   </div>
 </div>
 
 <style lang="sass">
-  div.tapToEarn
+  div.headButtons
     margin-bottom: 3.5rem
     display: flex
     justify-content: center
     align-items: center
+    gap: 5rem
+
+    > div
+      width: 80px
+      height: 80px
   
   @media (min-width: 768px)
     div.tapToEarn
       margin-bottom: 8rem
 
-    .crowButtonContainer
-      margin-left: 5rem
+    div.headButtons
+      gap: 8rem
+
+      > div
+        width: 140px
+        height: 140px
 
 </style>
