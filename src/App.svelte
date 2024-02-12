@@ -4,7 +4,7 @@
 	import Home from "./routes/Home.svelte";
 	import Battle from "./routes/Battle.svelte";
 	import Squad from "./routes/Squad.svelte";
-	import NoMatch from "./elements/NoMatch.svelte";
+	import NoMatch from "./routes/NoMatch.svelte";
 
 	import { PRODUCTION_BUILD } from "./env.js";
 
