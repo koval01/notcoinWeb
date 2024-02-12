@@ -8,7 +8,7 @@
 <div class="minedSection">
     <h3 class="minedTitle">total mined</h3>
     <div class="container">
-        <img class="coin" src="/images/coin.webp" draggable="false" alt="Coin">
+        <img class="coin" draggable="false" alt="Coin">
         <div class="value" bind:this={objValue}>
           {#if $squadData.loading}
               <div class="skeleton" style="opacity: 1;">
@@ -42,6 +42,7 @@
 
     >
       .coin
+        content: url(/images/coin-mobile.webp)
         width: 2.5rem
         height: 2.5rem
 
@@ -62,6 +63,7 @@
 
       >
         .coin
+          content: url(/images/coin.webp)
           width: 4.5rem
           height: 4.5rem
 
