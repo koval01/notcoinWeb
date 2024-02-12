@@ -103,7 +103,7 @@ export const limitStringLength = (string, maxLength) => {
 }
 
 export const teamLink = (slug) => {
-    return slug ? "/squad/" + slug : ""
+    return slug ? "/squad/" + slug : undefined; // undefined for remove href
 }
 
 export const goTeam = (slug) => {
