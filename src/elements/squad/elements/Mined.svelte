@@ -68,7 +68,7 @@
           height: 4.5rem
 
         .value
-          font-size: 3.75rem
+          font-size: 3.6rem
 
           > .skeleton
             width: 20rem
