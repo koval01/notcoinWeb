@@ -1,5 +1,5 @@
 <script>
-    import Stars from "../elements/Stars.svelte";
+    import Stars from "../elements/misc/Stars.svelte";
     import Header from "../elements/Header.svelte";
     import Squad from "../elements/squad/Main.svelte";
     import Footer from "../elements/Footer.svelte";

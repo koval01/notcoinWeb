@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { readable } from "svelte/store";
-    import { generateStars } from "../utils";
+    import { generateStars } from "../../utils";
 
     let stars = readable(generateStars());
 
