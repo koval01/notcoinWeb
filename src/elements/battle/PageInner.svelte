@@ -5,6 +5,8 @@
 
     import { Leaderboard } from "../misc/leaderboard";
     
+    import Stars from "../misc/Stars.svelte";
+
     import Crown from "./elements/Crown.svelte";
     import Hero from "./elements/Hero.svelte";
     import Footer from "../Footer.svelte";
@@ -13,6 +15,7 @@
 </script>
 
 <div class="pageInner">
+    <Stars count={16} />
     <div class="intro align-center direction-column">
         <Crown />
         <Hero />

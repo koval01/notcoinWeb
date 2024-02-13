@@ -20,7 +20,7 @@
     position: absolute
     z-index: 1
     width: 100%
-    height: 100%
+    height: 100vw // use window width as background height
     top: 0
     left: 0
     right: 0

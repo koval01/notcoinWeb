@@ -8,7 +8,7 @@
 </script>
 
 <!-- Squad -->
-    <Stars />
+    <Stars count={8} />
 
     <Header headTitle="Notcoin" />
     <Squad slug={slug} />

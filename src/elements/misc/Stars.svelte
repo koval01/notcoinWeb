@@ -1,13 +1,9 @@
 <script>
-    import { onMount } from "svelte";
     import { readable } from "svelte/store";
     import { generateStars } from "../../utils";
 
-    let stars = readable(generateStars());
-
-    onMount(() => {
-        stars = readable(generateStars());
-    });
+    export let count = 4;
+    let stars = readable(generateStars(count));
 </script>
 
 <div>

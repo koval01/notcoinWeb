@@ -65,29 +65,30 @@ export const animateValue = (() => {
     };
 })();
 
-export const generateStars = () => {
+export const generateStars = (count=4) => {
     const starsLeft = [];
     const starsRight = [];
 
     const randPos = (offset = 2) => {
-        return Math.round(Math.random() * 18 + offset);
+        let x = Math.round(Math.random() * 18 + offset);
+        return Math.random() < .5 ? x : -(x);
     };
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < count; i++) {
         const size =
-            Math.random() < 0.85
+            Math.random() < .9
                 ? "small"
                 : ["medium", "large", "xlarge"][
                       Math.floor(Math.random() * 3)
                   ];
         starsLeft.push({
             size,
-            top: `${randPos(4)}rem`,
+            top: `${randPos(8)}rem`,
             left: `${randPos()}rem`,
         });
         starsRight.push({
             size,
-            top: `${randPos(4)}rem`,
+            top: `${randPos(8)}rem`,
             right: `${randPos()}rem`,
         });
     }
