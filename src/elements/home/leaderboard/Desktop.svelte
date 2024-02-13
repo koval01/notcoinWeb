@@ -31,7 +31,7 @@
     gap: 1rem
 
     > .list
-      width: 50%
+      width: calc(50% - .5rem)
 
   .container0
     background-color: #ebebf520
