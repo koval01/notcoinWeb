@@ -38,6 +38,7 @@ export const animateValue = (() => {
         if (currentlyAnimating.has(obj)) return;
 
         const start = lastValues.get(obj) || 0;
+        if (start === end) return;
 
         currentlyAnimating.add(obj);
 
