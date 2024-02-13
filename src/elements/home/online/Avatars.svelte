@@ -5,7 +5,7 @@
 </script>
 
 <div class="avatars">
-    {#if preloadImgState === null}
+    {#if preloadImgState === void 0}
         {#each Array(3) as _, i}
             <div class="avatar" key={i}>
                 <img

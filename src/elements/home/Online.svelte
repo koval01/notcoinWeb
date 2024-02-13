@@ -11,43 +11,34 @@
     let usersOnlineNow = [];
 
     let objValues = [];
-    let preloadImgState = null;
+    let preloadImgState;
 
-    const updateRandomUsers = async () => {
-        const usersWithAvatar = $allStatUsers.leaderboard.filter(
-            (user) => user.avatar,
-        );
-
-        // Preload avatars
-        await Promise.all(
-            usersWithAvatar.map((user) => preloadImage(user.avatar)),
-        );
-
-        usersTotal = getRandomElements(usersWithAvatar, 3).map((user) => ({
-            avatar: user.avatar,
-        }));
-        usersOnlineToday = getRandomElements(usersWithAvatar, 3).map(
-            (user) => ({ avatar: user.avatar }),
-        );
-        usersOnlineNow = getRandomElements(usersWithAvatar, 3).map((user) => ({
-            avatar: user.avatar,
-        }));
-
-        // Set preloadImgState to true after preloading is done
-        preloadImgState = true;
-    };
-
+    // Throttle function to update random users
     let throttledUpdateRandomUsers = null;
 
+    const updateRandomUsers = async () => {
+        const usersWithAvatar = $allStatUsers.leaderboard.filter(user => user.avatar);
+
+        // Preload avatars and update users
+        await Promise.all(usersWithAvatar.map(user => preloadImage(user.avatar)));
+        usersTotal = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
+        usersOnlineToday = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
+        usersOnlineNow = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
+
+        preloadImgState = false;
+    };
+
+    // To prevent avatars from being updated twice
     const throttleUpdateRandomUsers = () => {
         if (!throttledUpdateRandomUsers) {
             throttledUpdateRandomUsers = setTimeout(() => {
                 updateRandomUsers();
                 throttledUpdateRandomUsers = null;
-            }, 2e2);
+            }, 200);
         }
     };
 
+    // Watch for changes in stat and allStatUsers, and trigger throttle update
     $: {
         if ($stat?.loading === false && $allStatUsers?.loading === false) {
             throttleUpdateRandomUsers();
