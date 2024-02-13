@@ -1,9 +1,12 @@
 <script>
+    import { battleRoyaleStat } from "../../store.js";
+
     import AppleButton from "../misc/AppleButton.svelte";
 
+    import { Leaderboard } from "../misc/leaderboard";
+    
     import Crown from "./elements/Crown.svelte";
     import Hero from "./elements/Hero.svelte";
-    import Leaderboard from "./leaderboard/Main.svelte";
     import Footer from "../Footer.svelte";
 
     import { goHome } from "../../utils";
@@ -15,13 +18,25 @@
         <Hero />
         <AppleButton onClick={goHome}>Home</AppleButton>
 
-        <Leaderboard />
+        <div class="padding-16-0 direction-column w-100">
+            <Leaderboard StoreObject={$battleRoyaleStat.list} teamsDisplay={true} />
+        </div>
 
         <Footer />
     </div>
 </div>
 
 <style lang="sass">
+  .w-100
+    width: 100%
+
+  .padding-16-0
+    padding: 16px 0
+
+  .direction-column
+    display: flex
+    flex-direction: column
+
   .pageInner
     position: relative
     z-index: 100

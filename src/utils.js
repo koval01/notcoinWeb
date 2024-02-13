@@ -93,7 +93,7 @@ export const generateStars = () => {
     }
 
     return { starsLeft, starsRight };
-};
+}
 
 export const limitStringLength = (string, maxLength) => {
     if (string.length <= maxLength) {
@@ -107,16 +107,30 @@ export const teamLink = (slug) => {
 }
 
 export const goTeam = (slug) => {
+    if (!slug) return;
     window.open(`/squad/${slug}`, "_self");
-};
+}
 
 export const goHome = () => {
     window.open("/", "_self");
-};
+}
+
 export const goBack = () => {
     history.back();
-};
+}
 
 export const handleImageError = (event) => {
     event.target.src = getAvatarThumb();
-};
+}
+
+export const getName = (d) => {
+    if (d.user?.firstName) return d.user.firstName;
+    if (d.name) return d.name;
+    return "";
+}
+
+export const getAvatar = (d) => {
+    if (d.logo) return d.logo;
+    if (d.avatar) return d.avatar;
+    return  getAvatarByName(getName(d))
+}
