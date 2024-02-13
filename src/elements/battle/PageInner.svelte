@@ -18,7 +18,7 @@
         <Hero />
         <AppleButton onClick={goHome}>Home</AppleButton>
 
-        <div class="padding-16-0 direction-column w-100">
+        <div class="padding-16-0 direction-column w-100 w-limit">
             <Leaderboard StoreObject={$battleRoyaleStat.list} teamsDisplay={true} />
         </div>
 
@@ -52,5 +52,9 @@
   .direction-column
     display: flex
     flex-direction: column
+
+  @media (min-width: 768px)
+    .w-limit
+      max-width: 640px
 
 </style>
