@@ -10,7 +10,7 @@
 
 <style lang="sass">
   .imageContainer
-    background: #fff
+    background: transparent
     width: 48px
     height: 48px
     flex-shrink: 0

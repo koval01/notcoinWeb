@@ -17,7 +17,7 @@
 </script>
 
 {#each List as d, i}
-    <button class="innerWrapper padding-0 direction-row buttonFlush" on:click={goTeam(d.slug)}>
+    <button class="innerWrapper padding-0 direction-row buttonFlush {teamsDisplay ? '' : 'disabled'}" on:click={goTeam(d.slug)}>
         <Prefix index={i} />
         <Avatar d={d} />
         <Content objValue={objValue[i]} d={d} />
@@ -44,5 +44,11 @@
 
   .innerWrapper:hover
     background-color: #ffffff55
+
+  .innerWrapper.disabled
+    cursor: default
+  
+  .innerWrapper.disabled:hover
+    background-color: transparent
 
 </style>

@@ -1,5 +1,5 @@
 <script>
-    export let headTitle;
+    export let headTitle = undefined;
 </script>
 
 <header>
