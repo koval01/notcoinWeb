@@ -7,7 +7,7 @@
 </script>
 
 <!-- Home -->
-    <Stars count={8} />
+    <Stars count={12} />
 
     <Header />
     <Main />

@@ -70,7 +70,7 @@ export const generateStars = (count=4) => {
     const starsRight = [];
 
     const randPos = (offset = 2) => {
-        let x = Math.round(Math.random() * 18 + offset);
+        let x = Math.round(Math.random() * 24 + offset);
         return Math.random() < .5 ? x : -(x);
     };
 

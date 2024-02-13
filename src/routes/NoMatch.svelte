@@ -4,6 +4,6 @@
 </script>
 
 <!-- NoMatch -->
-    <Stars count={8} />
+    <Stars count={12} />
     <NoMatch />
 <!-- NoMatch end -->

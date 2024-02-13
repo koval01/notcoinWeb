@@ -15,7 +15,7 @@
 </script>
 
 <div class="pageInner">
-    <Stars count={16} />
+    <Stars count={18} />
     <div class="intro align-center direction-column">
         <Crown />
         <Hero />
