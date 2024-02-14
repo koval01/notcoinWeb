@@ -1,7 +1,13 @@
 <script>
-    import NoMatch from "../elements/NoMatch.svelte";
+    import { onMount } from "svelte";
+
+    let NoMatch;
+
+    onMount(async () => {
+        NoMatch = (await import("../elements/NoMatch.svelte")).default;
+    });
 </script>
 
 <!-- NoMatch -->
-    <NoMatch />
+    <svelte:component this={NoMatch} />
 <!-- NoMatch end -->

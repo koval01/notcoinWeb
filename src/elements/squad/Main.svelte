@@ -1,24 +1,19 @@
 <script>
     import { onMount } from 'svelte';
-    
+
     let Stars, Container;
     export let slug;
 
     onMount(async () => {
-        const moduleStars = await import('../misc/Stars.svelte');
-        const moduleContainer = await import('./Container.svelte');
-        
-        Stars = moduleStars.default;
-        Container = moduleContainer.default;
+        Stars = (await import("../misc/Stars.svelte")).default;
+        Container = (await import("./Container.svelte")).default;
     });
 </script>
 
 <main class="wrapper">
     <div class="container">
-        {#if Stars && Container}
-            <Stars count={12} />
-            <Container slug={slug} />
-        {/if}
+        <svelte:component this={Stars} count={12} />
+        <svelte:component this={Container} slug={slug} />
     </div>
 </main>
 

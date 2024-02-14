@@ -1,8 +1,9 @@
 <script>
-  import AppleButton from "../../misc/AppleButton.svelte";
-
+  import { onMount } from "svelte";
   import { squadData} from "../../../store";
   import { getAvatarByName, handleImageError, goBack } from "../../../utils";
+
+  let AppleButton;
 
   const avatar = (d) => {
     if (d.loading) {
@@ -10,10 +11,14 @@
     }
     return d.logo ? d.logo : getAvatarByName(d.name);
   }
+
+  onMount(async () => {
+    AppleButton = (await import("../../misc/AppleButton.svelte")).default;
+  });
 </script>
 
 <div class="heroSection">
-    <AppleButton onClick={goBack}>Back</AppleButton>
+    <svelte:component this={AppleButton} onClick={goBack}>Back</svelte:component>
     <div class="avatar">
       <img src={avatar($squadData)} draggable="false" alt="" on:error={handleImageError} />
     </div>

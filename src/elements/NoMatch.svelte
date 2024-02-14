@@ -1,25 +1,31 @@
 <script>
-    import Stars from "./misc/Stars.svelte";
-    import AppleButton from "../elements/misc/AppleButton.svelte";
-    import Footer from "./Footer.svelte";
+    import { onMount } from "svelte";
     import { goHome, goBack } from "../utils";
+
+    let Stars, AppleButton, Footer;
+
+    onMount(async () => {
+      Stars = (await import("./misc/Stars.svelte")).default;
+      AppleButton = (await import("../elements/misc/AppleButton.svelte")).default;
+      Footer = (await import("./Footer.svelte")).default;
+    });
 </script>
 
 <div class="content">
     <div>
-        <Stars count={12} />
+        <svelte:component this={Stars} count={12} />
         <div>
             <div class="logo"></div>
         </div>
         <p>It seems... <span>{window.location.pathname}</span> does not exist</p>
         <div class="buttonsContainer">
-          <AppleButton onClick={goHome}>Home</AppleButton>
-          <AppleButton onClick={goBack}>Back</AppleButton>
+          <svelte:component this={AppleButton} onClick={goHome}>Home</svelte:component>
+          <svelte:component this={AppleButton} onClick={goBack}>Back</svelte:component>
         </div>
     </div>
 </div>
 <div class="footer">
-    <Footer />
+    <svelte:component this={Footer} />
 </div>
 
 <style lang="sass">

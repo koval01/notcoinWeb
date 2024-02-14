@@ -7,7 +7,6 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import css from 'rollup-plugin-css-only';
 import sveltePreprocess from 'svelte-preprocess';
-import del from 'rollup-plugin-delete';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -33,7 +32,7 @@ function serve() {
 }
 
 export default {
-	input: 'src/main.js',
+	input: 'src/app.js',
 	output: {
 		sourcemap: !production,
 		format: 'es',
@@ -41,7 +40,6 @@ export default {
 		dir: 'public/build'
 	},
 	plugins: [
-		!production && del({ targets: 'public/build/*' }),
 		svelte({
 			compilerOptions: {
 				// enable run-time checks when not in production
@@ -52,7 +50,7 @@ export default {
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
 		css({ 
-			output: 'main.css',
+			output: 'app.css',
 			minify: true
 		}),
 

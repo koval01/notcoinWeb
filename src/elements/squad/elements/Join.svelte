@@ -1,6 +1,8 @@
 <script>
-    import NotButton from "../../misc/NotButton.svelte";
+    import { onMount } from "svelte";
     import { squadData} from "../../../store";
+
+    let NotButton;
 
     let squadId = 0;
     const joinSquad = () => {
@@ -10,10 +12,14 @@
     $: {
       squadId = $squadData.id;
     }
+
+    onMount(async () => {
+      NotButton = (await import("../../misc/NotButton.svelte")).default;
+    });
 </script>
 
 <div class="joinSection">
-    <NotButton onClick={joinSquad}>Join squad</NotButton>
+    <svelte:component this={NotButton} onClick={joinSquad}>Join squad</svelte:component>
 </div>
 
 <style lang="sass">
