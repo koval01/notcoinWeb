@@ -4,6 +4,8 @@
     import Avatar from "./elements/Avatar.svelte";
     import Content from "./elements/Content.svelte";
 
+    import Skeleton from "./elements/Skeleton.svelte";
+
     import { goTeam } from "../../../utils.js";
 
     let List = [];
@@ -16,14 +18,20 @@
     }
 </script>
 
-{#each List as d, i}
-    <button class="innerWrapper padding-0 direction-row buttonFlush {teamsDisplay ? '' : 'disabled'}" on:click={goTeam(d.slug)}>
-        <Prefix index={i} />
-        <Avatar d={d} />
-        <Content objValue={objValue[i]} d={d} />
-        <Chevron teamsDisplay={teamsDisplay} />
-    </button>
-{/each}
+{#if List.length > 0}
+  {#each List as d, i}
+      <button class="innerWrapper padding-0 direction-row buttonFlush {teamsDisplay ? '' : 'disabled'}" on:click={goTeam(d.slug)}>
+          <Prefix index={i} />
+          <Avatar d={d} />
+          <Content objValue={objValue[i]} d={d} />
+          <Chevron teamsDisplay={teamsDisplay} />
+      </button>
+  {/each}
+{:else}
+  {#each Array(5) as _}
+      <Skeleton />
+  {/each}
+{/if}
 
 <style lang="sass">
   .padding-0
