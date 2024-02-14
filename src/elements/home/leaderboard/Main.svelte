@@ -1,8 +1,12 @@
 <script>
     import { onMount } from "svelte";
 
-    import Desktop from "./Desktop.svelte";
-    import Mobile from "./Mobile.svelte";
+    let Desktop, Mobile;
+
+    onMount(async () => {
+        Desktop = (await import("./Desktop.svelte")).default;
+        Mobile = (await import("./Mobile.svelte")).default;
+    });
 
     let isDesktop = false;
 
@@ -19,9 +23,9 @@
 
 <div class="leaderboardSection">
     {#if isDesktop}
-        <Desktop />
+        <svelte:component this={Desktop} />
     {:else}
-        <Mobile />
+        <svelte:component this={Mobile} />
     {/if}
 </div>
 

@@ -1,5 +1,11 @@
 <script>
-    import List from "./List.svelte";
+    import { onMount } from "svelte";
+
+    let List;
+
+    onMount(async () => {
+      List = (await import("./List.svelte")).default;
+    });
 
     export let StoreObject, teamsDisplay;
 </script>
@@ -7,7 +13,7 @@
 <div class="leaderboard">
   <div class="listInner">
       <div class="padding-0 direction-column willChange">
-          <List StoreObject={StoreObject} teamsDisplay={teamsDisplay} />
+          <svelte:component this={List} StoreObject={StoreObject} teamsDisplay={teamsDisplay} />
       </div>
   </div>
 </div>

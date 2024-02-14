@@ -1,31 +1,38 @@
 <script>
     import { battleRoyaleStat } from "../../store.js";
 
-    import AppleButton from "../misc/AppleButton.svelte";
-
-    import { Leaderboard } from "../misc/leaderboard";
-    
-    import Stars from "../misc/Stars.svelte";
-
-    import Crown from "./elements/Crown.svelte";
-    import Hero from "./elements/Hero.svelte";
-    import Footer from "../Footer.svelte";
-
     import { goHome } from "../../utils";
+    import { onMount } from "svelte";
+    
+    let AppleButton, Stars, Leaderboard, Crown, Hero, Footer;
+
+    onMount(async () => {
+        AppleButton = (await import("../misc/AppleButton.svelte")).default;
+
+        Stars = (await import("../misc/Stars.svelte")).default;
+
+        import("../misc/leaderboard").then(module => {
+            Leaderboard = module.Leaderboard;
+        });
+
+        Crown = (await import("./elements/Crown.svelte")).default;
+        Hero = (await import("./elements/Hero.svelte")).default;
+        Footer = (await import("../Footer.svelte")).default;
+    });
 </script>
 
 <div class="pageInner">
-    <Stars count={18} />
+    <svelte:component this={Stars} count={18} />
     <div class="intro align-center direction-column">
-        <Crown />
-        <Hero />
-        <AppleButton onClick={goHome}>Home</AppleButton>
+        <svelte:component this={Crown} />
+        <svelte:component this={Hero} />
+        <svelte:component this={AppleButton} onClick={goHome}>Home</svelte:component>
 
         <div class="padding-16-0 direction-column w-100 w-limit">
-            <Leaderboard StoreObject={$battleRoyaleStat.list} teamsDisplay={true} />
+            <svelte:component this={Leaderboard} StoreObject={$battleRoyaleStat.list} teamsDisplay={true} />
         </div>
 
-        <Footer />
+        <svelte:component this={Footer} />
     </div>
 </div>
 

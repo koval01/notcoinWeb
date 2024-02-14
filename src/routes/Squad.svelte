@@ -1,14 +1,20 @@
 <script>
-    import Header from "../elements/Header.svelte";
-    import Squad from "../elements/squad/Main.svelte";
-    import Footer from "../elements/Footer.svelte";
+    import { onMount } from "svelte";
+
+    let Header, Squad, Footer;
+
+    onMount(async() => {
+        Header = (await import("../elements/Header.svelte")).default;
+        Squad = (await import("../elements/squad/Main.svelte")).default;
+        Footer = (await import("../elements/Footer.svelte")).default;
+    });
 
     export let slug;
 </script>
 
 <!-- Squad -->
-    <Header headTitle="Notcoin" />
-    <Squad slug={slug} />
+    <svelte:component this={Header} headTitle="Notcoin" />
+    <svelte:component this={Squad} slug={slug} />
 
-    <Footer />
+    <svelte:component this={Footer}/>
 <!-- Squad end -->

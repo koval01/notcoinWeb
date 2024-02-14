@@ -1,6 +1,12 @@
 <script>
-    import CoinButton from "../misc/CoinButton.svelte";
-    import CrownButton from "../misc/CrownButton.svelte";
+    import { onMount } from "svelte";
+
+    let CoinButton, CrownButton;
+
+    onMount(async () => {
+      CoinButton = (await import("../misc/CoinButton.svelte")).default;
+      CrownButton = (await import("../misc/CrownButton.svelte")).default;
+    });
 
     const handleTap = () => {
         window.open("https://t.me/notcoin_bot/click", "_blank");
@@ -13,10 +19,10 @@
 
 <div class="headButtons">
   <div>
-    <CoinButton onClick={handleTap} />
+    <svelte:component this={CoinButton} onClick={handleTap} />
   </div>
   <div>
-    <CrownButton onClick={goBattle} />
+    <svelte:component this={CrownButton} onClick={goBattle} />
     <div class="battle-text"></div>
   </div>
 </div>

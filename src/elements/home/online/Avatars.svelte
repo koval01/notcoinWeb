@@ -1,18 +1,24 @@
 <script>
-    import Avatar from "./Avatar.svelte";
     import { getAvatarThumb } from "../../../utils.js";
+    import { onMount } from "svelte";
+    
+    let Avatar;
+
+    onMount(async () => {
+        Avatar = (await import("./Avatar.svelte")).default;
+    });
 
     export let users, preloadImgState;
 </script>
 
 <div class="avatars">
     {#if preloadImgState === void 0}
-        {#each Array(3) as _, i}
-            <Avatar avatarSrc={getAvatarThumb()} onError={void 0} />
+        {#each Array(3) as _}
+            <svelte:component this={Avatar} avatarSrc={getAvatarThumb()} onError={void 0} />
         {/each}
     {:else}
         {#each users as { avatar }}
-            <Avatar avatarSrc={avatar} />
+            <svelte:component this={Avatar} avatarSrc={avatar} />
         {/each}
     {/if}
 </div>

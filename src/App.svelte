@@ -1,10 +1,15 @@
 <script>
 	import { Router, Route } from "svelte-routing";
+	import { onMount } from "svelte";
 
-	import Home from "./routes/Home.svelte";
-	import Battle from "./routes/Battle.svelte";
-	import Squad from "./routes/Squad.svelte";
-	import NoMatch from "./routes/NoMatch.svelte";
+    let Home, Battle, Squad, NoMatch;
+
+    onMount(async () => {
+		Home = (await import("./routes/Home.svelte")).default;
+		Battle = (await import("./routes/Battle.svelte")).default;
+		Squad = (await import("./routes/Squad.svelte")).default;
+		NoMatch = (await import("./routes/NoMatch.svelte")).default;
+    });
 
 	import { PRODUCTION_BUILD } from "./env.js";
 
@@ -24,11 +29,11 @@
 
 <Router {url}>
 	<main class="noselect">
-		<Route patth="*"><NoMatch /></Route>
-		<Route path="/"><Home /></Route>
-		<Route path="/battle"><Battle /></Route>
+		<Route patth="*"><svelte:component this={NoMatch} /></Route>
+		<Route path="/"><svelte:component this={Home} /></Route>
+		<Route path="/battle"><svelte:component this={Battle} /></Route>
 		<Route path="/squad/:slug" let:params>
-			<Squad slug="{params.slug}" />
+			<svelte:component this={Squad} slug={params.slug} />
 		</Route>
 	</main>
 </Router>

@@ -1,11 +1,17 @@
 <script>
-    import Header from "../elements/Header.svelte";
-    import Main from "../elements/home/Main.svelte";
-    import Footer from "../elements/Footer.svelte";
+    import { onMount } from "svelte";
+
+    let Header, Main, Footer;
+
+    onMount(async () => {
+        Header = (await import("../elements/Header.svelte")).default;
+        Main = (await import("../elements/home/Main.svelte")).default;
+        Footer = (await import("../elements/Footer.svelte")).default;
+    });
 </script>
 
 <!-- Home -->
-    <Header />
-    <Main />
-    <Footer />
+    <svelte:component this={Header} />
+    <svelte:component this={Main} />
+    <svelte:component this={Footer} />
 <!-- Home end -->

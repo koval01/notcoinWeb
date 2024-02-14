@@ -1,12 +1,17 @@
 <script>
-    import Chevron from "./elements/Chevron.svelte";
-    import Prefix from "./elements/Prefix.svelte";
-    import Avatar from "./elements/Avatar.svelte";
-    import Content from "./elements/Content.svelte";
-
-    import Skeleton from "./elements/Skeleton.svelte";
-
     import { goTeam } from "../../../utils.js";
+    import { onMount } from "svelte";
+
+    let Chevron, Prefix, Avatar, Content, Skeleton;
+
+    onMount(async () => {
+      Chevron = (await import("./elements/Chevron.svelte")).default;
+      Prefix = (await import("./elements/Prefix.svelte")).default;
+      Avatar = (await import("./elements/Avatar.svelte")).default;
+      Content = (await import("./elements/Content.svelte")).default;
+
+      Skeleton = (await import("./elements/Skeleton.svelte")).default;
+    });
 
     let List = [];
     let objValue = [];
@@ -21,15 +26,15 @@
 {#if List.length > 0}
   {#each List as d, i}
       <button class="innerWrapper padding-0 direction-row buttonFlush {teamsDisplay ? '' : 'disabled'}" on:click={goTeam(d.slug)}>
-          <Prefix index={i} />
-          <Avatar d={d} />
-          <Content objValue={objValue[i]} d={d} />
-          <Chevron teamsDisplay={teamsDisplay} />
+          <svelte:component this={Prefix} index={i} />
+          <svelte:component this={Avatar} d={d} />
+          <svelte:component this={Content} objValue={objValue[i]} d={d} />
+          <svelte:component this={Chevron} teamsDisplay={teamsDisplay} />
       </button>
   {/each}
 {:else}
   {#each Array(5) as _}
-      <Skeleton />
+      <svelte:component this={Skeleton} />
   {/each}
 {/if}
 

@@ -1,17 +1,27 @@
 <script>
-  import Hint from "./Hint.svelte";
-  import { Leaderboard } from "../../misc/leaderboard";
   import { allStatUsers, allStatTeams } from "../../../store.js";
+
+  import { onMount } from "svelte";
+
+  let Hint, Leaderboard;
+
+  onMount(async () => {
+    Hint = (await import("./Hint.svelte")).default;
+
+    import("../../misc/leaderboard").then(module => {
+        Leaderboard = module.Leaderboard;
+    });
+  });
 </script>
 
 <div class="container">
   <div class="list">
-    <Hint>top miners</Hint>
-    <Leaderboard StoreObject={$allStatUsers.leaderboard} teamsDisplay={false} />
+    <svelte:component this={Hint}>top miners</svelte:component>
+    <svelte:component this={Leaderboard} StoreObject={$allStatUsers.leaderboard} teamsDisplay={false} />
   </div>
   <div class="list">
-    <Hint>top teams</Hint>
-    <Leaderboard StoreObject={$allStatTeams.leaderboard} teamsDisplay={true} />
+    <svelte:component this={Hint}>top teams</svelte:component>
+    <svelte:component this={Leaderboard} StoreObject={$allStatTeams.leaderboard} teamsDisplay={true} />
   </div>
 </div>
 

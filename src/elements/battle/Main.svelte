@@ -1,7 +1,4 @@
 <script>
-    import Background from "./Background.svelte";
-    import PageInner from "./PageInner.svelte";
-
     import { onMount, onDestroy } from "svelte";
     import { fetchAndUpdateData } from "../../api.js";
     import { battleRoyaleStat } from "../../store.js";
@@ -13,7 +10,12 @@
         await fetchAndUpdateData(path, store);
     };
 
-    onMount(() => {
+    let Background, PageInner;
+
+    onMount(async () => {
+      Background = (await import("./Background.svelte")).default;
+      PageInner = (await import("./PageInner.svelte")).default;
+
       fetchData(battleRoyaleStatUrl, battleRoyaleStat);
       interval = setInterval(() => {fetchData(battleRoyaleStatUrl, battleRoyaleStat)}, 15e3);
     });
@@ -24,8 +26,8 @@
 </script>
 
 <div class="root page">
-    <Background />
-    <PageInner />
+    <svelte:component this={Background} />
+    <svelte:component this={PageInner} />
 </div>
 
 <style lang="sass">

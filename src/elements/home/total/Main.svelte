@@ -2,15 +2,21 @@
     import { stat } from "../../../store.js";
     import { animateValue } from "../../../utils.js";
 
-    import Flame from "./Flame.svelte";
-    import Penny from "./Penny.svelte";
+    import { onMount } from "svelte";
+
+    let Flame, Penny;
+
+    onMount(async () => {
+      Flame = (await import("./Flame.svelte")).default;
+      Penny = (await import("./Penny.svelte")).default;
+    });
 
     let objIssued, objBurned;
 </script>
 
 <div class="totalSection">
     <div class="container">
-        <Penny />
+        <svelte:component this={Penny} />
         <div class="meme">
             <img
                 class="memeImg issued"
@@ -32,7 +38,7 @@
         </div>
     </div>
     <div class="container">
-        <Flame />
+        <svelte:component this={Flame} />
         <div class="meme burned">
             <img
                 class="memeImg burned"

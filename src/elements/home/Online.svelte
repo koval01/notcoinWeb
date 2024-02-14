@@ -1,10 +1,15 @@
 <script>
-    import Avatars from "./online/Avatars.svelte";
-    import Value from "./online/Value.svelte";
-    import Label from "./online/Label.svelte";
-
     import { stat, allStatUsers } from "../../store.js";
     import { getRandomElements, preloadImage } from "../../utils.js";
+    import { onMount } from "svelte";
+    
+    let Avatars, Value, Label;
+
+    onMount(async () => {
+        Avatars = (await import("./online/Avatars.svelte")).default;
+        Value = (await import("./online/Value.svelte")).default;
+        Label = (await import("./online/Label.svelte")).default;
+    });
 
     let usersTotal = [];
     let usersOnlineToday = [];
@@ -50,9 +55,9 @@
     <div class="online">
         {#each [usersTotal, usersOnlineToday, usersOnlineNow] as users, i}
             <div class="onlineRow">
-                <Avatars preloadImgState={preloadImgState} users={users} />
-                <Value index={i} objValues={objValues} stat={$stat} />
-                <Label index={i} />
+                <svelte:component this={Avatars} preloadImgState={preloadImgState} users={users} />
+                <svelte:component this={Value} index={i} objValues={objValues} stat={$stat} />
+                <svelte:component this={Label} index={i} />
             </div>
         {/each}
     </div>
