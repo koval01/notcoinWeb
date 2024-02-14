@@ -5,12 +5,25 @@
     let Chevron, Prefix, Avatar, Content, Skeleton;
 
     onMount(async () => {
-      Chevron = (await import("./elements/Chevron.svelte")).default;
-      Prefix = (await import("./elements/Prefix.svelte")).default;
-      Avatar = (await import("./elements/Avatar.svelte")).default;
-      Content = (await import("./elements/Content.svelte")).default;
+        const [
+            ChevronModule,
+            PrefixModule,
+            AvatarModule,
+            ContentModule,
+            SkeletonModule
+        ] = await Promise.all([
+            import("./elements/Chevron.svelte"),
+            import("./elements/Prefix.svelte"),
+            import("./elements/Avatar.svelte"),
+            import("./elements/Content.svelte"),
+            import("./elements/Skeleton.svelte")
+        ]);
 
-      Skeleton = (await import("./elements/Skeleton.svelte")).default;
+        Chevron = ChevronModule.default;
+        Prefix = PrefixModule.default;
+        Avatar = AvatarModule.default;
+        Content = ContentModule.default;
+        Skeleton = SkeletonModule.default;
     });
 
     let List = [];

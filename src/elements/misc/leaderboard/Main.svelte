@@ -4,7 +4,8 @@
     let List;
 
     onMount(async () => {
-      List = (await import("./List.svelte")).default;
+        const ListModule = await import("./List.svelte");
+        List = ListModule.default;
     });
 
     export let StoreObject, teamsDisplay;

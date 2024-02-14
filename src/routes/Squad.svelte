@@ -3,10 +3,16 @@
 
     let Header, Squad, Footer;
 
-    onMount(async() => {
-        Header = (await import("../elements/Header.svelte")).default;
-        Squad = (await import("../elements/squad/Main.svelte")).default;
-        Footer = (await import("../elements/Footer.svelte")).default;
+    onMount(async () => {
+        const [HeaderModule, SquadModule, FooterModule] = await Promise.all([
+            import("../elements/Header.svelte"),
+            import("../elements/squad/Main.svelte"),
+            import("../elements/Footer.svelte")
+        ]);
+
+        Header = HeaderModule.default;
+        Squad = SquadModule.default;
+        Footer = FooterModule.default;
     });
 
     export let slug;

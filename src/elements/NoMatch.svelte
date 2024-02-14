@@ -5,9 +5,15 @@
     let Stars, AppleButton, Footer;
 
     onMount(async () => {
-      Stars = (await import("./misc/Stars.svelte")).default;
-      AppleButton = (await import("../elements/misc/AppleButton.svelte")).default;
-      Footer = (await import("./Footer.svelte")).default;
+        const [StarsModule, AppleButtonModule, FooterModule] = await Promise.all([
+            import("./misc/Stars.svelte"),
+            import("../elements/misc/AppleButton.svelte"),
+            import("./Footer.svelte")
+        ]);
+
+        Stars = StarsModule.default;
+        AppleButton = AppleButtonModule.default;
+        Footer = FooterModule.default;
     });
 </script>
 

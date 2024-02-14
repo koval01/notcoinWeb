@@ -19,15 +19,23 @@
     let Stars, Hero, Balance, Online, Buttons, Total, Leaderboard;
 
     onMount(async () => {
-        Stars = (await import("../misc/Stars.svelte")).default;
+        const [StarsModule, HeroModule, BalanceModule, OnlineModule, ButtonsModule, TotalModule, LeaderboardModule] = await Promise.all([
+            import("../misc/Stars.svelte"),
+            import("./Hero.svelte"),
+            import("./Balance.svelte"),
+            import("./Online.svelte"),
+            import("./Buttons.svelte"),
+            import("./total/Main.svelte"),
+            import("./leaderboard/Main.svelte")
+        ]);
 
-        Hero = (await import("./Hero.svelte")).default;
-        Balance = (await import("./Balance.svelte")).default;
-        Online = (await import("./Online.svelte")).default;
-        Buttons = (await import("./Buttons.svelte")).default;
-
-        Total = (await import("./total/Main.svelte")).default;
-        Leaderboard = (await import("./leaderboard/Main.svelte")).default;
+        Stars = StarsModule.default;
+        Hero = HeroModule.default;
+        Balance = BalanceModule.default;
+        Online = OnlineModule.default;
+        Buttons = ButtonsModule.default;
+        Total = TotalModule.default;
+        Leaderboard = LeaderboardModule.default;
 
         intervals = [
             { path: paths.stat, store: stat },

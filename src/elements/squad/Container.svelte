@@ -13,9 +13,15 @@
     };
 
     onMount(async () => {
-        Hero = (await import("./elements/Hero.svelte")).default;
-        Mined = (await import("./elements/Mined.svelte")).default;
-        Join = (await import("./elements/Join.svelte")).default;
+        const [HeroModule, MinedModule, JoinModule] = await Promise.all([
+            import("./elements/Hero.svelte"),
+            import("./elements/Mined.svelte"),
+            import("./elements/Join.svelte")
+        ]);
+
+        Hero = HeroModule.default;
+        Mined = MinedModule.default;
+        Join = JoinModule.default;
 
         fetchData(squadDataUrl, squadData);
         interval = setInterval(() => {fetchData(squadDataUrl, squadData)}, 15e3);

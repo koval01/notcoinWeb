@@ -4,9 +4,15 @@
     let Header, Main, Footer;
 
     onMount(async () => {
-        Header = (await import("../elements/Header.svelte")).default;
-        Main = (await import("../elements/home/Main.svelte")).default;
-        Footer = (await import("../elements/Footer.svelte")).default;
+        const [HeaderModule, MainModule, FooterModule] = await Promise.all([
+            import("../elements/Header.svelte"),
+            import("../elements/home/Main.svelte"),
+            import("../elements/Footer.svelte")
+        ]);
+
+        Header = HeaderModule.default;
+        Main = MainModule.default;
+        Footer = FooterModule.default;
     });
 </script>
 

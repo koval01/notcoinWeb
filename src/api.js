@@ -1,12 +1,14 @@
 import { API_HOST } from './env.js';
 
-const convertStringToNumber = (obj) => {
-    for (let key in obj) {
-        if (typeof obj[key] === 'string' && /^\d+$/.test(obj[key])) {
-            obj[key] = parseInt(obj[key]);
+const convertStringToNumber = async (obj) => {
+    return new Promise((resolve) => {
+        for (let key in obj) {
+            if (typeof obj[key] === 'string' && /^\d+$/.test(obj[key])) {
+                obj[key] = parseInt(obj[key]);
+            }
         }
-    }
-    return obj;
+        resolve(obj);
+    });
 };
 
 export const fetchAndUpdateData = async (endpoint, store, first = false) => {
@@ -38,7 +40,7 @@ export const fetchData = async (endpoint, options = {}) => {
 
         data = _first ? data?.data[0] : data.data;
         if (_convertStringToNumber) {
-            data = convertStringToNumber(data);
+            data = await convertStringToNumber(data);
         }
 
         return data;

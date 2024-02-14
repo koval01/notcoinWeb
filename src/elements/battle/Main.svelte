@@ -13,8 +13,13 @@
     let Background, PageInner;
 
     onMount(async () => {
-      Background = (await import("./Background.svelte")).default;
-      PageInner = (await import("./PageInner.svelte")).default;
+      const [BackgroundModule, PageInnerModule] = await Promise.all([
+          import("./Background.svelte"),
+          import("./PageInner.svelte")
+      ]);
+
+      Background = BackgroundModule.default;
+      PageInner = PageInnerModule.default;
 
       fetchData(battleRoyaleStatUrl, battleRoyaleStat);
       interval = setInterval(() => {fetchData(battleRoyaleStatUrl, battleRoyaleStat)}, 15e3);

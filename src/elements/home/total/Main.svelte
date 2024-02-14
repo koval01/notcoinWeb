@@ -7,8 +7,13 @@
     let Flame, Penny;
 
     onMount(async () => {
-      Flame = (await import("./Flame.svelte")).default;
-      Penny = (await import("./Penny.svelte")).default;
+        const [FlameModule, PennyModule] = await Promise.all([
+            import("./Flame.svelte"),
+            import("./Penny.svelte")
+        ]);
+
+        Flame = FlameModule.default;
+        Penny = PennyModule.default;
     });
 
     let objIssued, objBurned;

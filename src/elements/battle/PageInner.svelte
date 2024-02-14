@@ -7,17 +7,21 @@
     let AppleButton, Stars, Leaderboard, Crown, Hero, Footer;
 
     onMount(async () => {
-        AppleButton = (await import("../misc/AppleButton.svelte")).default;
+        const [AppleButtonModule, StarsModule, LeaderboardModule, CrownModule, HeroModule, FooterModule] = await Promise.all([
+            import("../misc/AppleButton.svelte"),
+            import("../misc/Stars.svelte"),
+            import("../misc/leaderboard"),
+            import("./elements/Crown.svelte"),
+            import("./elements/Hero.svelte"),
+            import("../Footer.svelte")
+        ]);
 
-        Stars = (await import("../misc/Stars.svelte")).default;
-
-        import("../misc/leaderboard").then(module => {
-            Leaderboard = module.Leaderboard;
-        });
-
-        Crown = (await import("./elements/Crown.svelte")).default;
-        Hero = (await import("./elements/Hero.svelte")).default;
-        Footer = (await import("../Footer.svelte")).default;
+        AppleButton = AppleButtonModule.default;
+        Stars = StarsModule.default;
+        Leaderboard = LeaderboardModule.Leaderboard;
+        Crown = CrownModule.default;
+        Hero = HeroModule.default;
+        Footer = FooterModule.default;
     });
 </script>
 

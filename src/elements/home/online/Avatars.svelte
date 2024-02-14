@@ -5,7 +5,8 @@
     let Avatar;
 
     onMount(async () => {
-        Avatar = (await import("./Avatar.svelte")).default;
+        const AvatarModule = await import("./Avatar.svelte");
+        Avatar = AvatarModule.default;
     });
 
     export let users, preloadImgState;

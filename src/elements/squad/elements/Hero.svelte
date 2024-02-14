@@ -13,7 +13,8 @@
   }
 
   onMount(async () => {
-    AppleButton = (await import("../../misc/AppleButton.svelte")).default;
+      const AppleButtonModule = await import("../../misc/AppleButton.svelte");
+      AppleButton = AppleButtonModule.default;
   });
 </script>
 

@@ -1,7 +1,20 @@
 <script>
-    import { FlatButtonContainer, FlatButton } from '../../misc/flatbutton';
-    import { Leaderboard } from "../../misc/leaderboard";
     import { allStatUsers, allStatTeams } from "../../../store.js";
+    import { onMount } from "svelte";
+
+    let FlatButtonContainer, FlatButton, Leaderboard;
+
+    onMount(async () => {
+        const [FlatButtonContainerModule, FlatButtonModule, LeaderboardModule] = await Promise.all([
+            import("../../misc/flatbutton"),
+            import("../../misc/flatbutton"),
+            import("../../misc/leaderboard")
+        ]);
+
+        FlatButtonContainer = FlatButtonContainerModule.FlatButtonContainer;
+        FlatButton = FlatButtonModule.FlatButton;
+        Leaderboard = LeaderboardModule.Leaderboard;
+    });
 
     let teamsDisplay = false;
 
@@ -12,16 +25,16 @@
 </script>
 
 <div class="mobileContainer">
-    <FlatButtonContainer bind:activeTab={teamsDisplay}>
-        <FlatButton isActive={!teamsDisplay} onClick={() => updateDisplays(false)}>Miners</FlatButton>
-        <FlatButton isActive={teamsDisplay} onClick={() => updateDisplays(true)}>Teams</FlatButton>
-    </FlatButtonContainer>
+    <svelte:component this={FlatButtonContainer} bind:activeTab={teamsDisplay}>
+        <svelte:component this={FlatButton} isActive={!teamsDisplay} onClick={() => updateDisplays(false)}>Miners</svelte:component>
+        <svelte:component this={FlatButton} isActive={teamsDisplay} onClick={() => updateDisplays(true)}>Teams</svelte:component>
+    </svelte:component>
 
     <div class="container">
         {#if teamsDisplay}
-            <Leaderboard StoreObject={$allStatTeams.leaderboard} teamsDisplay={teamsDisplay} />
+            <svelte:component this={Leaderboard} StoreObject={$allStatTeams.leaderboard} teamsDisplay={teamsDisplay}/>
         {:else}
-            <Leaderboard StoreObject={$allStatUsers.leaderboard} teamsDisplay={teamsDisplay} />
+            <svelte:component this={Leaderboard} StoreObject={$allStatUsers.leaderboard} teamsDisplay={teamsDisplay}/>
         {/if}
     </div>
 </div>

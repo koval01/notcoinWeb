@@ -6,9 +6,15 @@
     let Avatars, Value, Label;
 
     onMount(async () => {
-        Avatars = (await import("./online/Avatars.svelte")).default;
-        Value = (await import("./online/Value.svelte")).default;
-        Label = (await import("./online/Label.svelte")).default;
+        const [AvatarsModule, ValueModule, LabelModule] = await Promise.all([
+            import("./online/Avatars.svelte"),
+            import("./online/Value.svelte"),
+            import("./online/Label.svelte")
+        ]);
+
+        Avatars = AvatarsModule.default;
+        Value = ValueModule.default;
+        Label = LabelModule.default;
     });
 
     let usersTotal = [];

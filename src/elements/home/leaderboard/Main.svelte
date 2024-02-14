@@ -4,8 +4,13 @@
     let Desktop, Mobile;
 
     onMount(async () => {
-        Desktop = (await import("./Desktop.svelte")).default;
-        Mobile = (await import("./Mobile.svelte")).default;
+        const [DesktopModule, MobileModule] = await Promise.all([
+            import("./Desktop.svelte"),
+            import("./Mobile.svelte")
+        ]);
+
+        Desktop = DesktopModule.default;
+        Mobile = MobileModule.default;
     });
 
     let isDesktop = false;

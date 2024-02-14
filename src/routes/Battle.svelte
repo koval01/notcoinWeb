@@ -4,7 +4,11 @@
     let Battle;
 
     onMount(async () => {
-        Battle = (await import("../elements/battle/Main.svelte")).default;
+        const [BattleModule] = await Promise.all([
+            import("../elements/battle/Main.svelte")
+        ]);
+
+        Battle = BattleModule.default;
     });
 </script>
 

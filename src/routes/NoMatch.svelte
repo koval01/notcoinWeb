@@ -4,7 +4,8 @@
     let NoMatch;
 
     onMount(async () => {
-        NoMatch = (await import("../elements/NoMatch.svelte")).default;
+        const NoMatchModule = await import("../elements/NoMatch.svelte");
+        NoMatch = NoMatchModule.default;
     });
 </script>
 

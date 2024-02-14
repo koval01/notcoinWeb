@@ -5,8 +5,13 @@
     export let slug;
 
     onMount(async () => {
-        Stars = (await import("../misc/Stars.svelte")).default;
-        Container = (await import("./Container.svelte")).default;
+        const [StarsModule, ContainerModule] = await Promise.all([
+            import("../misc/Stars.svelte"),
+            import("./Container.svelte")
+        ]);
+
+        Stars = StarsModule.default;
+        Container = ContainerModule.default;
     });
 </script>
 

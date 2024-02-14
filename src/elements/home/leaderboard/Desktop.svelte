@@ -6,11 +6,14 @@
   let Hint, Leaderboard;
 
   onMount(async () => {
-    Hint = (await import("./Hint.svelte")).default;
+      const [HintModule, LeaderboardModule] = await Promise.all([
+          import("./Hint.svelte"),
+          import("../../misc/leaderboard")
+      ]);
 
-    import("../../misc/leaderboard").then(module => {
-        Leaderboard = module.Leaderboard;
-    });
+      Hint = HintModule.default;
+
+      Leaderboard = LeaderboardModule.Leaderboard;
   });
 </script>
 

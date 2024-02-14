@@ -5,11 +5,18 @@
     let Home, Battle, Squad, NoMatch;
 
     onMount(async () => {
-		Home = (await import("./routes/Home.svelte")).default;
-		Battle = (await import("./routes/Battle.svelte")).default;
-		Squad = (await import("./routes/Squad.svelte")).default;
-		NoMatch = (await import("./routes/NoMatch.svelte")).default;
-    });
+		const [HomeModule, BattleModule, SquadModule, NoMatchModule] = await Promise.all([
+			import("./routes/Home.svelte"),
+			import("./routes/Battle.svelte"),
+			import("./routes/Squad.svelte"),
+			import("./routes/NoMatch.svelte")
+		]);
+
+		Home = HomeModule.default;
+		Battle = BattleModule.default;
+		Squad = SquadModule.default;
+		NoMatch = NoMatchModule.default;
+	});
 
 	import { PRODUCTION_BUILD } from "./env.js";
 

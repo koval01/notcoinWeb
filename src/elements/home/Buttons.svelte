@@ -4,8 +4,13 @@
     let CoinButton, CrownButton;
 
     onMount(async () => {
-      CoinButton = (await import("../misc/CoinButton.svelte")).default;
-      CrownButton = (await import("../misc/CrownButton.svelte")).default;
+        const [CoinButtonModule, CrownButtonModule] = await Promise.all([
+            import("../misc/CoinButton.svelte"),
+            import("../misc/CrownButton.svelte")
+        ]);
+
+        CoinButton = CoinButtonModule.default;
+        CrownButton = CrownButtonModule.default;
     });
 
     const handleTap = () => {

@@ -14,7 +14,8 @@
     }
 
     onMount(async () => {
-      NotButton = (await import("../../misc/NotButton.svelte")).default;
+        const { default: NotButtonModule } = await import("../../misc/NotButton.svelte");
+        NotButton = NotButtonModule;
     });
 </script>
 
