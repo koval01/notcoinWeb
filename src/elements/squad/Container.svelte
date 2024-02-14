@@ -8,7 +8,7 @@
     import { squadData } from "../../store.js";
 
     export let slug;
-    const squadDataUrl = `/clicker/profile/team/slug/${slug}`;
+    const squadDataUrl = `/clicker/profile/team/slug/${slug}?count=1`;
     let interval;
 
     const fetchData = async (path, store) => {
