@@ -7,8 +7,10 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import css from 'rollup-plugin-css-only';
 import sveltePreprocess from 'svelte-preprocess';
+import { createHash } from 'crypto';
 
 const production = !process.env.ROLLUP_WATCH;
+const hash = (name) => createHash('md5').update(name).digest('hex').slice(0, 8);
 
 function serve() {
 	let server;
@@ -37,7 +39,8 @@ export default {
 		sourcemap: !production,
 		format: 'es',
 		name: 'app',
-		dir: 'public/build'
+		dir: 'public/build',
+		chunkFileNames: ({ name }) => `chunks/${name}.${hash(name)}.js`
 	},
 	plugins: [
 		svelte({
