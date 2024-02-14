@@ -47,6 +47,7 @@
     
     *
       z-index: 0
+      animation: star 4s cubic-bezier(.88, 1.25, 0, 1.2) infinite
   
   .star
     position: relative
@@ -66,5 +67,15 @@
     &.xlarge
       width: 1.15rem
       height: 1.15rem
+
+  @keyframes star
+    0%
+      opacity: .8
+
+    50%
+      opacity: .5
+
+    100%
+      opacity: .8
   
 </style>
