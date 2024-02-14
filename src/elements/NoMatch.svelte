@@ -1,4 +1,5 @@
 <script>
+    import Stars from "./misc/Stars.svelte";
     import AppleButton from "../elements/misc/AppleButton.svelte";
     import Footer from "./Footer.svelte";
     import { goHome, goBack } from "../utils";
@@ -6,6 +7,7 @@
 
 <div class="content">
     <div>
+        <Stars count={12} />
         <div>
             <div class="logo"></div>
         </div>

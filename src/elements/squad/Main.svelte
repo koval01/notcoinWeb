@@ -1,4 +1,5 @@
 <script>
+    import Stars from "../misc/Stars.svelte";
     import Container from "./Container.svelte";
 
     export let slug;
@@ -6,6 +7,7 @@
 
 <main class="wrapper">
     <div class="container">
+        <Stars count={12} />
         <Container slug={slug} />
     </div>
 </main>

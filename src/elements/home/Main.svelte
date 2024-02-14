@@ -1,4 +1,6 @@
 <script>
+    import Stars from "../misc/Stars.svelte";
+
     import Hero from "./Hero.svelte";
     import Balance from "./Balance.svelte";
     import Online from "./Online.svelte";
@@ -45,6 +47,8 @@
 <div class="wrapper">
     <div class="container">
         <div>
+            <Stars count={12} />
+
             <Hero />
             <Balance />
             <Online />
