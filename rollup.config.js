@@ -1,4 +1,4 @@
-import { spawn } from 'child_process';
+import { spawn, execSync } from 'child_process';
 import svelte from 'rollup-plugin-svelte';
 import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
@@ -11,6 +11,7 @@ import sveltePreprocess from 'svelte-preprocess';
 import { createHash } from 'crypto';
 
 const production = !process.env.ROLLUP_WATCH;
+const gitCommitId = execSync('git rev-parse HEAD').toString().trim();
 const hash = (name) => createHash('md5').update(`${name}-${Date.now() + Math.random()}`).digest('hex').slice(0, 8);
 
 function serve() {
@@ -106,6 +107,7 @@ export default {
 		replace({
 			preventAssignment: true,
             'process.env.PRODUCTION': production,
+			'process.env.GIT_COMMIT': JSON.stringify(gitCommitId)
         })
 	],
 	watch: {

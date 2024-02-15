@@ -1,4 +1,6 @@
 <script>
+	import DevMessage from "./DevMessage.svelte";
+
 	import { Router, Route } from "svelte-routing";
 	import { onMount } from "svelte";
 
@@ -29,6 +31,7 @@
 </script>
 
 <svelte:head>
+	<DevMessage />
 	{#if PRODUCTION_BUILD}
 	<script defer data-domain={document.location.host} src="https://plausible.joincommunity.xyz/js/script.js"></script>
 	{/if}
