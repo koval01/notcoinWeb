@@ -8,6 +8,7 @@ import livereload from 'rollup-plugin-livereload';
 import postcss from 'rollup-plugin-postcss';
 import cssnano from 'cssnano';
 import sveltePreprocess from 'svelte-preprocess';
+import { cleandir } from "rollup-plugin-cleandir";
 import { createHash } from 'crypto';
 
 const production = !process.env.ROLLUP_WATCH;
@@ -73,6 +74,7 @@ export default {
 			dedupe: ['svelte']
 		}),
 		commonjs(),
+		!production && cleandir(),
 
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated

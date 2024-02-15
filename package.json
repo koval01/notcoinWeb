@@ -14,6 +14,7 @@
     "@rollup/plugin-terser": "^0.4.4",
     "cssnano": "^6.0.3",
     "rollup": "^4.9.6",
+    "rollup-plugin-cleandir": "^2.0.0",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-svelte": "^7.1.6",
