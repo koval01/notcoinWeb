@@ -92,7 +92,7 @@ export default {
 			},
             compress: {
                 pure_getters: true,
-				drop_console: true,
+				drop_console: false,
 				arguments: true,
 				booleans_as_integers: true,
 
