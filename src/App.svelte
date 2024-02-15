@@ -1,6 +1,4 @@
 <script>
-	import DevMessage from "./DevMessage.svelte";
-
 	import { Router, Route } from "svelte-routing";
 	import { onMount } from "svelte";
 
@@ -20,7 +18,7 @@
 		NoMatch = NoMatchModule.default;
 	});
 
-	import { PRODUCTION_BUILD } from "./env.js";
+	import { PRODUCTION_BUILD, LAST_GIT_COMMIT } from "./env.js";
 
 	// block debug menu
 	window.addEventListener("contextmenu", function (e) {
@@ -31,10 +29,10 @@
 </script>
 
 <svelte:head>
-	<DevMessage />
 	{#if PRODUCTION_BUILD}
 	<script defer data-domain={document.location.host} src="https://plausible.joincommunity.xyz/js/script.js"></script>
 	{/if}
+	{@html `<!-- commit ${LAST_GIT_COMMIT} -->`}
 </svelte:head>
 
 <Router {url}>
