@@ -10,7 +10,7 @@ import sveltePreprocess from 'svelte-preprocess';
 import { createHash } from 'crypto';
 
 const production = !process.env.ROLLUP_WATCH;
-const hash = (name) => createHash('md5').update(`${name}-${Date.now() + Math.random()}`).digest('hex').slice(0, 10);
+const hash = (name) => createHash('md5').update(`${name}-${Date.now() + Math.random()}`).digest('hex').slice(0, 8);
 
 function serve() {
 	let server;
