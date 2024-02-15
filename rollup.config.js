@@ -5,7 +5,8 @@ import replace from '@rollup/plugin-replace';
 import terser from '@rollup/plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
-import css from 'rollup-plugin-css-only';
+import postcss from 'rollup-plugin-postcss';
+import cssnano from 'cssnano';
 import sveltePreprocess from 'svelte-preprocess';
 import { createHash } from 'crypto';
 
@@ -52,9 +53,13 @@ export default {
 		}),
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
-		css({ 
-			output: 'app.css',
-			minify: true
+		postcss({
+			extract: true,
+			minimize: true,
+			sourceMap: !production,
+			plugins: [
+				cssnano({ preset: "advanced" })
+			]
 		}),
 
 		// If you have external dependencies installed from
@@ -101,7 +106,7 @@ export default {
 		replace({
 			preventAssignment: true,
             'process.env.PRODUCTION': production,
-        }),
+        })
 	],
 	watch: {
 		clearScreen: false
