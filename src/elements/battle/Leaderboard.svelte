@@ -12,12 +12,8 @@
     
     let Leaderboard;
 
-    onMount(async () => {
-        const [LeaderboardModule] = await Promise.all([
-            import("../misc/leaderboard")
-        ]);
-        
-        Leaderboard = LeaderboardModule.Leaderboard;
+    onMount(async () => {        
+        Leaderboard = (await import("../misc/leaderboard")).Leaderboard;
     });
 </script>
 

@@ -15,11 +15,7 @@
     let Leaderboard;
 
     onMount(async () => {
-      const [LeaderboardModule] = await Promise.all([
-          import("./Leaderboard.svelte")
-      ]);
-
-      Leaderboard = LeaderboardModule.default;
+      Leaderboard = (await import("./Leaderboard.svelte")).default;
 
       fetchData(battleRoyaleStatUrl, battleRoyaleStat);
       interval = setInterval(() => {fetchData(battleRoyaleStatUrl, battleRoyaleStat)}, 15e3);

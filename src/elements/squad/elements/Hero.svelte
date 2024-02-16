@@ -1,9 +1,8 @@
 <script>
-  import { onMount } from "svelte";
+  import AppleButton from "../../misc/AppleButton.svelte";
+
   import { squadData} from "../../../store";
   import { getAvatarByName, handleImageError, goBack } from "../../../utils";
-
-  let AppleButton;
 
   const avatar = (d) => {
     if (d.loading) {
@@ -11,11 +10,6 @@
     }
     return d.logo ? d.logo : getAvatarByName(d.name);
   }
-
-  onMount(async () => {
-      const AppleButtonModule = await import("../../misc/AppleButton.svelte");
-      AppleButton = AppleButtonModule.default;
-  });
 </script>
 
 <div class="heroSection">

@@ -1,19 +1,14 @@
 <script>
+  import Hint from "./Hint.svelte";
+
   import { allStatUsers, allStatTeams } from "../../../store.js";
 
   import { onMount } from "svelte";
 
-  let Hint, Leaderboard;
+  let Leaderboard;
 
   onMount(async () => {
-      const [HintModule, LeaderboardModule] = await Promise.all([
-          import("./Hint.svelte"),
-          import("../../misc/leaderboard")
-      ]);
-
-      Hint = HintModule.default;
-
-      Leaderboard = LeaderboardModule.Leaderboard;
+      Leaderboard = (await import("../../misc/leaderboard")).Leaderboard;
   });
 </script>
 

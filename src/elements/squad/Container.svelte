@@ -1,11 +1,14 @@
 <script>
+    import Hero from "./elements/Hero.svelte";
+    import Mined from "./elements/Mined.svelte";
+    import Join from "./elements/Join.svelte";
+
     import { onMount, onDestroy } from "svelte";
     import { fetchAndUpdateData } from "../../api.js";
     import { squadData } from "../../store.js";
 
     export let slug;
     let interval;
-    let Hero, Mined, Join;
     const squadDataUrl = `/clicker/profile/team/slug/${slug}?count=1`;
 
     const fetchData = async (path, store) => {
@@ -13,16 +16,6 @@
     };
 
     onMount(async () => {
-        const [HeroModule, MinedModule, JoinModule] = await Promise.all([
-            import("./elements/Hero.svelte"),
-            import("./elements/Mined.svelte"),
-            import("./elements/Join.svelte")
-        ]);
-
-        Hero = HeroModule.default;
-        Mined = MinedModule.default;
-        Join = JoinModule.default;
-
         fetchData(squadDataUrl, squadData);
         interval = setInterval(() => {fetchData(squadDataUrl, squadData)}, 15e3);
     });

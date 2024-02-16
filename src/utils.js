@@ -19,21 +19,18 @@ export const preloadImage = (url) => {
 }
 
 export const getAvatarThumb = () => {
-    return `https://api.dicebear.com/7.x/thumbs/svg?seed=${getRandomRange(
-        1,
-        1e2,
-    )}`;
+    return `https://api.dicebear.com/7.x/thumbs/svg?seed=${ getRandomRange(1, 1e2) }`;
 }
 
 export const getAvatarByName = (name) => {
-    return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=000&color=fff`;
+    return `https://ui-avatars.com/api/?name=${ encodeURIComponent(name) }&background=000&color=fff`;
 }
 
 export const animateValue = (() => {
     const lastValues = new WeakMap();
     const currentlyAnimating = new WeakSet();
 
-    return async (obj, end, duration) => {
+    return async (obj, end, duration, steps = 1) => {
         if (!obj) return;
         if (currentlyAnimating.has(obj)) return;
 
@@ -44,19 +41,21 @@ export const animateValue = (() => {
 
         await new Promise(resolve => {
             const easing = BezierEasing(0, 0, .1, 1);
+            const totalSteps = Math.ceil(duration / (1000 / 50) / steps);
 
-            const step = (timestamp) => {
+            const step = (timestamp, stepCount = 0) => {
                 if (!startTimestamp) startTimestamp = timestamp;
-                const elapsed = timestamp - startTimestamp;
-                const progress = Math.min(elapsed / duration, 1);
-                const currentValue = Math.floor(easing(progress) * (end - start) + start); // Applying the easing function
+
+                const progress = Math.min(stepCount / totalSteps, 1);
+                const currentValue = Math.floor(easing(progress) * (end - start) + start);
+
                 obj.innerHTML = currentValue.toLocaleString();
-                if (elapsed < duration) {
-                    window.requestAnimationFrame(step);
+                if (stepCount < totalSteps) {
+                    window.requestAnimationFrame((timestamp) => step(timestamp, stepCount + 1));
                 } else {
                     lastValues.set(obj, currentValue);
                     currentlyAnimating.delete(obj);
-                    resolve(); // Resolve the promise when animation is complete
+                    resolve();
                 }
             };
 
@@ -84,13 +83,13 @@ export const generateStars = (count=4) => {
                   ];
         starsLeft.push({
             size,
-            top: `${randPos(8)}rem`,
-            left: `${randPos()}rem`,
+            top: `${ randPos(8) }rem`,
+            left: `${ randPos() }rem`,
         });
         starsRight.push({
             size,
-            top: `${randPos(8)}rem`,
-            right: `${randPos()}rem`,
+            top: `${ randPos(8) }rem`,
+            right: `${ randPos() }rem`,
         });
     }
 
@@ -101,7 +100,7 @@ export const limitStringLength = (string, maxLength) => {
     if (string.length <= maxLength) {
         return string;
     }
-    return `${string.slice(0, maxLength-3)}...`;
+    return `${ string.slice(0, maxLength-3) }...`;
 }
 
 export const teamLink = (slug) => {
@@ -110,7 +109,7 @@ export const teamLink = (slug) => {
 
 export const goTeam = (slug) => {
     if (!slug) return;
-    window.open(`/squad/${slug}`, "_self");
+    window.open(`/squad/${ slug }`, "_self");
 }
 
 export const goHome = () => {

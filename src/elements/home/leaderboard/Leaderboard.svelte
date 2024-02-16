@@ -5,22 +5,20 @@
 
     let isDesktop = false;
 
-    const checkScreenWidth = () => {
+    const checkScreenWidth = async () => {
         isDesktop = window.innerWidth >= 890;
+
+        if (isDesktop && !Desktop) {
+            Desktop = (await import("./Desktop.svelte")).default; // Dynamically import Desktop component
+            return;
+        }
+        if (!Mobile) Mobile = (await import("./Mobile.svelte")).default;
     }
 
     window.addEventListener('resize', checkScreenWidth);
 
     onMount(async () => {
         checkScreenWidth();
-
-        const [DesktopModule, MobileModule] = await Promise.all([
-            import("./Desktop.svelte"),
-            import("./Mobile.svelte")
-        ]);
-
-        Desktop = DesktopModule.default;
-        Mobile = MobileModule.default;
     });
 </script>
 
