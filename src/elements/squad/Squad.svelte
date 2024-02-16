@@ -7,7 +7,7 @@
 
 <main class="wrapper">
     <div class="container">
-        <svelte:component this={Stars} count={12} />
+        <svelte:component this={Stars} count={6} />
         <svelte:component this={Container} slug={slug} />
     </div>
 </main>

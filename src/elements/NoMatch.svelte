@@ -8,7 +8,7 @@
 
 <div class="content">
     <div>
-        <svelte:component this={Stars} count={12} />
+        <svelte:component this={Stars} count={6} />
         <div>
             <div class="logo"></div>
         </div>
