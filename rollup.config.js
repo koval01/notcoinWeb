@@ -61,7 +61,7 @@ export default {
 			minimize: true,
 			sourceMap: !production,
 			plugins: [
-				cssnano({ preset: "advanced" })
+				cssnano({ preset: ["advanced", { zindex: false }] })
 			]
 		}),
 

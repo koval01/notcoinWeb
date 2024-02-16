@@ -46,42 +46,35 @@
 
     *
       position: absolute
-      z-index: 1
   
   img
     &.flame1
       width: 20px
-      height: 20px
       top: -2.2rem
       left: 1.5rem
   
     &.flame2
       width: 40px
-      height: 40px
       top: -1.5rem
       left: -2rem
   
     &.flame3
       width: 26px
-      height: 26px
       top: -2.3rem
       left: 20rem
   
     &.flame4
       width: 38px
-      height: 38px
       top: -1.5rem
       left: 23rem
   
     &.flame5
       width: 42px
-      height: 42px
       top: 5rem
       left: 22rem
   
     &.flame6
       width: 32px
-      height: 32px
       top: 3rem
       left: 26rem
 

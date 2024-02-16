@@ -41,7 +41,7 @@ export const animateValue = (() => {
 
         await new Promise(resolve => {
             const easing = BezierEasing(0, 0, .1, 1);
-            const totalSteps = Math.ceil(duration / (1000 / 50) / steps);
+            const totalSteps = Math.ceil(duration / (1000 / 20) / steps);
 
             const step = (timestamp, stepCount = 0) => {
                 if (!startTimestamp) startTimestamp = timestamp;
@@ -49,11 +49,14 @@ export const animateValue = (() => {
                 const progress = Math.min(stepCount / totalSteps, 1);
                 const currentValue = Math.floor(easing(progress) * (end - start) + start);
 
-                obj.innerHTML = currentValue.toLocaleString();
+                if (currentValue !== lastValues.get(obj)) {
+                    obj.innerHTML = currentValue.toLocaleString();
+                    lastValues.set(obj, currentValue);
+                }
+
                 if (stepCount < totalSteps) {
                     window.requestAnimationFrame((timestamp) => step(timestamp, stepCount + 1));
                 } else {
-                    lastValues.set(obj, currentValue);
                     currentlyAnimating.delete(obj);
                     resolve();
                 }
@@ -133,5 +136,5 @@ export const getName = (d) => {
 export const getAvatar = (d) => {
     if (d.logo) return d.logo;
     if (d.avatar) return d.avatar;
-    return  getAvatarByName(getName(d))
+    return getAvatarByName(getName(d))
 }

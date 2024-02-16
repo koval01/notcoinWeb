@@ -63,19 +63,19 @@
     gap: 1rem
     margin-bottom: 1rem
   
-    > .container
-      position: relative
-      display: flex
-      padding: 1rem
-      align-items: center
-      gap: 1.5rem
-      border-width: 2px
-      border-color: #ffffff1a
-      border-radius: 1rem
-      border-style: solid
-      -webkit-backdrop-filter: blur(5px)
-      backdrop-filter: blur(5px)
-      z-index: 20
+  .container
+    position: relative
+    display: flex
+    padding: 1rem
+    align-items: center
+    gap: 1.5rem
+    border-width: 2px
+    border-color: #ffffff1a
+    border-radius: 1rem
+    border-style: solid
+    -webkit-backdrop-filter: blur(3px)
+    backdrop-filter: blur(3px)
+    z-index: 2
   
   div
     &.meme

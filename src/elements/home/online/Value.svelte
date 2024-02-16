@@ -15,35 +15,35 @@
 </span>
 
 <style lang="sass">
+    .skeleton
+      height: 1.3rem
+
     span
       &.value
         font-variant-numeric: lining-nums tabular-nums
         margin-left: 12px
 
-      &.value > .skeleton
-        height: 1.3rem
-
-      &.value.totalPlayers > .skeleton
+      &.totalPlayers > .skeleton
         width: 130px
 
-      &.value.onlineToday > .skeleton
+      &.onlineToday > .skeleton
         width: 110px
 
-      &.value.onlineNow > .skeleton
+      &.onlineNow > .skeleton
         width: 90px
 
     @media (min-width: 768px)
-      span
-        &.value > .skeleton
-          height: 2rem
+      .skeleton
+        height: 2rem
 
-        &.value.totalPlayers > .skeleton
+      span
+        &.totalPlayers > .skeleton
           width: 160px
 
-        &.value.onlineToday > .skeleton
+        &.onlineToday > .skeleton
           width: 140px
 
-        &.value.onlineNow > .skeleton
+        &.onlineNow > .skeleton
           width: 110px
 
 </style>

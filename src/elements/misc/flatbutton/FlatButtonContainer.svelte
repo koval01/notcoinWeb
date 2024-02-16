@@ -20,8 +20,8 @@
     border-radius: 14px
     background: #ffffff1f
     z-index: 30
-    -webkit-backdrop-filter: blur(5px)
-    backdrop-filter: blur(5px)
+    -webkit-backdrop-filter: blur(3px)
+    backdrop-filter: blur(3px)
 
   .solidRoot .activeBar
     position: absolute

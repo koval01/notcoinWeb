@@ -28,24 +28,20 @@
 
     *
       position: absolute
-      z-index: 1
 
   img
     &.penny1
       width: 44px
-      height: 44px
       top: -1.5rem
       left: 25rem
   
     &.penny2
       width: 22px
-      height: 22px
       top: 4rem
       left: 27rem
   
     &.penny3
       width: 27px
-      height: 27px
       top: 6rem
       left: 24rem
 

@@ -23,8 +23,8 @@
   .leaderboard
     border-radius: 20px
     background: rgba(255, 255, 255, 0.12)
-    backdrop-filter: blur(24px)
-    -webkit-backdrop-filter: blur(24px)
+    backdrop-filter: blur(12px)
+    -webkit-backdrop-filter: blur(12px)
 
   .listInner
     padding: 12px 12px 16px

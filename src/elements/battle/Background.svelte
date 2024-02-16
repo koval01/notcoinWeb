@@ -29,8 +29,8 @@
     background-position: center top
     background-repeat: no-repeat
     transition: opacity .35s ease
-    filter: blur(5px)
-    -webkit-filter: blur(5px)
+    filter: blur(3px)
+    -webkit-filter: blur(3px)
 
   .shadow
     opacity: 0

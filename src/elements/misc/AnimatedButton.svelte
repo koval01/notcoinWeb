@@ -20,7 +20,7 @@
       border-radius: 1rem
       background: rgba(0, 0, 0, 0)
       border: 2px solid #f90
-      backdrop-filter: blur(5px)
+      backdrop-filter: blur(3px)
       font-weight: 600
       padding: .75rem 1.5rem
       font-size: 1rem
