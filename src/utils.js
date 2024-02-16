@@ -76,7 +76,7 @@ export const generateStars = (count=4) => {
 
     for (let i = 0; i < count; i++) {
         const size =
-            Math.random() < .9
+            Math.random() < .8
                 ? "small"
                 : ["medium", "large", "xlarge"][
                       Math.floor(Math.random() * 3)

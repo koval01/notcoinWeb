@@ -54,7 +54,7 @@
 <div class="wrapper">
     <div class="container">
         <div>
-            <svelte:component this={Stars} count={12} />
+            <svelte:component this={Stars} count={6} />
 
             <svelte:component this={Hero} />
             <svelte:component this={Balance} />

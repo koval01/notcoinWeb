@@ -18,7 +18,7 @@
 </script>
 
 <div class="pageInner">
-    <svelte:component this={Stars} count={18} />
+    <svelte:component this={Stars} count={10} />
     <div class="intro align-center direction-column">
         <svelte:component this={Crown} />
         <svelte:component this={Hero} />
