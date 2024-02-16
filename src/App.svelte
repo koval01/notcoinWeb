@@ -1,10 +1,6 @@
 <script>
-	import Home from "./routes/Home.svelte";
-	import Battle from "./routes/Battle.svelte";
-	import Squad from "./routes/Squad.svelte";
-	import NoMatch from "./routes/NoMatch.svelte";
-
 	import { Router, Route } from "svelte-routing";
+	import { onMount } from "svelte";
 
 	import { PRODUCTION_BUILD, LAST_GIT_COMMIT } from "./env.js";
 
@@ -12,6 +8,23 @@
 	window.addEventListener("contextmenu", function (e) {
 		PRODUCTION_BUILD ? e.preventDefault() : void 0;
 	});
+
+	let Home, Battle, Squad, NoMatch;
+
+	onMount(async () => {
+		const path = window.location.pathname;
+
+        if (path === "/") {
+            Home = (await import("./routes/Home.svelte")).default;
+        }
+		else if (path === "/battle") {
+			Battle = (await import("./routes/Battle.svelte")).default;
+		}
+		else if (/^\/squad\/[^\/]+\/*?$/.test(path)) {
+			Squad = (await import("./routes/Squad.svelte")).default;
+		}
+        else NoMatch = (await import("./routes/NoMatch.svelte")).default;
+    });
 
 	export let url = "";
 </script>
