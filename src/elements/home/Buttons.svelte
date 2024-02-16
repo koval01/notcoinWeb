@@ -36,7 +36,7 @@
   .battle-text
     display: none
 
-  div.headButtons
+  .headButtons
     margin-bottom: 3.5rem
     display: flex
     justify-content: center
@@ -59,7 +59,7 @@
       height: 3rem
       transform: rotate(355deg)
 
-    div.headButtons
+    .headButtons
       margin-bottom: 8rem
       gap: 8rem
 

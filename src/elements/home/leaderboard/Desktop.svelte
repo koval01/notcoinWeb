@@ -35,7 +35,7 @@
     display: flex
     gap: 1rem
 
-    > .list
-      width: calc(50% - .5rem)
+  .list
+    width: calc(50% - .5rem)
 
 </style>

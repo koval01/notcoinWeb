@@ -22,7 +22,7 @@
     font-size: 15px
     flex-shrink: 0
 
-    > .medal
-      font-size: 28px
+  .medal
+    font-size: 28px
 
 </style>

@@ -52,8 +52,8 @@
     max-width: 100%
     text-wrap: nowrap
 
-    > .skeleton
-      width: 16rem
+  .skeleton
+    width: 16rem
 
   .avatar
     background-color: #fff
@@ -73,8 +73,8 @@
     .heroTitle
       font-size: 3.75rem
 
-      > .skeleton
-        width: 30rem
+    .skeleton
+      width: 30rem
 
     .avatar > img
       height: 11rem

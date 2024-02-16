@@ -67,14 +67,14 @@
 </div>
 
 <style lang="sass">
-  div.totalSection
+  .totalSection
     display: grid
     grid-template-rows: repeat(2, minmax(0, 1fr))
     grid-template-columns: none
     gap: 1rem
     margin-bottom: 1rem
   
-    > div.container
+    > .container
       position: relative
       display: flex
       padding: 1rem
@@ -90,7 +90,7 @@
   
   div
     &.meme
-      > img.memeImg
+      > .memeImg
         width: auto
         max-width: 57px
   
@@ -149,7 +149,7 @@
           padding: 4px
           border-radius: 10px
   
-        > img.memeImg
+        > .memeImg
           &.issued
             content: url(/images/memes/doge.webp)
 
@@ -183,7 +183,7 @@
             height: 23px
             width: 200px
   
-      &.meme > img.memeImg
+      &.meme > .memeImg
         width: auto
         max-width: 64px
   

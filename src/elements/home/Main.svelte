@@ -71,17 +71,17 @@
 </div>
 
 <style lang="sass">
-  div.wrapper
+  .wrapper
     position: relative
     min-height: 100vh
   
-    > div.container
-      margin: 0 auto
-      max-width: 1040px
-      padding: 0 1rem
-  
-      > div
-        padding-bottom: 4rem
-        width: 100%
+  .container
+    margin: 0 auto
+    max-width: 1040px
+    padding: 0 1rem
+
+    > div
+      padding-bottom: 4rem
+      width: 100%
   
 </style>

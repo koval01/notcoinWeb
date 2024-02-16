@@ -22,25 +22,25 @@
     padding-bottom: 12px
     margin-bottom: .8rem
 
-    > .thNumber
-      display: flex
-      align-items: center
-      justify-content: center
-      margin-top: 16px
-      margin-bottom: 3px
-      padding-left: 1rem
-      color: #ebebf599
-      font-weight: 600
+  .thNumber
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-top: 16px
+    margin-bottom: 3px
+    padding-left: 1rem
+    color: #ebebf599
+    font-weight: 600
     
-    > .thTitle
-      color: #ebebf599
-      font-weight: 600
-      letter-spacing: 4px
-      font-size: 12px
-      display: flex
-      margin-top: 16px
-      margin-bottom: 3px
-      align-items: center
-      text-transform: uppercase
+  .thTitle
+    color: #ebebf599
+    font-weight: 600
+    letter-spacing: 4px
+    font-size: 12px
+    display: flex
+    margin-top: 16px
+    margin-bottom: 3px
+    align-items: center
+    text-transform: uppercase
       
 </style>

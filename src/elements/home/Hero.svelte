@@ -12,11 +12,11 @@
     align-items: center
     margin-top: 10rem
   
-  h1.heroTitle
+  .heroTitle
     font-weight: 800
     font-size: 2.5rem
   
-  h2.heroSubtitle
+  .heroSubtitle
     font-size: 1rem
     color: #ebebf599
   
@@ -26,10 +26,10 @@
       margin-bottom: 4rem
       margin-top: 12rem
   
-    h1.heroTitle
+    .heroTitle
       font-size: 3.75rem
   
-    h2.heroSubtitle
+    .heroSubtitle
       font-size: 1.25rem
   
 </style>

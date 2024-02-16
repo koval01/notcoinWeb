@@ -11,14 +11,14 @@
 {/if}
 
 <style lang="sass">
-    .root
-      display: inline-block
-      margin: 0
-      vertical-align: top
-      font-size: 22px
+  .root
+    display: inline-block
+    margin: 0
+    vertical-align: top
+    font-size: 22px
 
-    .chevron
-      margin-left: auto
-      min-width: 7px
+  .chevron
+    margin-left: auto
+    min-width: 7px
 
 </style>

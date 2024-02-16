@@ -17,10 +17,10 @@
     margin-right: 12px
     border-radius: 48px
   
-    > img
-      min-width: 48px
-      width: 48px
-      height: 48px
-      border-radius: 48px
+  img
+    min-width: 48px
+    width: 48px
+    height: 48px
+    border-radius: 48px
       
 </style>

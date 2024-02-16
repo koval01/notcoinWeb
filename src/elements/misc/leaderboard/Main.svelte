@@ -33,8 +33,8 @@
     backdrop-filter: blur(24px)
     -webkit-backdrop-filter: blur(24px)
 
-    > .listInner
-      padding: 12px 12px 16px
+  .listInner
+    padding: 12px 12px 16px
 
   .willChange
     will-change: opacity

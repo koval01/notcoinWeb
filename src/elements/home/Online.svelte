@@ -77,10 +77,10 @@
     margin-bottom: 1.5rem
     justify-content: center
   
-    > div.online
-      font-size: 1rem
+  .online
+    font-size: 1rem
   
-  div.onlineRow
+  .onlineRow
     display: flex
     align-items: center
     margin-bottom: 12px
@@ -90,7 +90,7 @@
       gap: .75rem
       margin-bottom: 2rem
   
-      > div.online
-        font-size: 1.25rem
+    .online
+      font-size: 1.25rem
 
 </style>

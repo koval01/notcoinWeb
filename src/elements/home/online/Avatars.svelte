@@ -25,13 +25,13 @@
 </div>
 
 <style lang="sass">
-    div.avatars
+    .avatars
       display: flex
       padding-right: .75rem
       min-width: 72px
 
     @media (min-width: 768px)
-      div.avatars
+      .avatars
         min-width: 96px
 
 </style>
