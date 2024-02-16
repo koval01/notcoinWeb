@@ -1,22 +1,10 @@
 <script>
+	import Home from "./routes/Home.svelte";
+	import Battle from "./routes/Battle.svelte";
+	import Squad from "./routes/Squad.svelte";
+	import NoMatch from "./routes/NoMatch.svelte";
+
 	import { Router, Route } from "svelte-routing";
-	import { onMount } from "svelte";
-
-    let Home, Battle, Squad, NoMatch;
-
-    onMount(async () => {
-		const [HomeModule, BattleModule, SquadModule, NoMatchModule] = await Promise.all([
-			import("./routes/Home.svelte"),
-			import("./routes/Battle.svelte"),
-			import("./routes/Squad.svelte"),
-			import("./routes/NoMatch.svelte")
-		]);
-
-		Home = HomeModule.default;
-		Battle = BattleModule.default;
-		Squad = SquadModule.default;
-		NoMatch = NoMatchModule.default;
-	});
 
 	import { PRODUCTION_BUILD, LAST_GIT_COMMIT } from "./env.js";
 

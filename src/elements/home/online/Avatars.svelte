@@ -1,13 +1,7 @@
 <script>
-    import { getAvatarThumb } from "../../../utils.js";
-    import { onMount } from "svelte";
-    
-    let Avatar;
+    import Avatar from "./Avatar.svelte";
 
-    onMount(async () => {
-        const AvatarModule = await import("./Avatar.svelte");
-        Avatar = AvatarModule.default;
-    });
+    import { getAvatarThumb } from "../../../utils.js";
 
     export let users, preloadImgState;
 </script>

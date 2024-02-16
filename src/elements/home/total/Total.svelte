@@ -1,20 +1,9 @@
 <script>
+    import Flame from "./Flame.svelte";
+    import Penny from "./Penny.svelte";
+
     import { stat } from "../../../store.js";
     import { animateValue } from "../../../utils.js";
-
-    import { onMount } from "svelte";
-
-    let Flame, Penny;
-
-    onMount(async () => {
-        const [FlameModule, PennyModule] = await Promise.all([
-            import("./Flame.svelte"),
-            import("./Penny.svelte")
-        ]);
-
-        Flame = FlameModule.default;
-        Penny = PennyModule.default;
-    });
 
     let objIssued, objBurned;
 </script>

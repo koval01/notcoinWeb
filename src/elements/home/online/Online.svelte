@@ -1,21 +1,10 @@
 <script>
-    import { stat, allStatUsers } from "../../store.js";
-    import { getRandomElements, preloadImage } from "../../utils.js";
-    import { onMount } from "svelte";
-    
-    let Avatars, Value, Label;
+    import Avatars from "./Avatars.svelte";
+    import Value from "./Value.svelte";
+    import Label from "./Label.svelte";
 
-    onMount(async () => {
-        const [AvatarsModule, ValueModule, LabelModule] = await Promise.all([
-            import("./online/Avatars.svelte"),
-            import("./online/Value.svelte"),
-            import("./online/Label.svelte")
-        ]);
-
-        Avatars = AvatarsModule.default;
-        Value = ValueModule.default;
-        Label = LabelModule.default;
-    });
+    import { stat, allStatUsers } from "../../../store.js";
+    import { getRandomElements, preloadImage } from "../../../utils.js";
 
     let usersTotal = [];
     let usersOnlineToday = [];

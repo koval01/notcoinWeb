@@ -1,18 +1,8 @@
 <script>
-    import { onMount } from 'svelte';
+    import Stars from '../misc/Stars.svelte';
+    import Container from './Container.svelte';
 
-    let Stars, Container;
     export let slug;
-
-    onMount(async () => {
-        const [StarsModule, ContainerModule] = await Promise.all([
-            import("../misc/Stars.svelte"),
-            import("./Container.svelte")
-        ]);
-
-        Stars = StarsModule.default;
-        Container = ContainerModule.default;
-    });
 </script>
 
 <main class="wrapper">

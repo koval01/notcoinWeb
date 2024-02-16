@@ -1,12 +1,5 @@
 <script>
-    import { onMount } from "svelte";
-
-    let NoMatch;
-
-    onMount(async () => {
-        const NoMatchModule = await import("../elements/NoMatch.svelte");
-        NoMatch = NoMatchModule.default;
-    });
+    import NoMatch from "../elements/NoMatch.svelte";
 </script>
 
 <!-- NoMatch -->

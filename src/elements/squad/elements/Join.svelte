@@ -1,8 +1,7 @@
 <script>
-    import { onMount } from "svelte";
-    import { squadData} from "../../../store";
+    import NotButton from "../../misc/NotButton.svelte";
 
-    let NotButton;
+    import { squadData} from "../../../store";
 
     let squadId = 0;
     const joinSquad = () => {
@@ -12,11 +11,6 @@
     $: {
       squadId = $squadData.id;
     }
-
-    onMount(async () => {
-        const { default: NotButtonModule } = await import("../../misc/NotButton.svelte");
-        NotButton = NotButtonModule;
-    });
 </script>
 
 <div class="joinSection">

@@ -1,17 +1,6 @@
 <script>
-    import { onMount } from "svelte";
-
-    let CoinButton, CrownButton;
-
-    onMount(async () => {
-        const [CoinButtonModule, CrownButtonModule] = await Promise.all([
-            import("../misc/CoinButton.svelte"),
-            import("../misc/CrownButton.svelte")
-        ]);
-
-        CoinButton = CoinButtonModule.default;
-        CrownButton = CrownButtonModule.default;
-    });
+    import CoinButton from "../misc/CoinButton.svelte";
+    import CrownButton from "../misc/CrownButton.svelte";
 
     const handleTap = () => {
         window.open("https://t.me/notcoin_bot/click", "_blank");

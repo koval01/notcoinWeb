@@ -1,30 +1,11 @@
 <script>
+    import Chevron from "./elements/Chevron.svelte";
+    import Prefix from "./elements/Prefix.svelte";
+    import Avatar from "./elements/Avatar.svelte";
+    import Content from "./elements/Content.svelte";
+    import Skeleton from "./elements/Skeleton.svelte";
+
     import { goTeam } from "../../../utils.js";
-    import { onMount } from "svelte";
-
-    let Chevron, Prefix, Avatar, Content, Skeleton;
-
-    onMount(async () => {
-        const [
-            ChevronModule,
-            PrefixModule,
-            AvatarModule,
-            ContentModule,
-            SkeletonModule
-        ] = await Promise.all([
-            import("./elements/Chevron.svelte"),
-            import("./elements/Prefix.svelte"),
-            import("./elements/Avatar.svelte"),
-            import("./elements/Content.svelte"),
-            import("./elements/Skeleton.svelte")
-        ]);
-
-        Chevron = ChevronModule.default;
-        Prefix = PrefixModule.default;
-        Avatar = AvatarModule.default;
-        Content = ContentModule.default;
-        Skeleton = SkeletonModule.default;
-    });
 
     let List = [];
     let objValue = [];

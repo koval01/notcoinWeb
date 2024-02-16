@@ -3,16 +3,6 @@
 
     let Desktop, Mobile;
 
-    onMount(async () => {
-        const [DesktopModule, MobileModule] = await Promise.all([
-            import("./Desktop.svelte"),
-            import("./Mobile.svelte")
-        ]);
-
-        Desktop = DesktopModule.default;
-        Mobile = MobileModule.default;
-    });
-
     let isDesktop = false;
 
     const checkScreenWidth = () => {
@@ -23,6 +13,14 @@
 
     onMount(async () => {
         checkScreenWidth();
+
+        const [DesktopModule, MobileModule] = await Promise.all([
+            import("./Desktop.svelte"),
+            import("./Mobile.svelte")
+        ]);
+
+        Desktop = DesktopModule.default;
+        Mobile = MobileModule.default;
     });
 </script>
 

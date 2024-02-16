@@ -1,4 +1,9 @@
 <script>
+    import Stars from "../misc/Stars.svelte";
+    import Hero from "./Hero.svelte";
+    import Balance from "./Balance.svelte";
+    import Buttons from "./Buttons.svelte";
+
     import { onMount, onDestroy } from "svelte";
     import { fetchAndUpdateData } from "../../api.js";
     import { stat, allStatUsers, allStatTeams } from "../../store.js";
@@ -16,26 +21,18 @@
 
     let intervals = [];
 
-    let Stars, Hero, Balance, Online, Buttons, Total, Leaderboard;
+    let Online, Total, Leaderboard;
 
     onMount(async () => {
-        const [StarsModule, HeroModule, BalanceModule, OnlineModule, ButtonsModule, TotalModule, LeaderboardModule] = await Promise.all([
-            import("../misc/Stars.svelte"),
-            import("./Hero.svelte"),
-            import("./Balance.svelte"),
-            import("./Online.svelte"),
-            import("./Buttons.svelte"),
-            import("./total/Main.svelte"),
-            import("./leaderboard/Main.svelte")
+        const [OnlineModule, TotalModule, LeaderboardModule] = await Promise.all([
+            import("./online"),
+            import("./total"),
+            import("./leaderboard")
         ]);
 
-        Stars = StarsModule.default;
-        Hero = HeroModule.default;
-        Balance = BalanceModule.default;
-        Online = OnlineModule.default;
-        Buttons = ButtonsModule.default;
-        Total = TotalModule.default;
-        Leaderboard = LeaderboardModule.default;
+        Online = OnlineModule.Online;
+        Total = TotalModule.Total;
+        Leaderboard = LeaderboardModule.Leaderboard;
 
         intervals = [
             { path: paths.stat, store: stat },

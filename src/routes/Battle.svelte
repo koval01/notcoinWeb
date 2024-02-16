@@ -1,15 +1,5 @@
 <script>
-    import { onMount } from "svelte";
-
-    let Battle;
-
-    onMount(async () => {
-        const [BattleModule] = await Promise.all([
-            import("../elements/battle/Main.svelte")
-        ]);
-
-        Battle = BattleModule.default;
-    });
+    import { Battle } from "../elements/battle";
 </script>
 
 <!-- Battle -->

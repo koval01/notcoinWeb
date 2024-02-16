@@ -1,20 +1,9 @@
 <script>
-    import { onMount } from "svelte";
+    import Stars from "./misc/Stars.svelte";
+    import AppleButton from "../elements/misc/AppleButton.svelte";
+    import Footer from "./Footer.svelte";
+
     import { goHome, goBack } from "../utils";
-
-    let Stars, AppleButton, Footer;
-
-    onMount(async () => {
-        const [StarsModule, AppleButtonModule, FooterModule] = await Promise.all([
-            import("./misc/Stars.svelte"),
-            import("../elements/misc/AppleButton.svelte"),
-            import("./Footer.svelte")
-        ]);
-
-        Stars = StarsModule.default;
-        AppleButton = AppleButtonModule.default;
-        Footer = FooterModule.default;
-    });
 </script>
 
 <div class="content">

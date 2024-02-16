@@ -1,20 +1,8 @@
 <script>
+    import { FlatButtonContainer, FlatButton } from "../../misc/flatbutton";
+    import { Leaderboard } from "../../misc/leaderboard";
+
     import { allStatUsers, allStatTeams } from "../../../store.js";
-    import { onMount } from "svelte";
-
-    let FlatButtonContainer, FlatButton, Leaderboard;
-
-    onMount(async () => {
-        const [FlatButtonContainerModule, FlatButtonModule, LeaderboardModule] = await Promise.all([
-            import("../../misc/flatbutton"),
-            import("../../misc/flatbutton"),
-            import("../../misc/leaderboard")
-        ]);
-
-        FlatButtonContainer = FlatButtonContainerModule.FlatButtonContainer;
-        FlatButton = FlatButtonModule.FlatButton;
-        Leaderboard = LeaderboardModule.Leaderboard;
-    });
 
     let teamsDisplay = false;
 

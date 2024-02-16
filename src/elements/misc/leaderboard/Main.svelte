@@ -1,12 +1,5 @@
 <script>
-    import { onMount } from "svelte";
-
-    let List;
-
-    onMount(async () => {
-        const ListModule = await import("./List.svelte");
-        List = ListModule.default;
-    });
+    import List from "./List.svelte";
 
     export let StoreObject, teamsDisplay;
 </script>
