@@ -63,33 +63,29 @@ span
       perspective: 400px
       padding-bottom: 3rem
 
-      .logo
-        width: 240px
-        height: 240px
-        border-radius: 50%
-        background-image: url(/images/coin.webp)
-        background-size: cover
-        transform-origin: center
-        will-change: transform
-        transition: transform .1s ease-out
-        animation: tapAnimation .6s ease infinite
-        cursor: pointer
+.logo
+  width: 240px
+  height: 240px
+  border-radius: 50%
+  background-image: url(/images/coin.webp)
+  background-size: cover
+  transform-origin: center
+  will-change: transform
+  transition: transform .1s ease-out
+  animation: tapAnimation .6s ease infinite
+  cursor: pointer
 
 @media (min-width: 768px)
-  .content > div 
-    > p span
-      font-size: 1.2rem
-    
-    > div
-      .logo
-        width: 300px
-        height: 300px
+  p span
+    font-size: 1.2rem
+
+  .logo
+    width: 300px
+    height: 300px
 
 @media (max-height: 640px)
-  .content > div
-    > div
-      .logo
-        width: 200px
-        height: 200px
+  .logo
+    width: 200px
+    height: 200px
   
 </style>
