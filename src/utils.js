@@ -30,19 +30,21 @@ export const animateValue = (() => {
     const lastValues = new WeakMap();
     const currentlyAnimating = new WeakSet();
 
-    return async (obj, end, duration = 15e2, steps = 1) => {
-        if (!obj) return;
-        if (currentlyAnimating.has(obj)) return;
-
-        const start = lastValues.get(obj) || 0;
-        if (start === end) return;
+    return async (obj, end, duration = 12e2, steps = 1) => {
+        if (!obj || currentlyAnimating.has(obj) || lastValues.get(obj) === end) return;
 
         currentlyAnimating.add(obj);
+        const start = lastValues.get(obj) || 0;
+        const easing = BezierEasing(0, 0, .1, 1);
+        const totalSteps = Math.ceil(duration / (1000 / 25) / steps);
 
+        const updateValue = (currentValue) => {
+            obj.innerHTML = currentValue.toLocaleString();
+            lastValues.set(obj, currentValue);
+        };
+
+        let startTimestamp = performance.now();
         await new Promise(resolve => {
-            const easing = BezierEasing(0, 0, .1, 1);
-            const totalSteps = Math.ceil(duration / (1000 / 16) / steps);
-
             const step = (timestamp, stepCount = 0) => {
                 if (!startTimestamp) startTimestamp = timestamp;
 
@@ -50,8 +52,7 @@ export const animateValue = (() => {
                 const currentValue = Math.floor(easing(progress) * (end - start) + start);
 
                 if (currentValue !== lastValues.get(obj)) {
-                    obj.innerHTML = currentValue.toLocaleString();
-                    lastValues.set(obj, currentValue);
+                    updateValue(currentValue);
                 }
 
                 if (stepCount < totalSteps) {
@@ -62,8 +63,7 @@ export const animateValue = (() => {
                 }
             };
 
-            let startTimestamp = performance.now();
-            window.requestAnimationFrame(step);
+            step(startTimestamp);
         });
     };
 })();
