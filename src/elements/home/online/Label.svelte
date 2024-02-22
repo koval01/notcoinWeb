@@ -7,8 +7,7 @@
 </span>
 
 <style lang="sass">
-    span
-      &.label
+    .label
         margin-left: 6px
         color: #ebebf599
 

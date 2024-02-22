@@ -54,10 +54,10 @@
     padding: .5rem
     border-radius: 1.25rem
 
-    > img
-      border-radius: 1rem
-      height: 7.5rem
-      width: 7.5rem
+  img
+    border-radius: 1rem
+    height: 7.5rem
+    width: 7.5rem
 
   @media (min-width: 768px)
     .heroSection
@@ -70,7 +70,7 @@
     .skeleton
       width: 30rem
 
-    .avatar > img
+    img
       height: 11rem
       width: 11rem
 

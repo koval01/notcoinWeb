@@ -19,7 +19,7 @@
         <Hero />
         <AppleButton onClick={goHome}>Home</AppleButton>
 
-        <div class="padding-16-0 direction-column w-100 w-limit">
+        <div class="lead direction-column">
             <Leaderboard StoreObject={$battleRoyaleStat.list} teamsDisplay={true} />
         </div>
 
@@ -28,10 +28,8 @@
 </div>
 
 <style lang="sass">
-  .w-100
+  .lead
     width: 100%
-
-  .padding-16-0
     padding: 16px 0
 
   .direction-column
@@ -46,16 +44,10 @@
     margin-top: 88px
     height: 241px
     padding: 0
-
-  .align-center
     align-items: center
 
-  .direction-column
-    display: flex
-    flex-direction: column
-
   @media (min-width: 768px)
-    .w-limit
+    .lead
       max-width: 640px
 
 </style>

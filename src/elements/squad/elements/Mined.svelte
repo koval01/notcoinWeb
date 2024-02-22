@@ -22,53 +22,53 @@
 </div>
 
 <style lang="sass">
-.minedSection
-  display: flex
-  flex-direction: column
-  gap: 0.5rem
-  align-items: center
-  margin-bottom: 1.5rem
+  .minedSection
+    display: flex
+    flex-direction: column
+    gap: 0.5rem
+    align-items: center
+    margin-bottom: 1.5rem
 
-.minedTitle
-  color: #ffffff80
-  letter-spacing: 0.25rem
-  font-size: 0.75rem
-  text-transform: uppercase
-
-.container
-  display: flex
-  gap: 0.5rem
-  align-items: center
-
-.coin
-  content: url(/images/coin-mobile.webp)
-  width: 2.5rem
-  height: 2.5rem
-
-.value
-  font-size: 2rem
-  font-weight: 800
-  font-variant-numeric: lining-nums tabular-nums
-
-.skeleton
-  width: 12rem
-
-@media (min-width: 768px)
   .minedTitle
-    font-size: 1rem
+    color: #ffffff80
+    letter-spacing: 0.25rem
+    font-size: 0.75rem
+    text-transform: uppercase
 
   .container
-    gap: 1rem
+    display: flex
+    gap: 0.5rem
+    align-items: center
 
   .coin
-    content: url(/images/coin.webp)
-    width: 4.5rem
-    height: 4.5rem
+    content: url(/images/coin-mobile.webp)
+    width: 2.5rem
+    height: 2.5rem
 
   .value
-    font-size: 3.6rem
+    font-size: 2rem
+    font-weight: 800
+    font-variant-numeric: lining-nums tabular-nums
 
   .skeleton
-    width: 20rem
+    width: 12rem
+
+  @media (min-width: 768px)
+    .minedTitle
+      font-size: 1rem
+
+    .container
+      gap: 1rem
+
+    .coin
+      content: url(/images/coin.webp)
+      width: 4.5rem
+      height: 4.5rem
+
+    .value
+      font-size: 3.6rem
+
+    .skeleton
+      width: 20rem
 
 </style>

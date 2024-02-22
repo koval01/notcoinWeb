@@ -42,7 +42,7 @@
 
 <div class="wrapper">
     <div class="container">
-        <div>
+        <div class="box">
             <Stars count={4} />
 
             <Hero />
@@ -66,8 +66,8 @@
     max-width: 1040px
     padding: 0 1rem
 
-    > div
-      padding-bottom: 4rem
-      width: 100%
+  .box
+    padding-bottom: 4rem
+    width: 100%
   
 </style>

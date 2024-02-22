@@ -18,32 +18,30 @@
     .skeleton
       height: 1.3rem
 
-    span
-      &.value
-        font-variant-numeric: lining-nums tabular-nums
-        margin-left: 12px
+    .value
+      font-variant-numeric: lining-nums tabular-nums
+      margin-left: 12px
 
-      &.totalPlayers > .skeleton
-        width: 130px
+    .totalPlayers > .skeleton
+      width: 130px
 
-      &.onlineToday > .skeleton
-        width: 110px
+    .onlineToday > .skeleton
+      width: 110px
 
-      &.onlineNow > .skeleton
-        width: 90px
+    .onlineNow > .skeleton
+      width: 90px
 
     @media (min-width: 768px)
       .skeleton
         height: 2rem
 
-      span
-        &.totalPlayers > .skeleton
-          width: 160px
+      .totalPlayers > .skeleton
+        width: 160px
 
-        &.onlineToday > .skeleton
-          width: 140px
+      .onlineToday > .skeleton
+        width: 140px
 
-        &.onlineNow > .skeleton
-          width: 110px
+      .onlineNow > .skeleton
+        width: 110px
 
 </style>

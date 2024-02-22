@@ -29,39 +29,41 @@ export const getAvatarByName = (name) => {
 export const animateValue = (() => {
     const lastValues = new WeakMap();
     const currentlyAnimating = new WeakSet();
-    const easing = BezierEasing(0, 0, .1, 1);
 
     return async (obj, end, duration = 15e2, steps = 1) => {
-        if (!obj || currentlyAnimating.has(obj)) return;
-        
-        currentlyAnimating.add(obj);
+        if (!obj) return;
+        if (currentlyAnimating.has(obj)) return;
 
         const start = lastValues.get(obj) || 0;
-        if (start === end) {
-            currentlyAnimating.delete(obj);
-            return;
-        }
+        if (start === end) return;
 
-        const totalSteps = Math.ceil(duration / (1000 / 20) / steps);
+        currentlyAnimating.add(obj);
 
         await new Promise(resolve => {
-            const step = (stepCount = 0) => {
-                const currentValue = Math.floor(easing(stepCount / totalSteps) * (end - start) + start);
+            const easing = BezierEasing(0, 0, .1, 1);
+            const totalSteps = Math.ceil(duration / (1000 / 16) / steps);
+
+            const step = (timestamp, stepCount = 0) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+
+                const progress = Math.min(stepCount / totalSteps, 1);
+                const currentValue = Math.floor(easing(progress) * (end - start) + start);
 
                 if (currentValue !== lastValues.get(obj)) {
-                    obj.textContent = currentValue.toLocaleString();
+                    obj.innerHTML = currentValue.toLocaleString();
                     lastValues.set(obj, currentValue);
                 }
 
                 if (stepCount < totalSteps) {
-                    setTimeout(() => step(stepCount + 1), duration / totalSteps);
+                    window.requestAnimationFrame((timestamp) => step(timestamp, stepCount + 1));
                 } else {
                     currentlyAnimating.delete(obj);
                     resolve();
                 }
             };
 
-            step();
+            let startTimestamp = performance.now();
+            window.requestAnimationFrame(step);
         });
     };
 })();

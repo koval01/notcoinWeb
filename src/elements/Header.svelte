@@ -3,7 +3,7 @@
 </script>
 
 <header>
-    <div>
+    <div class="box">
         <a
             class="headLink"
             href="https://cdn.joincommunity.xyz/notcoin/Notcoin_Whitepaper.pdf"
@@ -48,15 +48,15 @@
     border-color: #fff3
     border-bottom-width: 1px
     border-bottom-style: solid
-  
-    > div
-      height: 100%
-      margin: 0 auto
-      max-width: 1040px
-      display: grid
-      grid-template-columns: 1fr 1fr 1fr
-      align-items: center
-      align-content: center
+
+  .box
+    height: 100%
+    margin: 0 auto
+    max-width: 1040px
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    align-items: center
+    align-content: center
   
   .headLink
     font-weight: 600

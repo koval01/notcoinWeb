@@ -20,7 +20,7 @@
 </div>
 
 <style lang="sass">
-  div.iconHolder
+  .iconHolder
     position: absolute
     height: 100%
     width: 100%
@@ -29,24 +29,23 @@
     *
       position: absolute
 
-  img
-    &.penny1
-      width: 44px
-      top: -1.5rem
-      left: 25rem
-  
-    &.penny2
-      width: 22px
-      top: 4rem
-      left: 27rem
-  
-    &.penny3
-      width: 27px
-      top: 6rem
-      left: 24rem
+  .penny1
+    width: 44px
+    top: -1.5rem
+    left: 25rem
+
+  .penny2
+    width: 22px
+    top: 4rem
+    left: 27rem
+
+  .penny3
+    width: 27px
+    top: 6rem
+    left: 24rem
 
   @media (min-width: 1000px)
-    div.iconHolder
+    .iconHolder
       display: initial
 
 </style>

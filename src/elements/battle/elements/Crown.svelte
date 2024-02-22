@@ -1,18 +1,18 @@
-<div class="crown">
+<div class="box">
     <div class="crown">
         <img draggable="false" alt="Battle Royale Crown" />
     </div>
 </div>
 
 <style lang="sass">
-  .crown
+  .box
     margin-bottom: 16px
   
-    > .crown
-      right: 0
-      min-height: 120px
-      max-height: 120px
-      width: 160px
+  .crown
+    right: 0
+    min-height: 120px
+    max-height: 120px
+    width: 160px
   
   img
     content: url(/images/crown.webp)

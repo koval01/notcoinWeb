@@ -12,10 +12,10 @@
 </script>
 
 <div class="headButtons">
-  <div>
+  <div class="box">
     <CoinButton onClick={handleTap} />
   </div>
-  <div>
+  <div class="box">
     <CrownButton onClick={goBattle} />
     <div class="battle-text"></div>
   </div>
@@ -32,9 +32,9 @@
     align-items: center
     gap: 5rem
 
-    > div
-      width: 80px
-      height: 80px
+  .box
+    width: 80px
+    height: 80px
   
   @media (min-width: 768px)
     .battle-text
@@ -52,8 +52,8 @@
       margin-bottom: 8rem
       gap: 8rem
 
-      > div
-        width: 140px
-        height: 140px
+    .box
+      width: 140px
+      height: 140px
 
 </style>

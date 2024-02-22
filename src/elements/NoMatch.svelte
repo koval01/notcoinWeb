@@ -7,9 +7,9 @@
 </script>
 
 <div class="content">
-    <div>
+    <div class="box">
         <Stars count={4} />
-        <div>
+        <div class="l">
             <div class="logo"></div>
         </div>
         <p>It seems... <span>{window.location.pathname}</span> does not exist</p>
@@ -24,87 +24,87 @@
 </div>
 
 <style lang="sass">
-.buttonsContainer
-  display: flex
-  margin-top: 24px
+  .buttonsContainer
+    display: flex
+    margin-top: 24px
 
-p, span
-  font-size: 1rem
-  font-weight: 300
+  p, span
+    font-size: 1rem
+    font-weight: 300
 
-p
-  padding: 0 24px
-  
-span
-  color: #ffc632
+  p
+    padding: 0 24px
+    
+  span
+    color: #ffc632
 
-.footer
-  position: fixed
-  width: 100%
-  bottom: 12px
+  .footer
+    position: fixed
+    width: 100%
+    bottom: 12px
 
-.content
-  position: relative
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  display: flex
-  justify-content: center
-  align-items: center
+  .content
+    position: relative
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
 
-  > div
+  .box
     margin-top: 20vh
     display: flex
     flex-direction: column
     align-items: center
 
-    > div
-      perspective: 400px
-      padding-bottom: 3rem
-
-.logo
-  width: 240px
-  height: 240px
-  border-radius: 50%
-  background-image: url(/images/coin.webp)
-  background-size: cover
-  transform-origin: center
-  will-change: transform
-  transition: transform .1s ease-out
-  animation: tapCoin 1s ease infinite
-  cursor: pointer
-
-@media (min-width: 768px)
-  p span
-    font-size: 1.2rem
+  .l
+    perspective: 400px
+    padding-bottom: 3rem
 
   .logo
-    width: 300px
-    height: 300px
+    width: 240px
+    height: 240px
+    border-radius: 50%
+    background-image: url(/images/coin.webp)
+    background-size: cover
+    transform-origin: center
+    will-change: transform
+    transition: transform .1s ease-out
+    animation: tapCoin 1.6s ease infinite
+    cursor: pointer
 
-@media (max-height: 640px)
-  .logo
-    width: 200px
-    height: 200px
+  @media (min-width: 768px)
+    p span
+      font-size: 1.2rem
 
-@keyframes tapCoin
-  0%
-    transform: rotateX(0deg) rotateY(0deg)
+    .logo
+      width: 300px
+      height: 300px
 
-  50%
-    transform: rotateX(0deg) rotateY(0deg)
+  @media (max-height: 640px)
+    .logo
+      width: 200px
+      height: 200px
 
-  65%
-    transform: rotateX(-18deg) rotateY(-16deg)
+  @keyframes tapCoin
+    0%
+      transform: rotateX(0deg) rotateY(0deg)
 
-  70%
-    transform: rotateX(0deg) rotateY(0deg)
+    50%
+      transform: rotateX(0deg) rotateY(0deg)
 
-  85%
-    transform: rotateX(-18deg) rotateY(16deg)
+    65%
+      transform: rotateX(-18deg) rotateY(-16deg)
 
-  100%
-    transform: rotateX(0deg) rotateY(0deg)
+    70%
+      transform: rotateX(0deg) rotateY(0deg)
+
+    85%
+      transform: rotateX(-18deg) rotateY(16deg)
+
+    100%
+      transform: rotateX(0deg) rotateY(0deg)
   
 </style>
