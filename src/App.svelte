@@ -4,11 +4,6 @@
 
 	import { PRODUCTION_BUILD, LAST_GIT_COMMIT } from "./env.js";
 
-	// block debug menu
-	window.addEventListener("contextmenu", function (e) {
-		PRODUCTION_BUILD ? e.preventDefault() : void 0;
-	});
-
 	let Home, Battle, Squad, NoMatch;
 
 	onMount(async () => {
