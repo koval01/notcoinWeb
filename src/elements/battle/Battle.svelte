@@ -1,7 +1,8 @@
 <script>
     import Background from "./Background.svelte";
+    import Leaderboard from "./Leaderboard.svelte";
 
-    import { onMount, onDestroy } from "svelte";
+    import { onMount } from "svelte";
     import { fetchAndUpdateData } from "../../api.js";
     import { battleRoyaleStat } from "../../store.js";
 
@@ -12,23 +13,15 @@
         await fetchAndUpdateData(path, store);
     };
 
-    let Leaderboard;
-
     onMount(async () => {
-      Leaderboard = (await import("./Leaderboard.svelte")).default;
-
       fetchData(battleRoyaleStatUrl, battleRoyaleStat);
       interval = setInterval(() => {fetchData(battleRoyaleStatUrl, battleRoyaleStat)}, 15e3);
-    });
-
-    onDestroy(() => {
-        clearInterval(interval);
     });
 </script>
 
 <div class="root page">
-    <svelte:component this={Background} />
-    <svelte:component this={Leaderboard} />
+    <Background />
+    <Leaderboard />
 </div>
 
 <style lang="sass">

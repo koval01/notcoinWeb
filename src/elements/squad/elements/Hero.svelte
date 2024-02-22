@@ -13,7 +13,7 @@
 </script>
 
 <div class="heroSection">
-    <svelte:component this={AppleButton} onClick={goBack}>Back</svelte:component>
+    <AppleButton onClick={goBack}>Back</AppleButton>
     <div class="avatar">
       <img src={avatar($squadData)} draggable="false" alt="" on:error={handleImageError} />
     </div>

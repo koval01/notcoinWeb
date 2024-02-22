@@ -9,11 +9,11 @@
 <div class="avatars">
     {#if preloadImgState === void 0}
         {#each Array(3) as _}
-            <svelte:component this={Avatar} avatarSrc={getAvatarThumb()} onError={void 0} />
+            <Avatar avatarSrc={getAvatarThumb()} onError={void 0} />
         {/each}
     {:else}
         {#each users as { avatar }}
-            <svelte:component this={Avatar} avatarSrc={avatar} />
+            <Avatar avatarSrc={avatar} />
         {/each}
     {/if}
 </div>

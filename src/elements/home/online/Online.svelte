@@ -4,7 +4,7 @@
     import Label from "./Label.svelte";
 
     import { stat, allStatUsers } from "../../../store.js";
-    import { getRandomElements, preloadImage } from "../../../utils.js";
+    import { getRandomElements } from "../../../utils.js";
 
     let usersTotal = [];
     let usersOnlineToday = [];
@@ -19,8 +19,6 @@
     const updateRandomUsers = async () => {
         const usersWithAvatar = $allStatUsers.leaderboard.filter(user => user.avatar);
 
-        // Preload avatars and update users
-        await Promise.all(usersWithAvatar.map(user => preloadImage(user.avatar)));
         usersTotal = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
         usersOnlineToday = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
         usersOnlineNow = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
@@ -50,9 +48,9 @@
     <div class="online">
         {#each [usersTotal, usersOnlineToday, usersOnlineNow] as users, i}
             <div class="onlineRow">
-                <svelte:component this={Avatars} preloadImgState={preloadImgState} users={users} />
-                <svelte:component this={Value} index={i} objValues={objValues} stat={$stat} />
-                <svelte:component this={Label} index={i} />
+                <Avatars preloadImgState={preloadImgState} users={users} />
+                <Value index={i} objValues={objValues} stat={$stat} />
+                <Label index={i} />
             </div>
         {/each}
     </div>

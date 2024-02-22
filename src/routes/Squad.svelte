@@ -8,8 +8,8 @@
 </script>
 
 <!-- Squad -->
-    <svelte:component this={Header} headTitle="Notcoin" />
-    <svelte:component this={Squad} slug={slug} />
+    <Header headTitle="Notcoin" />
+    <Squad slug={slug} />
 
-    <svelte:component this={Footer}/>
+    <Footer />
 <!-- Squad end -->

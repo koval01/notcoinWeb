@@ -20,15 +20,15 @@
 {#if List.length > 0}
   {#each List as d, i}
       <button class="innerWrapper padding-0 direction-row buttonFlush {teamsDisplay ? '' : 'disabled'}" on:click={goTeam(d.slug)}>
-          <svelte:component this={Prefix} index={i} />
-          <svelte:component this={Avatar} d={d} />
-          <svelte:component this={Content} objValue={objValue[i]} d={d} />
-          <svelte:component this={Chevron} teamsDisplay={teamsDisplay} />
+          <Prefix index={i} />
+          <Avatar d={d} />
+          <Content objValue={objValue[i]} d={d} />
+          <Chevron teamsDisplay={teamsDisplay} />
       </button>
   {/each}
 {:else}
   {#each Array(5) as _}
-      <svelte:component this={Skeleton} />
+      <Skeleton />
   {/each}
 {/if}
 

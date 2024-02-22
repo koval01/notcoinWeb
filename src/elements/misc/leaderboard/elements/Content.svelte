@@ -8,7 +8,7 @@
     <div>
         <div class="title">{getName(d)}</div>
         <div class="coins" bind:this={objValue}>
-            {animateValue(objValue, d.coins ? d.coins : d.totalCoins, 2e3)}
+            {animateValue(objValue, d.coins ? d.coins : d.totalCoins)}
         </div>
     </div>
 </div>

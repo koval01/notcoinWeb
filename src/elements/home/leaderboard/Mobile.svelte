@@ -13,16 +13,16 @@
 </script>
 
 <div class="mobileContainer">
-    <svelte:component this={FlatButtonContainer} bind:activeTab={teamsDisplay}>
-        <svelte:component this={FlatButton} isActive={!teamsDisplay} onClick={() => updateDisplays(false)}>Miners</svelte:component>
-        <svelte:component this={FlatButton} isActive={teamsDisplay} onClick={() => updateDisplays(true)}>Teams</svelte:component>
-    </svelte:component>
+    <FlatButtonContainer bind:activeTab={teamsDisplay}>
+        <FlatButton isActive={!teamsDisplay} onClick={() => updateDisplays(false)}>Miners</FlatButton>
+        <FlatButton isActive={teamsDisplay} onClick={() => updateDisplays(true)}>Teams</FlatButton>
+    </FlatButtonContainer>
 
     <div class="container">
         {#if teamsDisplay}
-            <svelte:component this={Leaderboard} StoreObject={$allStatTeams.leaderboard} teamsDisplay={teamsDisplay}/>
+            <Leaderboard StoreObject={$allStatTeams.leaderboard} teamsDisplay={teamsDisplay}/>
         {:else}
-            <svelte:component this={Leaderboard} StoreObject={$allStatUsers.leaderboard} teamsDisplay={teamsDisplay}/>
+            <Leaderboard StoreObject={$allStatUsers.leaderboard} teamsDisplay={teamsDisplay}/>
         {/if}
     </div>
 </div>

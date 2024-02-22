@@ -3,5 +3,5 @@
 </script>
 
 <!-- NoMatch -->
-    <svelte:component this={NoMatch} />
+    <NoMatch />
 <!-- NoMatch end -->

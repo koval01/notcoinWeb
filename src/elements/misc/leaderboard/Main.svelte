@@ -7,7 +7,7 @@
 <div class="leaderboard">
   <div class="listInner">
       <div class="padding-0 direction-column willChange">
-          <svelte:component this={List} StoreObject={StoreObject} teamsDisplay={teamsDisplay} />
+          <List StoreObject={StoreObject} teamsDisplay={teamsDisplay} />
       </div>
   </div>
 </div>
@@ -23,8 +23,8 @@
   .leaderboard
     border-radius: 20px
     background: rgba(255, 255, 255, 0.12)
-    backdrop-filter: blur(12px)
-    -webkit-backdrop-filter: blur(12px)
+    backdrop-filter: blur(6px)
+    -webkit-backdrop-filter: blur(6px)
 
   .listInner
     padding: 12px 12px 16px

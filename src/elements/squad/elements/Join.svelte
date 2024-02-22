@@ -14,7 +14,7 @@
 </script>
 
 <div class="joinSection">
-    <svelte:component this={NotButton} onClick={joinSquad}>Join squad</svelte:component>
+    <NotButton onClick={joinSquad}>Join squad</NotButton>
 </div>
 
 <style lang="sass">

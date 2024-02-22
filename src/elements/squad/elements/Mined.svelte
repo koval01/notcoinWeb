@@ -15,7 +15,7 @@
                   <div class="thickLine"></div>
               </div>
           {:else}
-              {animateValue(objValue, $squadData.coins, 2e3)}
+              {animateValue(objValue, $squadData.coins)}
           {/if}
         </div>
     </div>

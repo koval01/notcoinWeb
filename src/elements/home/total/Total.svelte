@@ -10,7 +10,7 @@
 
 <div class="totalSection">
     <div class="container">
-        <svelte:component this={Penny} />
+        <Penny />
         <div class="meme">
             <img
                 class="memeImg issued"
@@ -25,14 +25,14 @@
                         <div class="thickLine"></div>
                     </div>
                 {:else}
-                    {animateValue(objIssued, $stat.balanceCoins + $stat.burnedCoins, 2e3)}
+                    {animateValue(objIssued, $stat.balanceCoins + $stat.burnedCoins)}
                 {/if}
             </span>
             <span class="title">total issued</span>
         </div>
     </div>
     <div class="container">
-        <svelte:component this={Flame} />
+        <Flame />
         <div class="meme burned">
             <img
                 class="memeImg burned"
@@ -47,7 +47,7 @@
                         <div class="thickLine"></div>
                     </div>
                 {:else}
-                    {animateValue(objBurned, $stat.burnedCoins, 2e3)}
+                    {animateValue(objBurned, $stat.burnedCoins)}
                 {/if}
             </span>
             <span class="title">total burned</span>

@@ -8,19 +8,19 @@
 
 <div class="content">
     <div>
-        <svelte:component this={Stars} count={6} />
+        <Stars count={4} />
         <div>
             <div class="logo"></div>
         </div>
         <p>It seems... <span>{window.location.pathname}</span> does not exist</p>
         <div class="buttonsContainer">
-          <svelte:component this={AppleButton} onClick={goHome}>Home</svelte:component>
-          <svelte:component this={AppleButton} onClick={goBack}>Back</svelte:component>
+          <AppleButton onClick={goHome}>Home</AppleButton>
+          <AppleButton onClick={goBack}>Back</AppleButton>
         </div>
     </div>
 </div>
 <div class="footer">
-    <svelte:component this={Footer} />
+    <Footer />
 </div>
 
 <style lang="sass">
@@ -72,7 +72,7 @@ span
   transform-origin: center
   will-change: transform
   transition: transform .1s ease-out
-  animation: tapAnimation .6s ease infinite
+  animation: tapCoin 1s ease infinite
   cursor: pointer
 
 @media (min-width: 768px)
@@ -87,5 +87,24 @@ span
   .logo
     width: 200px
     height: 200px
+
+@keyframes tapCoin
+  0%
+    transform: rotateX(0deg) rotateY(0deg)
+
+  50%
+    transform: rotateX(0deg) rotateY(0deg)
+
+  65%
+    transform: rotateX(-18deg) rotateY(-16deg)
+
+  70%
+    transform: rotateX(0deg) rotateY(0deg)
+
+  85%
+    transform: rotateX(-18deg) rotateY(16deg)
+
+  100%
+    transform: rotateX(0deg) rotateY(0deg)
   
 </style>

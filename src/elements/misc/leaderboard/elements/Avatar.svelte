@@ -5,7 +5,7 @@
 </script>
 
 <div class="imageContainer">
-    <img src={getAvatar(d)} draggable="false" alt="Avatar" on:error={handleImageError} />
+    <img src={getAvatar(d)} draggable="false" loading="lazy" alt="Avatar" on:error={handleImageError} />
 </div>
 
 <style lang="sass">

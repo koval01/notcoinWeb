@@ -13,10 +13,10 @@
 
 <div class="headButtons">
   <div>
-    <svelte:component this={CoinButton} onClick={handleTap} />
+    <CoinButton onClick={handleTap} />
   </div>
   <div>
-    <svelte:component this={CrownButton} onClick={goBattle} />
+    <CrownButton onClick={goBattle} />
     <div class="battle-text"></div>
   </div>
 </div>

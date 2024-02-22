@@ -10,7 +10,7 @@
             <div class="thickLine"></div>
         </div>
     {:else}
-        {animateValue(objValues[index], [stat.users, stat.onlineToday, stat.online][index], 2e3)}
+        {animateValue(objValues[index], [stat.users, stat.onlineToday, stat.online][index])}
     {/if}
 </span>
 

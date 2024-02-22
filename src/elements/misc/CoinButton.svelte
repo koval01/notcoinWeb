@@ -32,21 +32,21 @@
 
         &:hover
           animation: tapCoin .8s ease 3 alternate
-    
+
     @keyframes tapCoin
       0%
         transform: rotateX(0deg) rotateY(0deg)
-    
+
       25%
         transform: rotateX(-18deg) rotateY(-16deg)
-    
+
       50%
         transform: rotateX(0deg) rotateY(0deg)
-    
+
       75%
         transform: rotateX(-18deg) rotateY(16deg)
-    
+
       100%
         transform: rotateX(0deg) rotateY(0deg)
-    
+ 
 </style>

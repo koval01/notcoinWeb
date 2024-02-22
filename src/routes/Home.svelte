@@ -6,7 +6,7 @@
 </script>
 
 <!-- Home -->
-    <svelte:component this={Header} />
-    <svelte:component this={Home} />
-    <svelte:component this={Footer} />
+    <Header />
+    <Home />
+    <Footer />
 <!-- Home end -->

@@ -3,5 +3,5 @@
 </script>
 
 <!-- Battle -->
-    <svelte:component this={Battle} />
+    <Battle />
 <!-- Battle end -->

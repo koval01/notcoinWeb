@@ -1,7 +1,7 @@
 import BezierEasing from './libs/bezierEasing.js';
 
 export const getRandomElements = (list, count) => {
-    const shuffled = list.sort(() => 0.5 - Math.random());
+    const shuffled = list.sort(() => .5 - Math.random());
     return shuffled.slice(0, count);
 }
 
@@ -29,71 +29,60 @@ export const getAvatarByName = (name) => {
 export const animateValue = (() => {
     const lastValues = new WeakMap();
     const currentlyAnimating = new WeakSet();
+    const easing = BezierEasing(0, 0, .1, 1);
 
-    return async (obj, end, duration, steps = 1) => {
-        if (!obj) return;
-        if (currentlyAnimating.has(obj)) return;
-
-        const start = lastValues.get(obj) || 0;
-        if (start === end) return;
-
+    return async (obj, end, duration = 15e2, steps = 1) => {
+        if (!obj || currentlyAnimating.has(obj)) return;
+        
         currentlyAnimating.add(obj);
 
+        const start = lastValues.get(obj) || 0;
+        if (start === end) {
+            currentlyAnimating.delete(obj);
+            return;
+        }
+
+        const totalSteps = Math.ceil(duration / (1000 / 20) / steps);
+
         await new Promise(resolve => {
-            const easing = BezierEasing(0, 0, .1, 1);
-            const totalSteps = Math.ceil(duration / (1000 / 20) / steps);
-
-            const step = (timestamp, stepCount = 0) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-
-                const progress = Math.min(stepCount / totalSteps, 1);
-                const currentValue = Math.floor(easing(progress) * (end - start) + start);
+            const step = (stepCount = 0) => {
+                const currentValue = Math.floor(easing(stepCount / totalSteps) * (end - start) + start);
 
                 if (currentValue !== lastValues.get(obj)) {
-                    obj.innerHTML = currentValue.toLocaleString();
+                    obj.textContent = currentValue.toLocaleString();
                     lastValues.set(obj, currentValue);
                 }
 
                 if (stepCount < totalSteps) {
-                    window.requestAnimationFrame((timestamp) => step(timestamp, stepCount + 1));
+                    setTimeout(() => step(stepCount + 1), duration / totalSteps);
                 } else {
                     currentlyAnimating.delete(obj);
                     resolve();
                 }
             };
 
-            let startTimestamp = performance.now();
-            window.requestAnimationFrame(step);
+            step();
         });
     };
 })();
 
-export const generateStars = (count=4) => {
+export const generateStars = (count = 4) => {
     const starsLeft = [];
     const starsRight = [];
-
-    const randPos = (offset = 2) => {
-        let x = Math.round(Math.random() * 24 + offset);
-        return Math.random() < .5 ? x : -(x);
-    };
+    
+    const randomValues = [];
+    for (let i = 0; i < count * 2; i++) {
+        randomValues.push({
+            size: Math.random() < .8 ? "small" : ["medium", "large", "xlarge"][Math.floor(Math.random() * 3)],
+            top: `${Math.round(Math.random() * 24 + 2)}rem`,
+            left: `${Math.round(Math.random() * 24 + 2)}rem`,
+            right: `${Math.round(Math.random() * 24 + 2)}rem`
+        });
+    }
 
     for (let i = 0; i < count; i++) {
-        const size =
-            Math.random() < .8
-                ? "small"
-                : ["medium", "large", "xlarge"][
-                      Math.floor(Math.random() * 3)
-                  ];
-        starsLeft.push({
-            size,
-            top: `${ randPos(8) }rem`,
-            left: `${ randPos() }rem`,
-        });
-        starsRight.push({
-            size,
-            top: `${ randPos(8) }rem`,
-            right: `${ randPos() }rem`,
-        });
+        starsLeft.push(randomValues[i]);
+        starsRight.push(randomValues[i + count]);
     }
 
     return { starsLeft, starsRight };

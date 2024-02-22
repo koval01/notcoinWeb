@@ -1,10 +1,15 @@
 <script>
     import Stars from "../misc/Stars.svelte";
+
     import Hero from "./Hero.svelte";
     import Balance from "./Balance.svelte";
+    import { Online } from "./online";
     import Buttons from "./Buttons.svelte";
 
-    import { onMount, onDestroy } from "svelte";
+    import { Total } from "./total";
+    import { Leaderboard } from "./leaderboard";
+
+    import { onMount } from "svelte";
     import { fetchAndUpdateData } from "../../api.js";
     import { stat, allStatUsers, allStatTeams } from "../../store.js";
 
@@ -21,19 +26,7 @@
 
     let intervals = [];
 
-    let Online, Total, Leaderboard;
-
     onMount(async () => {
-        const [OnlineModule, TotalModule, LeaderboardModule] = await Promise.all([
-            import("./online"),
-            import("./total"),
-            import("./leaderboard")
-        ]);
-
-        Online = OnlineModule.Online;
-        Total = TotalModule.Total;
-        Leaderboard = LeaderboardModule.Leaderboard;
-
         intervals = [
             { path: paths.stat, store: stat },
             { path: paths.allStatUsers, store: allStatUsers },
@@ -45,24 +38,20 @@
             store.intervalId = setInterval(() => fetchData(path, store), 15e3);
         });
     });
-
-    onDestroy(() => {
-        intervals.forEach(({ store }) => clearInterval(store.intervalId));
-    });
 </script>
 
 <div class="wrapper">
     <div class="container">
         <div>
-            <svelte:component this={Stars} count={6} />
+            <Stars count={4} />
 
-            <svelte:component this={Hero} />
-            <svelte:component this={Balance} />
-            <svelte:component this={Online} />
-            <svelte:component this={Buttons} />
+            <Hero />
+            <Balance />
+            <Online />
+            <Buttons />
 
-            <svelte:component this={Total} />
-            <svelte:component this={Leaderboard} />
+            <Total />
+            <Leaderboard />
         </div>
     </div>
 </div>
