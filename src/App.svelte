@@ -6,6 +6,10 @@
 
 	let Home, Squad, NoMatch;
 
+	window.addEventListener("contextmenu", function (e) {
+		PRODUCTION_BUILD ? e.preventDefault() : void 0;
+	});
+
 	onMount(async () => {
 		const path = window.location.pathname;
 
