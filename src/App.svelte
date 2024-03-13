@@ -4,7 +4,7 @@
 
 	import { PRODUCTION_BUILD, LAST_GIT_COMMIT } from "./env.js";
 
-	let Home, Battle, Squad, NoMatch;
+	let Home, Squad, NoMatch;
 
 	onMount(async () => {
 		const path = window.location.pathname;
@@ -12,9 +12,9 @@
         if (path === "/") {
             Home = (await import("./routes/Home.svelte")).default;
         }
-		else if (path === "/battle") {
-			Battle = (await import("./routes/Battle.svelte")).default;
-		}
+		// else if (path === "/battle") {
+		// 	Battle = (await import("./routes/Battle.svelte")).default;
+		// }
 		else if (/^\/squad\/[^\/]+\/*?$/.test(path)) {
 			Squad = (await import("./routes/Squad.svelte")).default;
 		}
@@ -35,7 +35,7 @@
 	<main class="noselect">
 		<Route patth="*"><svelte:component this={NoMatch} /></Route>
 		<Route path="/"><svelte:component this={Home} /></Route>
-		<Route path="/battle"><svelte:component this={Battle} /></Route>
+		<!-- <Route path="/battle"><svelte:component this={Battle} /></Route> -->
 		<Route path="/squad/:slug" let:params>
 			<svelte:component this={Squad} slug={params.slug} />
 		</Route>
