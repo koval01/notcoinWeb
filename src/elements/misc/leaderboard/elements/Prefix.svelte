@@ -4,7 +4,7 @@
 
 <div class="prefix">
     {#if index < 3}
-        <span class="medal">{['🥇','🥈','🥉'][index]}</span>
+        <span class="medal">{index >= 0 ? ['🥇','🥈','🥉'][index] : '👑'}</span>
     {:else}
         <span>{index + 1}</span>
     {/if}

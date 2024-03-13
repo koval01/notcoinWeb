@@ -20,7 +20,7 @@
 {#if List.length > 0}
   {#each List as d, i}
       <button class="innerWrapper padding-0 direction-row buttonFlush {teamsDisplay ? '' : 'disabled'}" on:click={goTeam(d.slug)}>
-          <Prefix index={i} />
+          <Prefix index={d.user?.lastName ? -1 : i} />
           <Avatar d={d} />
           <Content objValue={objValue[i]} d={d} />
           <Chevron teamsDisplay={teamsDisplay} />
