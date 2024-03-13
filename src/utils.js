@@ -18,12 +18,17 @@ export const preloadImage = (url) => {
     });
 }
 
+const keepOnlyAllowedCharacters = (inputString) => {
+    return inputString.replace(/[^\w\d\u0400-\u04FF\uD83C-\uD83E\uDC00-\uDEFF]/g, '');
+}
+
 export const getAvatarThumb = () => {
     return `https://api.dicebear.com/7.x/thumbs/svg?seed=${ getRandomRange(1, 1e2) }`;
 }
 
 export const getAvatarByName = (name) => {
-    return `https://ui-avatars.com/api/?name=${ encodeURIComponent(name) }&background=000&color=fff`;
+    name = keepOnlyAllowedCharacters(name)
+    return `https://ui-avatars.com/api/?name=${ encodeURIComponent(name ? name : "NN") }&background=000&color=fff`;
 }
 
 export const animateValue = (() => {
