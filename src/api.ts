@@ -1,16 +1,20 @@
-const convertStringToNumber = async (obj) => {
+interface DataObject {
+    [key: string]: string | number | boolean | null | undefined | DataObject;
+}
+
+const convertStringToNumber = async (obj: DataObject): Promise<DataObject> => {
     return new Promise((resolve) => {
         for (let key in obj) {
-            if (typeof obj[key] === 'string' && /^\d+$/.test(obj[key])) {
-                obj[key] = parseInt(obj[key]);
+            if (typeof obj[key] === 'string' && /^\d+$/.test(obj[key] as string)) {
+                obj[key] = parseInt(obj[key] as string);
             }
         }
         resolve(obj);
     });
 };
 
-export const fetchAndUpdateData = async (endpoint, store, first = false) => {
-    store.update((prev) => ({ ...prev }));
+export const fetchAndUpdateData = async (endpoint: string, store: any, first = false): Promise<void> => {
+    store.update((prev: any) => ({ ...prev }));
 
     try {
         const data = await fetchData(endpoint, {
@@ -22,7 +26,9 @@ export const fetchAndUpdateData = async (endpoint, store, first = false) => {
     }
 }
 
-export const fetchData = async (endpoint, options = {}) => {
+export const fetchData = async (
+    endpoint: string, options: { domain?: string, _convertStringToNumber?: boolean, _first?: boolean } = {}
+): Promise<DataObject> => {
     const { domain = import.meta.env.VITE_API_HOST, _convertStringToNumber = false, _first = false } = options;
 
     try {

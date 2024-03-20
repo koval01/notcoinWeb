@@ -1,8 +1,7 @@
 import './app.css';
-
 import App from './App.svelte';
 
-window.addEventListener("contextmenu", function (e) {
+window.addEventListener("contextmenu", (e: MouseEvent) => {
 	import.meta.env.PROD ? e.preventDefault() : void 0;
 });
 

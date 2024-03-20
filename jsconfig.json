@@ -30,10 +30,8 @@
     */
     "include": [
         "src/**/*.d.ts",
+        "src/**/*.ts",
         "src/**/*.js",
-        "src/**/*.svelte",
-        "src/store.ts",
-        "src/app.js", 
-        "src/utils.ts"    
+        "src/**/*.svelte" 
     ]
 }
