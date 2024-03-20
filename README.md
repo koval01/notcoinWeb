@@ -36,7 +36,7 @@ To deploy the application on your own server using Nginx, follow these steps:
        server_name your_domain.com;
 
        location / {
-           root /var/www/notco.in/public;
+           root /var/www/notco.in/dist;
            index index.html;
            try_files $uri $uri/ /index.html;
        }
