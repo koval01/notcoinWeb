@@ -1,5 +1,3 @@
-import { API_HOST } from './env.js';
-
 const convertStringToNumber = async (obj) => {
     return new Promise((resolve) => {
         for (let key in obj) {
@@ -25,7 +23,7 @@ export const fetchAndUpdateData = async (endpoint, store, first = false) => {
 }
 
 export const fetchData = async (endpoint, options = {}) => {
-    const { domain = API_HOST, _convertStringToNumber = false, _first = false } = options;
+    const { domain = import.meta.env.VITE_API_HOST, _convertStringToNumber = false, _first = false } = options;
 
     try {
         const res = await fetch(`${domain}${endpoint}`);
