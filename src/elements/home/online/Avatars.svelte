@@ -1,7 +1,7 @@
 <script>
     import Avatar from "./Avatar.svelte";
 
-    import { getAvatarThumb } from "../../../utils.js";
+    import { getAvatarThumb } from "../../../utils";
 
     export let users, preloadImgState;
 </script>

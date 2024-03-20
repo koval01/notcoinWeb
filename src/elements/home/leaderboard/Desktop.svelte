@@ -2,7 +2,7 @@
   import Hint from "./Hint.svelte";
   import { Leaderboard } from "../../misc/leaderboard";
 
-  import { allStatUsers, allStatTeams } from "../../../store.js";
+  import { allStatUsers, allStatTeams } from "../../../store";
 </script>
 
 <div class="container">

@@ -1,32 +1,27 @@
 {
   "name": "notco.in",
-  "version": "1.0.0",
   "private": true,
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public --no-clear"
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-terser": "^0.4.4",
-    "cssnano": "^6.0.3",
-    "rollup": "^4.9.6",
-    "rollup-plugin-cleandir": "^2.0.0",
-    "rollup-plugin-livereload": "^2.0.5",
-    "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-svelte": "^7.1.6",
-    "sass": "^1.70.0",
+    "@sveltejs/vite-plugin-svelte": "^3.0.2",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
     "svelte": "^4.2.10",
-    "svelte-routing": "^2.12.0"
+    "tailwindcss": "^3.4.1",
+    "terser": "^5.27.1",
+    "vite": "^5.1.3",
+    "vite-plugin-pwa": "^0.19.0"
   },
   "dependencies": {
-    "@rollup/plugin-replace": "^5.0.5",
-    "cssnano-preset-advanced": "^6.0.3",
-    "node-sass": "^9.0.0",
-    "sirv-cli": "^2.0.2",
-    "svelte-preprocess": "^5.1.3"
+    "cssnano": "^6.0.5",
+    "dotenv": "^16.4.4",
+    "sass": "^1.71.1",
+    "svelte-routing": "^2.12.0"
   }
 }

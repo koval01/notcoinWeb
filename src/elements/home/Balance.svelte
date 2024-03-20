@@ -1,11 +1,11 @@
 <script>
-    import { stat } from "../../store.js";
-    import { animateValue } from "../../utils.js";
+    import { stat } from "../../store";
+    import { animateValue } from "../../utils";
 
     let objValue;
 </script>
 
-<div class="balanceSection">
+<div class="balanceSection flex flex-col gap-2 items-center mb-2">
     <h3 class="balanceTitle">total balance</h3>
     <div class="container">
         <img class="coin" draggable="false" alt="Coin" />
@@ -22,13 +22,6 @@
 </div>
 
 <style lang="sass">
-  .balanceSection
-    display: flex
-    flex-direction: column
-    gap: .5rem
-    align-items: center
-    margin-bottom: .5rem
-
   .balanceTitle
     color: #ffffff80
     letter-spacing: .25rem
@@ -39,6 +32,7 @@
     display: flex
     gap: .5rem
     align-items: center
+    justify-content: center
 
   .coin
     content: url(/images/coin-mobile.webp)

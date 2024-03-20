@@ -10,8 +10,8 @@
     import { Leaderboard } from "./leaderboard";
 
     import { onMount } from "svelte";
-    import { fetchAndUpdateData } from "../../api.js";
-    import { stat, allStatUsers, allStatTeams } from "../../store.js";
+    import { fetchAndUpdateData } from "../../api";
+    import { stat, allStatUsers, allStatTeams } from "../../store";
 
     const allStatUrl = "/clicker/league/leaderboard/public/%s/silver/all";
     const paths = {

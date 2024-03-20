@@ -2,8 +2,8 @@
     import Flame from "./Flame.svelte";
     import Penny from "./Penny.svelte";
 
-    import { stat } from "../../../store.js";
-    import { animateValue } from "../../../utils.js";
+    import { stat } from "../../../store";
+    import { animateValue } from "../../../utils";
 
     let objIssued, objBurned;
 </script>

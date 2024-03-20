@@ -3,25 +3,12 @@
 
     const handleTap = () => {
         window.open("https://t.me/notcoin_bot/click", "_blank");
+
+        // @ts-ignore
         document.activeElement.blur();
     };
 </script>
 
-<div class="headButton">
+<div class="headButton flex justify-center mb-14 items-center gap-20 md:mb-32 md:gap-32">
   <NotButton onClick={handleTap}>Tap-to-earn</NotButton>
 </div>
-
-<style lang="sass">
-  .headButton
-    margin-bottom: 3.5rem
-    display: flex
-    justify-content: center
-    align-items: center
-    gap: 5rem
-  
-  @media (min-width: 768px)
-    .headButton
-      margin-bottom: 8rem
-      gap: 8rem
-
-</style>

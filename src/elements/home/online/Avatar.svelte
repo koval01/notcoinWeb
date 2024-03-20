@@ -1,5 +1,5 @@
 <script>
-    import { getAvatarThumb, handleImageError } from "../../../utils.js";
+    import { getAvatarThumb, handleImageError } from "../../../utils";
 
     export let avatarSrc = undefined, onError = handleImageError;
 </script>

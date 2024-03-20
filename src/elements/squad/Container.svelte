@@ -4,8 +4,8 @@
     import Join from "./elements/Join.svelte";
 
     import { onMount } from "svelte";
-    import { fetchAndUpdateData } from "../../api.js";
-    import { squadData } from "../../store.js";
+    import { fetchAndUpdateData } from "../../api";
+    import { squadData } from "../../store";
 
     export let slug;
     let interval;
@@ -21,15 +21,8 @@
     });
 </script>
 
-<div class="container">
+<div class="pb-16 w-full">
     <Hero />
     <Mined />
     <Join />
 </div>
-
-<style lang="sass">
-    .container
-        padding-bottom: 4rem
-        width: 100%
-
-</style>

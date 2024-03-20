@@ -1,4 +1,4 @@
-<footer>
+<footer class="relative">
   <div class="footnote typeface-footnote margin">
       <span>Built with 😆 by <a href="https://openbuilders.xyz" target="_blank">Open Builders</a></span>
       <span>Reassembled by <a href="https://git.koval.page" target="_blank">Yaroslav Koval</a></span>
@@ -6,9 +6,6 @@
 </footer>
 
 <style lang="sass">
-  footer
-    position: relative
-
   a
     color: #ffce4e
     font-weight: 500

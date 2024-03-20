@@ -43,7 +43,7 @@ function newtonRaphsonIterate(aX, aGuessT, mX1, mX2) {
 
 const LinearEasing = x => x;
 
-module.exports = function bezier(mX1, mY1, mX2, mY2) {
+export function bezier(mX1, mY1, mX2, mY2) {
   if (!(0 <= mX1 && mX1 <= 1 && 0 <= mX2 && mX2 <= 1)) {
     throw new Error('bezier x values must be in [0, 1] range');
   }

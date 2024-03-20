@@ -5,7 +5,7 @@
     import Content from "./elements/Content.svelte";
     import Skeleton from "./elements/Skeleton.svelte";
 
-    import { goTeam } from "../../../utils.js";
+    import { goTeam } from "../../../utils";
 
     let List = [];
     let objValue = [];

@@ -6,28 +6,24 @@
     import { goHome, goBack } from "../utils";
 </script>
 
-<div class="content">
-    <div class="box">
+<div class="relative top-0 left-0 w-full h-full flex justify-center items-center">
+    <div class="mt-[20vh] flex flex-col items-center">
         <Stars count={4} />
-        <div class="l">
-            <div class="logo"></div>
+        <div class="logo-container pb-8">
+            <div class="w-[240px] h-[240px] bg-cover rounded-full cursor-pointer will-change-transform origin-center logo"></div>
         </div>
         <p>It seems... <span>{window.location.pathname}</span> does not exist</p>
-        <div class="buttonsContainer">
+        <div class="flex mt-4">
           <AppleButton onClick={goHome}>Home</AppleButton>
           <AppleButton onClick={goBack}>Back</AppleButton>
         </div>
     </div>
 </div>
-<div class="footer">
+<div class="fixed w-full bottom-2">
     <Footer />
 </div>
 
 <style lang="sass">
-  .buttonsContainer
-    display: flex
-    margin-top: 24px
-
   p, span
     font-size: 1rem
     font-weight: 300
@@ -38,42 +34,13 @@
   span
     color: #ffc632
 
-  .footer
-    position: fixed
-    width: 100%
-    bottom: 12px
-
-  .content
-    position: relative
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    display: flex
-    justify-content: center
-    align-items: center
-
-  .box
-    margin-top: 20vh
-    display: flex
-    flex-direction: column
-    align-items: center
-
-  .l
+  .logo-container
     perspective: 400px
-    padding-bottom: 3rem
 
   .logo
-    width: 240px
-    height: 240px
-    border-radius: 50%
     background-image: url(/images/coin.webp)
-    background-size: cover
-    transform-origin: center
-    will-change: transform
     transition: transform .1s ease-out
     animation: tapCoin 1.6s ease infinite
-    cursor: pointer
 
   @media (min-width: 768px)
     p span

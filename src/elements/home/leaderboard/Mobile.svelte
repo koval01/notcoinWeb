@@ -2,7 +2,7 @@
     import { FlatButtonContainer, FlatButton } from "../../misc/flatbutton";
     import { Leaderboard } from "../../misc/leaderboard";
 
-    import { allStatUsers, allStatTeams } from "../../../store.js";
+    import { allStatUsers, allStatTeams } from "../../../store";
 
     let teamsDisplay = false;
 

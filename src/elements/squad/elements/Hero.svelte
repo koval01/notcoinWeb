@@ -19,7 +19,7 @@
     </div>
     <div class="heroTitle">
         {#if $squadData.loading}
-            <div class="skeleton" style="opacity: 1;">
+            <div class="skeleton w-[16rem]" style="opacity: 1;">
                 <div class="thickLine"></div>
             </div>
         {:else}
@@ -45,9 +45,6 @@
     text-overflow: ellipsis
     max-width: 100%
     text-wrap: nowrap
-
-  .skeleton
-    width: 16rem
 
   .avatar
     background-color: #fff

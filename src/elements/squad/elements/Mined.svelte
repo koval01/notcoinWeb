@@ -1,6 +1,6 @@
 <script>
   import { squadData} from "../../../store";
-  import { animateValue } from "../../../utils.js";
+  import { animateValue } from "../../../utils";
 
   let objValue;
 </script>
@@ -39,6 +39,7 @@
     display: flex
     gap: 0.5rem
     align-items: center
+    justify-content: center
 
   .coin
     content: url(/images/coin-mobile.webp)

@@ -1,5 +1,5 @@
 <script>
-    import { animateValue, getName } from "../../../../utils.js";
+    import { animateValue, getName } from "../../../../utils";
 
     export let objValue, d;
 </script>

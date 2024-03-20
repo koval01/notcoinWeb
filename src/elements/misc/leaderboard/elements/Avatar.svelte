@@ -1,5 +1,5 @@
 <script>
-    import { handleImageError, getAvatar } from "../../../../utils.js";
+    import { handleImageError, getAvatar } from "../../../../utils";
 
     export let d;
 </script>

@@ -3,8 +3,8 @@
     import Value from "./Value.svelte";
     import Label from "./Label.svelte";
 
-    import { stat, allStatUsers } from "../../../store.js";
-    import { getRandomElements } from "../../../utils.js";
+    import { stat, allStatUsers } from "../../../store";
+    import { getRandomElements } from "../../../utils";
 
     let usersTotal = [];
     let usersOnlineToday = [];

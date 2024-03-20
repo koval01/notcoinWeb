@@ -1,15 +1,15 @@
-import BezierEasing from './libs/bezierEasing.js';
+import { bezier as BezierEasing } from './libs/bezierEasing';
 
-export const getRandomElements = (list, count) => {
+export const getRandomElements = <T>(list: T[], count: number): T[] => {
     const shuffled = list.sort(() => .5 - Math.random());
     return shuffled.slice(0, count);
 }
 
-export const getRandomRange = (min, max) => {
+export const getRandomRange = (min: number, max: number): number => {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
-export const preloadImage = (url) => {
+export const preloadImage = (url: string): Promise<Event> => {
     return new Promise((resolve, reject) => {
         const image = new Image();
         image.onload = resolve;
@@ -18,17 +18,17 @@ export const preloadImage = (url) => {
     });
 }
 
-const keepOnlyAllowedCharacters = (inputString) => {
+const keepOnlyAllowedCharacters = (inputString: string): string => {
     return inputString.replace(/[^\w\d\u0400-\u04FF\uD83C-\uD83E\uDC00-\uDEFF]/g, '');
 }
 
-export const getAvatarThumb = () => {
-    return `https://api.dicebear.com/7.x/thumbs/svg?seed=${ getRandomRange(1, 1e2) }`;
+export const getAvatarThumb = (): string => {
+    return `https://api.dicebear.com/7.x/thumbs/svg?seed=${getRandomRange(1, 1e2)}`;
 }
 
-export const getAvatarByName = (name) => {
+export const getAvatarByName = (name: string): string => {
     name = keepOnlyAllowedCharacters(name)
-    return `https://ui-avatars.com/api/?name=${ encodeURIComponent(name ? name : "NN") }&background=000&color=fff`;
+    return `https://ui-avatars.com/api/?name=${encodeURIComponent(name ? name : "NN")}&background=000&color=fff`;
 }
 
 export const animateValue = (() => {
@@ -49,7 +49,7 @@ export const animateValue = (() => {
         };
 
         let startTimestamp = performance.now();
-        await new Promise(resolve => {
+        await new Promise<void>(resolve => {
             const step = (timestamp, stepCount = 0) => {
                 if (!startTimestamp) startTimestamp = timestamp;
 
@@ -76,7 +76,7 @@ export const animateValue = (() => {
 export const generateStars = (count = 4) => {
     const starsLeft = [];
     const starsRight = [];
-    
+
     const randomValues = [];
     for (let i = 0; i < count * 2; i++) {
         randomValues.push({
@@ -95,41 +95,42 @@ export const generateStars = (count = 4) => {
     return { starsLeft, starsRight };
 }
 
-export const limitStringLength = (string, maxLength) => {
+export const limitStringLength = (string: string, maxLength: number): string => {
     if (string.length <= maxLength) {
         return string;
     }
-    return `${ string.slice(0, maxLength-3) }...`;
+    return `${string.slice(0, maxLength - 3)}...`;
 }
 
-export const teamLink = (slug) => {
+export const teamLink = (slug: string | undefined): string | undefined => {
     return slug ? "/squad/" + slug : undefined; // undefined for remove href
 }
 
-export const goTeam = (slug) => {
+export const goTeam = (slug: string | undefined): void => {
     if (!slug) return;
-    window.open(`/squad/${ slug }`, "_self");
+    window.open(`/squad/${slug}`, "_self");
 }
 
-export const goHome = () => {
+export const goHome = (): void => {
     window.open("/", "_self");
 }
 
-export const goBack = () => {
+export const goBack = (): void => {
     history.back();
 }
 
-export const handleImageError = (event) => {
-    event.target.src = getAvatarThumb();
+export const handleImageError = (event: Event): void => {
+    const target = event.target as HTMLImageElement;
+    if (target) target.src = getAvatarThumb();
 }
 
-export const getName = (d) => {
+export const getName = (d: { user?: { firstName: string }, name: string }): string => {
     if (d.user?.firstName) return d.user.firstName;
     if (d.name) return d.name;
     return "";
 }
 
-export const getAvatar = (d) => {
+export const getAvatar = (d: { logo?: string, avatar?: string, user?: { firstName: string }, name: string }): string => {
     if (d.logo) return d.logo;
     if (d.avatar) return d.avatar;
     return getAvatarByName(getName(d))
