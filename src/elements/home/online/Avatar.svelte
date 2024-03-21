@@ -1,12 +1,12 @@
-<script>
+<script lang="js">
     import { getAvatarThumb, handleImageError } from "../../../utils";
 
     export let avatarSrc = undefined, onError = handleImageError;
 </script>
 
-<div class="avatar">
+<div class="p-1 rounded-full bg-black -mr-3">
     <img
-        class="avatarImg"
+        class="rounded-full h-6 w-6 md:h-8 md:w-8"
         src={avatarSrc ? avatarSrc : getAvatarThumb()}
         draggable="false"
         alt="Avatar"
@@ -15,22 +15,3 @@
         on:error={onError}
     />
 </div>
-
-<style lang="sass">
-    .avatar
-      padding: .25rem
-      border-radius: 50%
-      background-color: #000
-      margin-right: -.75rem
-  
-    .avatarImg
-      border-radius: 50%
-      height: 1.5rem
-      width: 1.5rem
-
-    @media (min-width: 768px)
-      .avatarImg
-        height: 2rem
-        width: 2rem
-
-</style>

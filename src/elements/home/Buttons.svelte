@@ -1,11 +1,10 @@
-<script>
+<script lang="ts">
     import NotButton from "../misc/NotButton.svelte";
 
     const handleTap = () => {
         window.open("https://t.me/notcoin_bot/click", "_blank");
 
-        // @ts-ignore
-        document.activeElement.blur();
+        (document.activeElement as HTMLElement).blur();
     };
 </script>
 

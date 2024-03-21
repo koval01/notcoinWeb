@@ -49,8 +49,9 @@ export const battleRoyaleStat: Writable<BattleRoyaleStatData> = writable({
 interface SquadData {
     [key: string]: any;
     loading: boolean;
+    name: string;
 }
 
 export const squadData: Writable<SquadData> = writable({
-    loading: true
+    loading: true, name: ""
 });

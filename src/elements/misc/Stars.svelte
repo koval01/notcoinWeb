@@ -1,9 +1,9 @@
-<script>
-    import { readable } from "svelte/store";
+<script lang="ts">
+    import { readable, type Readable } from "svelte/store";
     import { generateStars } from "../../utils";
 
-    export let count = 4;
-    let stars = readable(generateStars(count));
+    export let count: number = 4;
+    let stars: Readable<{starsLeft: any[], starsRight: any[]}> = readable(generateStars(count));
 </script>
 
 <div>

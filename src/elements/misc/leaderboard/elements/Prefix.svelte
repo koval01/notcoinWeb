@@ -1,10 +1,10 @@
-<script>
-    export let index;
+<script lang="ts">
+    export let index: number;
 </script>
 
 <div class="prefix">
     {#if index < 3}
-        <span class="medal">{index >= 0 ? ['🥇','🥈','🥉'][index] : '👑'}</span>
+        <span class="text-[24px]">{index >= 0 ? ['🥇','🥈','🥉'][index] : '👑'}</span>
     {:else}
         <span>{index + 1}</span>
     {/if}
@@ -21,8 +21,5 @@
     align-self: center
     font-size: 15px
     flex-shrink: 0
-
-  .medal
-    font-size: 28px
 
 </style>

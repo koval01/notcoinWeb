@@ -1,24 +1,22 @@
-<script>
+<script lang="ts">
     import { FlatButtonContainer, FlatButton } from "../../misc/flatbutton";
     import { Leaderboard } from "../../misc/leaderboard";
-
     import { allStatUsers, allStatTeams } from "../../../store";
 
-    let teamsDisplay = false;
+    let teamsDisplay: boolean = false;
 
-    const updateDisplays = (state) => {
+    const updateDisplays = (state: boolean): void => {
         teamsDisplay = state;
-    }
-
+    };
 </script>
 
-<div class="mobileContainer">
+<div class="w-full">
     <FlatButtonContainer bind:activeTab={teamsDisplay}>
         <FlatButton isActive={!teamsDisplay} onClick={() => updateDisplays(false)}>Miners</FlatButton>
         <FlatButton isActive={teamsDisplay} onClick={() => updateDisplays(true)}>Teams</FlatButton>
     </FlatButtonContainer>
 
-    <div class="container">
+    <div class="mt-2">
         {#if teamsDisplay}
             <Leaderboard StoreObject={$allStatTeams.leaderboard} teamsDisplay={teamsDisplay}/>
         {:else}
@@ -26,12 +24,3 @@
         {/if}
     </div>
 </div>
-
-<style lang="sass">
-  .mobileContainer
-    width: 100%
-
-  .container
-    margin-top: .5rem
-
-</style>

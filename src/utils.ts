@@ -1,3 +1,4 @@
+import type { MouseEventHandler } from 'svelte/elements';
 import { bezier as BezierEasing } from './libs/bezierEasing';
 
 export const getRandomElements = <T>(list: T[], count: number): T[] => {
@@ -106,7 +107,7 @@ export const teamLink = (slug: string | undefined): string | undefined => {
     return slug ? "/squad/" + slug : undefined; // undefined for remove href
 }
 
-export const goTeam = (slug: string | undefined): void => {
+export const goTeam = (slug: string | undefined): MouseEventHandler<HTMLButtonElement> => {
     if (!slug) return;
     window.open(`/squad/${slug}`, "_self");
 }

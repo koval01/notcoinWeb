@@ -1,30 +1,27 @@
-<script>
+<script lang="ts">
     import Stars from "../misc/Stars.svelte";
-
     import Hero from "./Hero.svelte";
     import Balance from "./Balance.svelte";
     import { Online } from "./online";
     import Buttons from "./Buttons.svelte";
-
     import { Total } from "./total";
     import { Leaderboard } from "./leaderboard";
-
     import { onMount } from "svelte";
     import { fetchAndUpdateData } from "../../api";
     import { stat, allStatUsers, allStatTeams } from "../../store";
 
-    const allStatUrl = "/clicker/league/leaderboard/public/%s/silver/all";
-    const paths = {
+    const allStatUrl: string = "/clicker/league/leaderboard/public/%s/silver/all";
+    const paths: { [key: string]: string } = {
         stat: "/clicker/core/stat",
         allStatUsers: allStatUrl.replace("%s", "user"),
         allStatTeams: allStatUrl.replace("%s", "team")
     };
 
-    const fetchData = async (path, store) => {
+    const fetchData = async (path: string, store: any) => {
         await fetchAndUpdateData(path, store);
     };
 
-    let intervals = [];
+    let intervals: { path: string; store: any }[] = [];
 
     onMount(async () => {
         intervals = [
@@ -40,9 +37,9 @@
     });
 </script>
 
-<div class="wrapper">
-    <div class="container">
-        <div class="box">
+<div class="relative min-h-screen">
+    <div class="my-0 mx-auto py-0 px-4 max-w-[1040px]">
+        <div class="pb-16 w-full">
             <Stars count={4} />
 
             <Hero />
@@ -55,19 +52,3 @@
         </div>
     </div>
 </div>
-
-<style lang="sass">
-  .wrapper
-    position: relative
-    min-height: 100vh
-  
-  .container
-    margin: 0 auto
-    max-width: 1040px
-    padding: 0 1rem
-
-  .box
-    padding-bottom: 4rem
-    width: 100%
-  
-</style>

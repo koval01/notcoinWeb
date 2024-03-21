@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
     import Stars from '../misc/Stars.svelte';
     import Container from './Container.svelte';
 
-    export let slug;
+    export let slug: string;
 </script>
 
 <main class="relative min-h-[100vh]">

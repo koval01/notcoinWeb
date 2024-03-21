@@ -1,11 +1,11 @@
-<script>
+<script lang="js">
   import Hint from "./Hint.svelte";
   import { Leaderboard } from "../../misc/leaderboard";
 
   import { allStatUsers, allStatTeams } from "../../../store";
 </script>
 
-<div class="container">
+<div class="mt-8 w-full flex gap-4">
   <div class="list">
     <Hint>top miners</Hint>
     <Leaderboard StoreObject={$allStatUsers.leaderboard} teamsDisplay={false} />
@@ -17,12 +17,6 @@
 </div>
 
 <style lang="sass">
-  .container
-    margin-top: 2rem
-    width: 100%
-    display: flex
-    gap: 1rem
-
   .list
     width: calc(50% - .5rem)
 

@@ -1,4 +1,4 @@
-<script>
+<script lang="js">
     export let onClick;
   
     function handleClick() {

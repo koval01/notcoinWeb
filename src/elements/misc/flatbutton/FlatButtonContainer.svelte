@@ -1,5 +1,5 @@
-<script>
-    export let activeTab;
+<script lang="ts">
+    export let activeTab: boolean;
 </script>
   
 <div class="solidRoot">
@@ -20,7 +20,6 @@
     border-radius: 14px
     background: #ffffff1f
     z-index: 30
-    -webkit-backdrop-filter: blur(3px)
     backdrop-filter: blur(3px)
 
   .solidRoot .activeBar

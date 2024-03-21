@@ -1,35 +1,13 @@
-<script>
+<script lang="ts">
     import List from "./List.svelte";
 
-    export let StoreObject, teamsDisplay;
+    export let StoreObject: any, teamsDisplay: boolean;
 </script>
 
-<div class="leaderboard">
-  <div class="listInner">
-      <div class="padding-0 direction-column willChange">
+<div class="rounded-[20px] backdrop-blur-md bg-[#ffffff1f]">
+  <div class="pt-[12px] pr-[12px] pb-[16px] pl-[12px]">
+      <div class="p-0 flex flex-col will-change-[opacity]">
           <List StoreObject={StoreObject} teamsDisplay={teamsDisplay} />
       </div>
   </div>
 </div>
-
-<style lang="sass">
-  .padding-0
-    padding: 0
-
-  .direction-column
-    display: flex
-    flex-direction: column
-
-  .leaderboard
-    border-radius: 20px
-    background: rgba(255, 255, 255, 0.12)
-    backdrop-filter: blur(6px)
-    -webkit-backdrop-filter: blur(6px)
-
-  .listInner
-    padding: 12px 12px 16px
-
-  .willChange
-    will-change: opacity
-
-</style>

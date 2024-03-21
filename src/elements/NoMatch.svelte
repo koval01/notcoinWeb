@@ -1,4 +1,4 @@
-<script>
+<script lang="js">
     import Stars from "./misc/Stars.svelte";
     import AppleButton from "../elements/misc/AppleButton.svelte";
     import Footer from "./Footer.svelte";
@@ -10,7 +10,7 @@
     <div class="mt-[20vh] flex flex-col items-center">
         <Stars count={4} />
         <div class="logo-container pb-8">
-            <div class="w-[240px] h-[240px] bg-cover rounded-full cursor-pointer will-change-transform origin-center logo"></div>
+            <div class="w-[200px] h-[200px] md:w-[240px] md:h-[240px] lg:w-[300px] lg:h-[300px] bg-cover rounded-full cursor-pointer will-change-transform origin-center logo"></div>
         </div>
         <p>It seems... <span>{window.location.pathname}</span> does not exist</p>
         <div class="flex mt-4">
@@ -45,15 +45,6 @@
   @media (min-width: 768px)
     p span
       font-size: 1.2rem
-
-    .logo
-      width: 300px
-      height: 300px
-
-  @media (max-height: 640px)
-    .logo
-      width: 200px
-      height: 200px
 
   @keyframes tapCoin
     0%

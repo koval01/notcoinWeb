@@ -1,12 +1,12 @@
-<script>
+<script lang="ts">
     import Avatar from "./Avatar.svelte";
 
     import { getAvatarThumb } from "../../../utils";
 
-    export let users, preloadImgState;
+    export let users: any, preloadImgState: any;
 </script>
 
-<div class="avatars">
+<div class="flex pr-3 min-w-[72px] md:min-w-[96px]">
     {#if preloadImgState === void 0}
         {#each Array(3) as _}
             <Avatar avatarSrc={getAvatarThumb()} onError={void 0} />
@@ -17,15 +17,3 @@
         {/each}
     {/if}
 </div>
-
-<style lang="sass">
-    .avatars
-      display: flex
-      padding-right: .75rem
-      min-width: 72px
-
-    @media (min-width: 768px)
-      .avatars
-        min-width: 96px
-
-</style>

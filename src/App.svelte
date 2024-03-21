@@ -1,22 +1,22 @@
-<script>
+<script lang="ts">
 	import { Router, Route } from "svelte-routing";
 	import { onMount } from "svelte";
 
-	let Home, Squad, NoMatch;
+	let Home: any, Squad: any, NoMatch: any;
 
 	onMount(async () => {
 		const path = window.location.pathname;
 
-        if (path === "/") {
-            Home = (await import("./routes/Home.svelte")).default;
-        }
-		else if (/^\/squad\/[^\/]+\/*?$/.test(path)) {
+		if (path === "/") {
+			Home = (await import("./routes/Home.svelte")).default;
+		} else if (/^\/squad\/[^\/]+\/*?$/.test(path)) {
 			Squad = (await import("./routes/Squad.svelte")).default;
+		} else {
+			NoMatch = (await import("./routes/NoMatch.svelte")).default;
 		}
-        else NoMatch = (await import("./routes/NoMatch.svelte")).default;
-    });
+	});
 
-	export let url = "";
+	export let url: string = "";
 </script>
 
 <svelte:head>

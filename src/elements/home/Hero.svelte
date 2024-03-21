@@ -1,35 +1,4 @@
-<div class="heroSection">
-    <h1 class="heroTitle">Notcoin</h1>
-    <h2 class="heroSubtitle">the biggest web3 game</h2>
+<div class="flex gap-1 flex-col mb-12 items-center mt-40 md:text-[.5rem] md:mb-16 md:mt-48">
+    <h1 class="font-extrabold text-4xl md:text-6xl">Notcoin</h1>
+    <h2 class="text-base text-[#ebebf599] md:text-lg">the biggest web3 game</h2>
 </div>
-
-<style lang="sass">
-  .heroSection
-    display: flex
-    gap: .25rem
-    flex-direction: column
-    margin-bottom: 3rem
-    align-items: center
-    margin-top: 10rem
-  
-  .heroTitle
-    font-weight: 800
-    font-size: 2.5rem
-  
-  .heroSubtitle
-    font-size: 1rem
-    color: #ebebf599
-  
-  @media (min-width: 768px)
-    .heroSection
-      font-size: .5rem
-      margin-bottom: 4rem
-      margin-top: 12rem
-  
-    .heroTitle
-      font-size: 3.75rem
-  
-    .heroSubtitle
-      font-size: 1.25rem
-  
-</style>

@@ -16,7 +16,6 @@
     column-gap: 1rem
     align-content: start
     z-index: 20
-    -webkit-backdrop-filter: blur(3px)
     backdrop-filter: blur(3px)
     line-height: normal
     padding-bottom: 12px

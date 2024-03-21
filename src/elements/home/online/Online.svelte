@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import Avatars from "./Avatars.svelte";
     import Value from "./Value.svelte";
     import Label from "./Label.svelte";
@@ -6,28 +6,28 @@
     import { stat, allStatUsers } from "../../../store";
     import { getRandomElements } from "../../../utils";
 
-    let usersTotal = [];
-    let usersOnlineToday = [];
-    let usersOnlineNow = [];
+    let usersTotal: { avatar: string }[] = [];
+    let usersOnlineToday: { avatar: string }[] = [];
+    let usersOnlineNow: { avatar: string }[] = [];
 
-    let objValues = [];
-    let preloadImgState;
+    let objValues: any[] = [];
+    let preloadImgState: boolean | undefined;
 
     // Throttle function to update random users
-    let throttledUpdateRandomUsers = null;
+    let throttledUpdateRandomUsers: NodeJS.Timeout | null = null;
 
-    const updateRandomUsers = async () => {
-        const usersWithAvatar = $allStatUsers.leaderboard.filter(user => user.avatar);
+    const updateRandomUsers = async (): Promise<void> => {
+        const usersWithAvatar = $allStatUsers.leaderboard.filter((user: any) => user.avatar);
 
-        usersTotal = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
-        usersOnlineToday = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
-        usersOnlineNow = getRandomElements(usersWithAvatar, 3).map(user => ({ avatar: user.avatar }));
+        usersTotal = getRandomElements(usersWithAvatar, 3).map((user: any) => ({ avatar: user.avatar }));
+        usersOnlineToday = getRandomElements(usersWithAvatar, 3).map((user: any) => ({ avatar: user.avatar }));
+        usersOnlineNow = getRandomElements(usersWithAvatar, 3).map((user: any) => ({ avatar: user.avatar }));
 
         preloadImgState = false;
     };
 
     // To prevent avatars from being updated twice
-    const throttleUpdateRandomUsers = () => {
+    const throttleUpdateRandomUsers = (): void => {
         if (!throttledUpdateRandomUsers) {
             throttledUpdateRandomUsers = setTimeout(() => {
                 updateRandomUsers();
@@ -44,10 +44,10 @@
     }
 </script>
 
-<div class="onlineSection">
-    <div class="online">
+<div class="flex gap-2 items-center mb-6 justify-center md:gap-3 md:mb-8">
+    <div class="text-base md:text-lg">
         {#each [usersTotal, usersOnlineToday, usersOnlineNow] as users, i}
-            <div class="onlineRow">
+            <div class="flex items-center mb-[12px]">
                 <Avatars preloadImgState={preloadImgState} users={users} />
                 <Value index={i} objValues={objValues} stat={$stat} />
                 <Label index={i} />
@@ -55,29 +55,3 @@
         {/each}
     </div>
 </div>
-
-<style lang="sass">
-  .onlineSection
-    display: flex
-    gap: .5rem
-    align-items: center
-    margin-bottom: 1.5rem
-    justify-content: center
-  
-  .online
-    font-size: 1rem
-  
-  .onlineRow
-    display: flex
-    align-items: center
-    margin-bottom: 12px
-  
-  @media (min-width: 768px)
-    .onlineSection
-      gap: .75rem
-      margin-bottom: 2rem
-  
-    .online
-      font-size: 1.25rem
-
-</style>

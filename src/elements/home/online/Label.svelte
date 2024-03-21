@@ -1,14 +1,7 @@
-<script>
+<script lang="js">
     export let index;
 </script>
 
-<span class="label">
+<span class="ml-[6px] text-[#ebebf599]">
     {['total players', 'online today', 'online'][index]}
 </span>
-
-<style lang="sass">
-    .label
-        margin-left: 6px
-        color: #ebebf599
-
-</style>

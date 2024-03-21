@@ -1,15 +1,15 @@
-<script>
+<script lang="ts">
   import AppleButton from "../../misc/AppleButton.svelte";
-
-  import { squadData} from "../../../store";
+  import { squadData } from "../../../store";
   import { getAvatarByName, handleImageError, goBack } from "../../../utils";
 
-  const avatar = (d) => {
-    if (d.loading) {
-      return;
-    }
-    return d.logo ? d.logo : getAvatarByName(d.name);
-  }
+  const avatar = (d: { loading: boolean; logo?: string; name: string }): string | undefined => {
+      if (d.loading) {
+          return;
+      }
+      return d.logo ? d.logo : getAvatarByName(d.name);
+  };
+
 </script>
 
 <div class="heroSection">

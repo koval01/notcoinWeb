@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
     import { onMount } from "svelte";
 
-    let Desktop, Mobile;
+    let Desktop: any, Mobile: any;
 
-    let isDesktop = false;
+    let isDesktop: boolean = false;
 
     const checkScreenWidth = async () => {
         isDesktop = window.innerWidth >= 890;
@@ -13,7 +13,7 @@
             return;
         }
         if (!Mobile) Mobile = (await import("./Mobile.svelte")).default;
-    }
+    };
 
     window.addEventListener('resize', checkScreenWidth);
 
@@ -22,23 +22,10 @@
     });
 </script>
 
-<div class="leaderboardSection">
+<div class="flex gap-4 mt-2 w-full md:mt-0">
     {#if isDesktop}
         <svelte:component this={Desktop} />
     {:else}
         <svelte:component this={Mobile} />
     {/if}
 </div>
-
-<style lang="sass">
-    .leaderboardSection
-      display: flex
-      gap: 1rem
-      margin-top: .5rem
-      width: 100%
-
-    @media (min-width: 768px)
-      .leaderboardSection
-        margin-top: 0
-
-</style>

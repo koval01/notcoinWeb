@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
     import { animateValue } from "../../../utils";
 
-    export let index, objValues, stat;
+    export let index: number, objValues: any, stat: object | any;
 </script>
 
 <span class="value {index === 0 ? 'totalPlayers' : index === 1 ? 'onlineToday' : 'onlineNow'}" bind:this={objValues[index]}>

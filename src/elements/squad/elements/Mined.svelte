@@ -1,13 +1,13 @@
-<script>
+<script lang="ts">
   import { squadData} from "../../../store";
   import { animateValue } from "../../../utils";
 
-  let objValue;
+  let objValue: any;
 </script>
 
 <div class="minedSection">
     <h3 class="minedTitle">total mined</h3>
-    <div class="container">
+    <div class="mined-container">
         <img class="coin" draggable="false" alt="Coin">
         <div class="value" bind:this={objValue}>
           {#if $squadData.loading}
@@ -35,7 +35,7 @@
     font-size: 0.75rem
     text-transform: uppercase
 
-  .container
+  .mined-container
     display: flex
     gap: 0.5rem
     align-items: center
@@ -58,7 +58,7 @@
     .minedTitle
       font-size: 1rem
 
-    .container
+    .mined-container
       gap: 1rem
 
     .coin

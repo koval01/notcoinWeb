@@ -1,31 +1,18 @@
-<script>
+<script lang="ts">
     import NotButton from "../../misc/NotButton.svelte";
+    import { squadData } from "../../../store";
 
-    import { squadData} from "../../../store";
+    let squadId: number = 0;
 
-    let squadId = 0;
-    const joinSquad = () => {
+    const joinSquad = (): void => {
         window.open(`https://t.me/notcoin_bot?start=r_${squadId}_1`, "_self");
     };
 
     $: {
-      squadId = $squadData.id;
+        squadId = $squadData.id;
     }
 </script>
 
-<div class="joinSection">
+<div class="mb-12 flex justify-center items-center md:mb-20">
     <NotButton onClick={joinSquad}>Join squad</NotButton>
 </div>
-
-<style lang="sass">
-  .joinSection
-    margin-bottom: 3rem
-    display: flex
-    justify-content: center
-    align-items: center
-
-  @media (min-width: 768px)
-    .joinSection
-        margin-bottom: 5rem
-
-</style>

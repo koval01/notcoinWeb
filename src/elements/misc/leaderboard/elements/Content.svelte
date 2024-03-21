@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
     import { animateValue, getName } from "../../../../utils";
 
-    export let objValue, d;
+    export let objValue: any, d: object | any;
 </script>
 
 <div class="innerContent">

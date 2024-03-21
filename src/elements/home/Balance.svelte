@@ -1,13 +1,13 @@
-<script>
+<script lang="ts">
     import { stat } from "../../store";
     import { animateValue } from "../../utils";
 
-    let objValue;
+    let objValue: any;
 </script>
 
 <div class="balanceSection flex flex-col gap-2 items-center mb-2">
     <h3 class="balanceTitle">total balance</h3>
-    <div class="container">
+    <div class="balance-container">
         <img class="coin" draggable="false" alt="Coin" />
         <div class="value" bind:this={objValue}>
             {#if $stat.loading}
@@ -28,7 +28,7 @@
     font-size: .6rem
     text-transform: uppercase
 
-  .container
+  .balance-container
     display: flex
     gap: .5rem
     align-items: center
@@ -82,7 +82,7 @@
     .balanceTitle
       font-size: 1rem
 
-    .container
+    .balance-container
       gap: 1rem
 
     .coin

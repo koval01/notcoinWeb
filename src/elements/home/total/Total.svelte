@@ -1,15 +1,15 @@
-<script>
+<script lang="ts">
     import Flame from "./Flame.svelte";
     import Penny from "./Penny.svelte";
 
     import { stat } from "../../../store";
     import { animateValue } from "../../../utils";
 
-    let objIssued, objBurned;
+    let objIssued: any, objBurned: any;
 </script>
 
 <div class="totalSection">
-    <div class="container">
+    <div class="stat-container">
         <Penny />
         <div class="meme">
             <img
@@ -31,7 +31,7 @@
             <span class="title">total issued</span>
         </div>
     </div>
-    <div class="container">
+    <div class="stat-container">
         <Flame />
         <div class="meme burned">
             <img
@@ -63,7 +63,7 @@
     gap: 1rem
     margin-bottom: 1rem
   
-  .container
+  .stat-container
     position: relative
     display: flex
     padding: 1rem
@@ -73,7 +73,6 @@
     border-color: #ffffff1a
     border-radius: 1rem
     border-style: solid
-    -webkit-backdrop-filter: blur(3px)
     backdrop-filter: blur(3px)
     z-index: 2
   
@@ -129,7 +128,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr))
         grid-template-rows: none
   
-        > div.container
+        > div.stat-container
           padding: 1rem 2rem
           gap: 20px
   

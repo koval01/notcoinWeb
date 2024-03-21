@@ -1,4 +1,4 @@
-<script>
+<script lang="js">
     import Header from "../elements/Header.svelte";
     import Footer from "../elements/Footer.svelte";
 

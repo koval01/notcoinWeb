@@ -1,20 +1,20 @@
-<script>
+<script lang="js">
     export let headTitle = undefined;
 </script>
 
-<header>
-    <div class="box">
+<header class="fixed p-4 top-0 left-0 w-full h-[3.75rem] z-50 bg-black border-[#fff3] border-b-[1px] border-solid">
+    <div class="h-full max-w-[1040px] my-0 mx-auto grid grid-cols-3 items-center content-center">
         <a
-            class="headLink"
+            class="font-semibold justify-self-start"
             href="https://cdn.joincommunity.xyz/notcoin/Notcoin_Whitepaper.pdf"
             >Whitepaper</a
         >
         {#if headTitle}
-            <a class="homeLink" href="/">{headTitle}</a>
+            <a class="font-bold text-2xl justify-self-center" href="/">{headTitle}</a>
         {:else}
             <div></div>
         {/if}
-        <div class="headSocials">
+        <div class="justify-self-end flex items-center gap-4">
             <a href="https://twitter.com/thenotcoin">
                 <img
                     src="/logos/x-logo.svg"
@@ -34,43 +34,3 @@
         </div>
     </div>
 </header>
-
-<style lang="sass">
-  header
-    padding: 1rem
-    position: fixed
-    top: 0
-    left: 0
-    width: 100%
-    height: 3.75rem
-    background-color: #000
-    z-index: 1001
-    border-color: #fff3
-    border-bottom-width: 1px
-    border-bottom-style: solid
-
-  .box
-    height: 100%
-    margin: 0 auto
-    max-width: 1040px
-    display: grid
-    grid-template-columns: 1fr 1fr 1fr
-    align-items: center
-    align-content: center
-  
-  .headLink
-    font-weight: 600
-    justify-self: start
-  
-  .headSocials
-    justify-self: end
-    display: flex
-    align-items: center
-    gap: 1rem
-
-  .homeLink
-    font-weight: 700
-    font-size: 1.5rem
-    justify-self: center
-  
-</style>

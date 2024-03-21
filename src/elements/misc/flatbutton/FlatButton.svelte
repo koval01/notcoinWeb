@@ -1,6 +1,6 @@
-<script>
-    export let isActive;
-    export let onClick;
+<script lang="ts">
+    export let isActive: boolean;
+    export let onClick: any;
 </script>
   
 <button 
@@ -20,11 +20,9 @@
     color: #fff
 
   .flatTabButton
-    -webkit-user-select: none
     user-select: none
     outline: 0px
     margin: 0
-    -webkit-appearance: none
     -moz-appearance: none
     appearance: none
     cursor: pointer
@@ -32,7 +30,6 @@
     display: flex
     align-items: center
     justify-content: center
-    -webkit-tap-highlight-color: transparent
     flex-grow: 1
     border: none
     height: 28px
