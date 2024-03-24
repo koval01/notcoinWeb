@@ -5,10 +5,7 @@
   
 <button 
     class="tabButton flatTabButton {isActive ? 'isActive' : ''}" 
-    type="button" 
-    role="tab" 
-    aria-selected="false"
-    tabindex="-1" 
+    type="button"
     on:click={onClick}>
     <slot></slot>
 </button>
