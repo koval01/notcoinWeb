@@ -12,14 +12,14 @@
 
 </script>
 
-<div class="heroSection">
+<div class="mt-36 flex flex-col items-center justify-center mb-2 gap-3 md:gap-5 md:mb-12">
     <AppleButton onClick={goBack}>Back</AppleButton>
     <div class="avatar">
-      <img src={avatar($squadData)} draggable="false" alt="" on:error={handleImageError} />
+      <img src={avatar($squadData)} class="bg-white p-2 rounded-2xl md:rounded-3xl h-32 w-32 md:h-44 md:w-44" draggable="false" alt="" on:error={handleImageError} />
     </div>
-    <div class="heroTitle">
+    <div class="flex justify-center items-center font-extrabold text-3xl truncate min-w-full md:text-6xl mt-3">
         {#if $squadData.loading}
-            <div class="skeleton w-[16rem]" style="opacity: 1;">
+            <div class="skeleton flex !m-auto !w-[16rem] md:!w-[30rem]" style="opacity: 1;">
                 <div class="thickLine"></div>
             </div>
         {:else}
@@ -27,48 +27,3 @@
         {/if}
     </div>
 </div>
-
-<style lang="sass">
-  .heroSection
-    margin-top: 9rem
-    display: flex
-    align-items: center
-    justify-content: center
-    flex-direction: column
-    margin-bottom: 2rem
-    gap: .75rem
-
-  .heroTitle
-    font-weight: 800
-    font-size: 2rem
-    overflow: hidden
-    text-overflow: ellipsis
-    max-width: 100%
-    text-wrap: nowrap
-
-  .avatar
-    background-color: #fff
-    padding: .5rem
-    border-radius: 1.25rem
-
-  img
-    border-radius: 1rem
-    height: 7.5rem
-    width: 7.5rem
-
-  @media (min-width: 768px)
-    .heroSection
-      gap: 1.5rem
-      margin-bottom: 3rem
-
-    .heroTitle
-      font-size: 3.75rem
-
-    .skeleton
-      width: 30rem
-
-    img
-      height: 11rem
-      width: 11rem
-
-</style>

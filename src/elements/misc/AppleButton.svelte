@@ -6,18 +6,12 @@
     }
 </script>
 
-<button on:click={handleClick}>
+<button class="relative flex items-center py-2 px-4 my-0 mx-4 bg-transparent text-[#fff] cursor-pointer" on:click={handleClick}>
     <slot></slot>
 </button>
 
 <style lang="sass">
   button  
-    display: flex
-    align-items: center
-    padding: 0.5rem 1rem
-    background: none
-    color: #fff
-    cursor: pointer
     transition: opacity .3s, transform .3s
 
     &:hover
@@ -25,9 +19,6 @@
       transform: scale(1.1)
 
   button
-    margin: 0 1rem
-    position: relative
-
     &:before
       content: ""
       background-image: url(/images/chevron.svg)

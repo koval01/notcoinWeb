@@ -1,5 +1,5 @@
 <footer class="relative">
-  <div class="footnote typeface-footnote margin">
+  <div class="text-xs font-normal my-[20px] mt-[32px] relative text-center z-5">
       <span>Built with 😆 by <a href="https://openbuilders.xyz" target="_blank">Open Builders</a></span>
       <span>Reassembled by <a href="https://git.koval.page" target="_blank">Yaroslav Koval</a></span>
   </div>
@@ -21,22 +21,8 @@
   span::before
     content: "/ "
 
-  .footnote
-    position: relative
-    text-align: center
-    z-index: 5
-
   span:first-child::before
     content: ""
-
-  .typeface-footnote
-    font-size: 13px
-    font-weight: 400
-    line-height: 18px
-
-  .margin
-    margin: 20px 0
-    margin-top: 32px
 
   @media (max-width: 768px)
     span

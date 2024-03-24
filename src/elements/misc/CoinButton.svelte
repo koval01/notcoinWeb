@@ -6,24 +6,17 @@
     }
 </script>
 
-<button class="coinButton buttonFlush" on:click={handleClick}>
-    <div class="coin"></div>
+<button class="buttonFlush w-full h-full cursor-pointer" on:click={handleClick}>
+    <div class="coin w-full h-full relative will-change-transform"></div>
 </button>
 
 <style lang="sass">
-    .coinButton
-      width: 100%
-      height: 100%
-      cursor: pointer
+    button
       perspective: 300px
 
     .coin
       background-image: url(/images/coin-mobile.webp)
       background-size: cover
-      width: 100%
-      height: 100%
-      position: relative
-      will-change: transform
       transform-style: preserve-3d
     
     @media (min-width: 768px)

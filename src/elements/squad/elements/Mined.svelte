@@ -5,13 +5,13 @@
   let objValue: any;
 </script>
 
-<div class="minedSection">
-    <h3 class="minedTitle">total mined</h3>
-    <div class="mined-container">
-        <img class="coin" draggable="false" alt="Coin">
-        <div class="value" bind:this={objValue}>
+<div class="flex flex-col gap-2 items-center mb-3 mt-8 md:mt-14">
+    <h3 class="text-[#ffffff80] text-xs md:text-base uppercase">total mined</h3>
+    <div class="flex gap-2 md:gap-4 items-center justify-center">
+        <img class="w-10 h-10 md:w-16 md:h-16 content-[url(/images/coin-mobile.webp)] md:content-[url(/images/coin.webp)]" draggable="false" alt="Coin">
+        <div class="lining-nums tabular-nums font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl" bind:this={objValue}>
           {#if $squadData.loading}
-              <div class="skeleton" style="opacity: 1;">
+              <div class="skeleton !w-48 md:!w-96" style="opacity: 1;">
                   <div class="thickLine"></div>
               </div>
           {:else}
@@ -20,56 +20,3 @@
         </div>
     </div>
 </div>
-
-<style lang="sass">
-  .minedSection
-    display: flex
-    flex-direction: column
-    gap: 0.5rem
-    align-items: center
-    margin-bottom: 1.5rem
-
-  .minedTitle
-    color: #ffffff80
-    letter-spacing: 0.25rem
-    font-size: 0.75rem
-    text-transform: uppercase
-
-  .mined-container
-    display: flex
-    gap: 0.5rem
-    align-items: center
-    justify-content: center
-
-  .coin
-    content: url(/images/coin-mobile.webp)
-    width: 2.5rem
-    height: 2.5rem
-
-  .value
-    font-size: 2rem
-    font-weight: 800
-    font-variant-numeric: lining-nums tabular-nums
-
-  .skeleton
-    width: 12rem
-
-  @media (min-width: 768px)
-    .minedTitle
-      font-size: 1rem
-
-    .mined-container
-      gap: 1rem
-
-    .coin
-      content: url(/images/coin.webp)
-      width: 4.5rem
-      height: 4.5rem
-
-    .value
-      font-size: 3.6rem
-
-    .skeleton
-      width: 20rem
-
-</style>

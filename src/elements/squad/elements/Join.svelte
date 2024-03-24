@@ -13,6 +13,6 @@
     }
 </script>
 
-<div class="mb-12 flex justify-center items-center md:mb-20">
+<div class="mb-12 mt-12 md:mt-20 flex justify-center items-center md:mb-20">
     <NotButton onClick={joinSquad}>Join squad</NotButton>
 </div>

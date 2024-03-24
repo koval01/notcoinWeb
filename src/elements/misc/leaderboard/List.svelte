@@ -20,7 +20,7 @@
 
 {#if List.length > 0}
   {#each List as d, i}
-      <button class="innerWrapper p-0 flex flex-row items-center rounded-[10px] min-h-[64px] select-none buttonFlush {teamsDisplay ? '' : 'disabled'}" on:click={goTeam(d.slug)}>
+      <button class="innerWrapper flex flex-row items-center rounded-[10px] min-h-[64px] select-none buttonFlush p-0 !pr-4 hover:bg-[#ffffff55] {teamsDisplay ? '' : 'disabled'}" on:click={goTeam(d.slug)}>
           <Prefix index={d.user?.lastName ? -1 : i} />
           <Avatar d={d} />
           <Content objValue={objValue[i]} d={d} />
@@ -35,11 +35,7 @@
 
 <style lang="sass">
   .innerWrapper
-    padding: 8px 8px 8px 4px
-    transition: background-color .2s
-
-  .innerWrapper:hover
-    background-color: #ffffff55
+    transition: background-color .15s
 
   .innerWrapper.disabled
     cursor: default

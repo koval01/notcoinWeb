@@ -1,52 +1,8 @@
-<div class="item" style="opacity:1">
-    <div class="prefix"></div>
-    <div class="media"></div>
-    <div class="wrap">
-        <div class="title"></div>
-        <div class="content"></div>
+<div class="item flex items-center select-none min-h-16 p-8 pl-4" style="opacity:1">
+    <div class="skeleton-bg w-5 min-w-5 h-2 ml-1 mr-3.5 rounded-2xl"></div>
+    <div class="skeleton-bg w-12 h-12 rounded-full mr-3 shrink-0"></div>
+    <div class="w-full">
+        <div class="skeleton-bg w-[40%] h-2 mb-4 rounded-2xl"></div>
+        <div class="skeleton-bg w-[70%] h-2 rounded-2xl"></div>
     </div>
 </div>
-
-<style lang="sass">
-  .item
-    display: flex
-    align-items: center
-    user-select: none
-    min-height: 64px
-    padding: 8px 8px 8px 4px
-    --color-skeleton-bg:#ffffff1f
-
-  .prefix
-    width: 24px
-    min-width: 24px
-    height: 8px
-    margin-left: 4px
-    margin-right: 14px
-    background-color: var(--color-skeleton-bg)
-    border-radius: 16px
-
-  .media
-    width: 48px
-    height: 48px
-    border-radius: 48px
-    margin-right: 12px
-    flex-shrink: 0
-    background-color: var(--color-skeleton-bg)
-
-  .wrap
-    width: 100%
-
-  .title
-    width: 40%
-    height: 8px
-    background-color: var(--color-skeleton-bg)
-    margin-bottom: 16px
-    border-radius: 16px
-
-  .content
-    width: 70%
-    height: 8px
-    background-color: var(--color-skeleton-bg)
-    border-radius: 16px
-
-</style>
