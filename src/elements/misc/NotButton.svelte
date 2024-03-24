@@ -8,7 +8,7 @@
 
 <button 
   type="button" 
-  class="rounded-2xl bg-[#f90] font-semibold py-3 px-6 text-base text-[#fff] flex md:text-xl" 
+  class="rounded-2xl bg-white font-semibold py-3 px-6 text-base text-black flex md:text-xl" 
   aria-haspopup="dialog" 
   aria-expanded="false"
   aria-controls="radix-:r0:" 
