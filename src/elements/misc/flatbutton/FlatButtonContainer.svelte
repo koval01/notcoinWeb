@@ -2,39 +2,7 @@
     export let activeTab: boolean;
 </script>
   
-<div class="solidRoot">
+<div class="relative flex justify-center items-center w-full overflow-hidden p-1 min-h-12 rounded-xl bg-[#ffffff1f] z-30 backdrop-blur-sm">
   <slot></slot>
-  <div class="activeBar" style="transform:translateX({activeTab ? '100%' : '0'})"></div>
+  <div class="absolute pointer-events-none w-[calc(50%-4px)] left-1 right-1 top-1 bottom-1 transition-transform duration-150 ease-in border border-solid border-opacity-25 rounded-lg bg-white shadow-lg" style="transform:translateX({activeTab ? '100%' : '0'})"></div>
 </div>
-
-<style lang="sass">
-  .solidRoot
-    position: relative
-    display: flex
-    justify-content: center
-    align-items: center
-    width: 100%
-    overflow: hidden
-    padding: 4px
-    min-height: 48px
-    border-radius: 14px
-    background: #ffffff1f
-    z-index: 30
-    backdrop-filter: blur(3px)
-
-  .solidRoot .activeBar
-    position: absolute
-    pointer-events: none
-    width: calc(50% - 4px)
-    left: 4px
-    right: 4px
-    top: 4px
-    bottom: 4px
-    transition: transform .3s ease
-    border-radius: 10px
-    background: #fff
-    box-shadow: 0 2px 10px #00001c0f,0 0 1px #00001c14
-    border: 0.5px solid rgba(0, 0, 0, 0.04)
-
-</style>
-  

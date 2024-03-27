@@ -21,7 +21,7 @@
         <div class="valueContainer">
             <span class="value valueIssued" bind:this={objIssued}>
                 {#if $stat.loading}
-                    <div class="skeleton" style="opacity: 1;">
+                    <div class="skeleton">
                         <div class="thickLine"></div>
                     </div>
                 {:else}
@@ -43,7 +43,7 @@
         <div class="valueContainer">
             <span class="value valueBurned" bind:this={objBurned}>
                 {#if $stat.loading}
-                    <div class="skeleton" style="opacity: 1;">
+                    <div class="skeleton">
                         <div class="thickLine"></div>
                     </div>
                 {:else}

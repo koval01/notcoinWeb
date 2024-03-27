@@ -6,28 +6,6 @@
     }
 </script>
 
-<button class="relative flex items-center py-2 px-4 my-0 mx-4 bg-transparent text-[#fff] cursor-pointer" on:click={handleClick}>
+<button class="relative flex items-center py-2 px-4 my-0 mx-4 bg-transparent text-[#fff] cursor-pointer before:content-[''] before:-left-3 before:top-1/2 before:absolute before:w-8 before:h-8 before:bg-cover before:bg-[url(/images/chevron.svg)] before:-translate-y-2/4 transition duration-500 hover:opacity-70 hover:scale-105" on:click={handleClick}>
     <slot></slot>
 </button>
-
-<style lang="sass">
-  button  
-    transition: opacity .3s, transform .3s
-
-    &:hover
-      opacity: .6
-      transform: scale(1.1)
-
-  button
-    &:before
-      content: ""
-      background-image: url(/images/chevron.svg)
-      background-size: cover
-      width: 2rem
-      height: 2rem
-      position: absolute
-      left: -.7rem
-      top: 50%
-      transform: translateY(-50%)
-
-</style>

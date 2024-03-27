@@ -6,18 +6,12 @@
 </script>
 
 <div class="mt-8 w-full flex gap-4">
-  <div class="list">
+  <div class="list w-[calc(50%-.5rem)]">
     <Hint>top miners</Hint>
     <Leaderboard StoreObject={$allStatUsers.leaderboard} teamsDisplay={false} />
   </div>
-  <div class="list">
+  <div class="list w-[calc(50%-.5rem)]">
     <Hint>top teams</Hint>
     <Leaderboard StoreObject={$allStatTeams.leaderboard} teamsDisplay={true} />
   </div>
 </div>
-
-<style lang="sass">
-  .list
-    width: calc(50% - .5rem)
-
-</style>

@@ -8,7 +8,6 @@
     import { goTeam } from "../../../utils";
 
     let List: any[] = [];
-    let objValue: any[] = [];
 
     export let StoreObject: any;
     export let teamsDisplay: boolean;
@@ -20,10 +19,10 @@
 
 {#if List.length > 0}
   {#each List as d, i}
-      <button class="innerWrapper flex flex-row items-center rounded-[10px] min-h-[64px] select-none buttonFlush p-0 !pr-4 hover:bg-[#ffffff55] {teamsDisplay ? '' : 'disabled'}" on:click={goTeam(d.slug)}>
+      <button class="innerWrapper transition duration-150 flex flex-row items-center rounded-[10px] min-h-[64px] select-none buttonFlush p-0 !pr-4 {teamsDisplay ? 'hover:bg-[#ffffff55]' : 'cursor-default bg-transparent'}" on:click={goTeam(d.slug)}>
           <Prefix index={d.user?.lastName ? -1 : i} />
           <Avatar d={d} />
-          <Content objValue={objValue[i]} d={d} />
+          <Content d={d} />
           <Chevron teamsDisplay={teamsDisplay} />
       </button>
   {/each}
@@ -32,15 +31,3 @@
       <Skeleton />
   {/each}
 {/if}
-
-<style lang="sass">
-  .innerWrapper
-    transition: background-color .15s
-
-  .innerWrapper.disabled
-    cursor: default
-  
-  .innerWrapper.disabled:hover
-    background-color: transparent
-
-</style>

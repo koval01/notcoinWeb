@@ -1,51 +1,20 @@
-<div class="iconHolder">
+<div class="absolute w-full h-full hidden lg:block">
   <img
-      class="penny1"
+      class="absolute w-[44px] -top-6 left-[25rem]"
       src="/images/penny.webp"
       draggable="false"
       alt="burned icon"
   />
   <img
-      class="penny2"
+      class="absolute w-[22px] top-16 left-[27rem]"
       src="/images/penny.webp"
       draggable="false"
       alt="burned icon"
   />
   <img
-      class="penny3"
+      class="absolute w-[27px] top-24 left-[24rem]"
       src="/images/penny.webp"
       draggable="false"
       alt="burned icon"
   />
 </div>
-
-<style lang="sass">
-  .iconHolder
-    position: absolute
-    height: 100%
-    width: 100%
-    display: none
-
-    *
-      position: absolute
-
-  .penny1
-    width: 44px
-    top: -1.5rem
-    left: 25rem
-
-  .penny2
-    width: 22px
-    top: 4rem
-    left: 27rem
-
-  .penny3
-    width: 27px
-    top: 6rem
-    left: 24rem
-
-  @media (min-width: 1000px)
-    .iconHolder
-      display: initial
-
-</style>

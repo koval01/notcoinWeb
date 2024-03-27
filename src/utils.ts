@@ -20,6 +20,7 @@ export const preloadImage = (url: string): Promise<Event> => {
 }
 
 const keepOnlyAllowedCharacters = (inputString: string): string => {
+    if (typeof inputString !== 'string') return;
     return inputString.replace(/[^\w\d\u0400-\u04FF\uD83C-\uD83E\uDC00-\uDEFF]/g, '');
 }
 
@@ -29,7 +30,7 @@ export const getAvatarThumb = (): string => {
 
 export const getAvatarByName = (name: string): string => {
     name = keepOnlyAllowedCharacters(name)
-    return `https://ui-avatars.com/api/?name=${encodeURIComponent(name ? name : "NN")}&background=000&color=fff`;
+    return `https://ui-avatars.com/api/?name=${encodeURIComponent(name ? name : "NN")}&color=fff&background=000`;
 }
 
 export const animateValue = (() => {
@@ -110,6 +111,10 @@ export const teamLink = (slug: string | undefined): string | undefined => {
 export const goTeam = (slug: string | undefined): MouseEventHandler<HTMLButtonElement> => {
     if (!slug) return;
     window.open(`/squad/${slug}`, "_self");
+}
+
+export const goChannel = (): void => {
+    window.open(`https://t.me/${ window.location.pathname.split("/").pop() }`, "_blank");
 }
 
 export const goHome = (): void => {

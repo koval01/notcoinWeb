@@ -32,7 +32,7 @@
             throttledUpdateRandomUsers = setTimeout(() => {
                 updateRandomUsers();
                 throttledUpdateRandomUsers = null;
-            }, 200);
+            }, 1e3);
         }
     };
 

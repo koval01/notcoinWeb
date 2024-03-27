@@ -1,4 +1,6 @@
 <script lang="js">
+    import { X, Telegram } from "./icons";
+
     export let headTitle = undefined;
 </script>
 
@@ -16,20 +18,10 @@
         {/if}
         <div class="justify-self-end flex items-center gap-4">
             <a href="https://twitter.com/thenotcoin">
-                <img
-                    src="/logos/x-logo.svg"
-                    alt="X logo"
-                    width="16"
-                    height="16"
-                />
+                <X class="w-4 h-4" />
             </a>
             <a href="https://t.me/notcoin">
-                <img
-                    src="/logos/tg-logo.svg"
-                    alt="Telegram logo"
-                    width="20"
-                    height="20"
-                />
+                <Telegram class="w-5 h-5" />
             </a>
         </div>
     </div>
