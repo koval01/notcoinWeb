@@ -1,18 +1,22 @@
 <script lang="ts">
+	import Home from "./routes/Home.svelte";
+	import Squad from "./routes/Squad.svelte";
+	import NoMatch from "./elements/NoMatch.svelte";
+
 	import { Router, Route } from "svelte-routing";
 	import { onMount } from "svelte";
 
-	let Home: any, Squad: any, NoMatch: any;
+	let Component: any;
 
 	onMount(async () => {
 		const path = window.location.pathname;
 
 		if (path === "/") {
-			Home = (await import("./routes/Home.svelte")).default;
+			Component = Home
 		} else if (/^\/squad\/[^\/]+\/*?$/.test(path)) {
-			Squad = (await import("./routes/Squad.svelte")).default;
+			Component = Squad
 		} else {
-			NoMatch = (await import("./routes/NoMatch.svelte")).default;
+			Component = NoMatch
 		}
 	});
 
@@ -27,10 +31,10 @@
 
 <Router {url}>
 	<main class="select-none">
-		<Route patth="*"><svelte:component this={NoMatch} /></Route>
-		<Route path="/"><svelte:component this={Home} /></Route>
+		<Route patth="*"><svelte:component this={Component} /></Route>
+		<Route path="/"><svelte:component this={Component} /></Route>
 		<Route path="/squad/:slug" let:params>
-			<svelte:component this={Squad} slug={params.slug} />
+			<svelte:component this={Component} slug={params.slug} />
 		</Route>
 	</main>
 </Router>
