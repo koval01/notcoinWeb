@@ -1,31 +1,19 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import Desktop from "./Desktop.svelte";
+    import Mobile from "./Mobile.svelte";
 
-    let Desktop: any, Mobile: any;
+    let innerWidth: number = 0;
+    let isDesktop: boolean = innerWidth > 768;
+    let Component: typeof Desktop | typeof Mobile = isDesktop ? Desktop : Mobile;
 
-    let isDesktop: boolean = false;
-
-    const checkScreenWidth = async () => {
-        isDesktop = window.innerWidth >= 890;
-
-        if (isDesktop && !Desktop) {
-            Desktop = (await import("./Desktop.svelte")).default; // Dynamically import Desktop component
-            return;
-        }
-        if (!Mobile) Mobile = (await import("./Mobile.svelte")).default;
+    $: {
+        isDesktop = innerWidth > 768;
+        Component = isDesktop ? Desktop : Mobile;
     };
-
-    window.addEventListener('resize', checkScreenWidth);
-
-    onMount(async () => {
-        checkScreenWidth();
-    });
 </script>
 
+<svelte:window bind:innerWidth={innerWidth} />
+
 <div class="flex gap-4 mt-2 w-full md:mt-0">
-    {#if isDesktop}
-        <svelte:component this={Desktop} />
-    {:else}
-        <svelte:component this={Mobile} />
-    {/if}
+    <svelte:component this={Component} />
 </div>

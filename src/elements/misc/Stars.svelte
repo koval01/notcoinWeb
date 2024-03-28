@@ -3,23 +3,29 @@
     import { generateStars } from "../../utils";
 
     export let count: number = 4;
-    let stars: Readable<{starsLeft: any[], starsRight: any[]}> = readable(generateStars(count));
+    let stars: Readable<{starsLeft: any[], starsRight: any[]}> = readable(generateStars(count)), innerWidth: number = 0;
 </script>
 
+<svelte:window bind:innerWidth={innerWidth} />
+
 <div>
-  {#each Array(2) as _, i}
-    <div class="starsLeft top-1/2 fixed -translate-y-1/2 z-0 filter-none { i ? "left-0" : "right-0" }">
-        {#each (i ? $stars.starsLeft : $stars.starsRight) as { size, top, offset }}
-            <img
-                src="/images/small-star.svg"
-                alt="small star"
-                draggable="false"
-                class="relative {size}"
-                style="top: {top}; {i ? "left" : "right"}: {offset};"
-            />
-        {/each}
-    </div>
-  {/each}
+  {#if innerWidth > 768}
+    {#each Array(2) as _, i}
+      <div class="starsLeft top-1/2 fixed -translate-y-1/2 z-0 filter-none { i ? "left-0" : "right-0" }">
+          {#each (i ? $stars.starsLeft : $stars.starsRight) as { size, top, offset }}
+              <img
+                  src="/images/small-star.svg"
+                  alt="small star"
+                  draggable="false"
+                  class="relative {size}"
+                  style="top: {top}; {i ? "left" : "right"}: {offset};"
+              />
+          {/each}
+      </div>
+    {/each}
+  {:else}
+    <div class="fixed left-0 top-0 -z-50 w-screen h-screen bg-[url(/images/bg-mobile.webp)] bg-cover"></div>
+  {/if}
 </div>
 
 <style lang="sass">
