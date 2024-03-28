@@ -1,9 +1,5 @@
 @import url(font.css);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 html {
     font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     line-height: 1.15;
@@ -123,13 +119,21 @@ button {
     width: 100px;
     height: 36px;
     margin: 5px 0;
-    animation: pulse 1.4s cubic-bezier(.4, 0, .6, 1) infinite;
-    background-color: #ffffff4d;
+    animation: pulse 1.5s cubic-bezier(.4, 0, .6, 1) infinite;
+    background-color: hsla(0, 0%, 100%, .3);
     border-radius: .5rem;
 }
 
 .skeleton-bg {
     background-color: #ffffff1f
+}
+
+.skeleton-animation {
+    animation: pulse 1.5s cubic-bezier(.4, 0, .6, 1) infinite;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 @media (min-width: 768px) {
@@ -143,10 +147,14 @@ button {
 @keyframes pulse {
     0%,
     to {
-        opacity: 1
+        background-color: hsla(0, 0%, 100%, .3);
     }
 
     50% {
-        opacity: .3
+        background-color: hsla(0, 0%, 100%, .15);
     }
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

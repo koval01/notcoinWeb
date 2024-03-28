@@ -8,74 +8,50 @@
     let objIssued: any, objBurned: any;
 </script>
 
-<div class="totalSection">
-    <div class="stat-container">
-        <Penny />
-        <div class="meme">
-            <img
-                class="memeImg issued"
-                draggable="false"
-                alt="doge meme"
-            />
-        </div>
-        <div class="valueContainer">
-            <span class="value valueIssued" bind:this={objIssued}>
-                {#if $stat.loading}
-                    <div class="skeleton" style="opacity: 1;">
-                        <div class="thickLine"></div>
-                    </div>
-                {:else}
-                    {animateValue(objIssued, $stat.balanceCoins + $stat.burnedCoins)}
-                {/if}
-            </span>
-            <span class="title">total issued</span>
-        </div>
-    </div>
-    <div class="stat-container">
+<div class="grid grid-rows-2 grid-cols-none md:grid-cols-2 md:grid-rows-none gap-4 mb-4">
+  {#each Array(2) as _, i}
+    <div class="relative flex p-4 items-center gap-6 backdrop-blur-sm z-5 border-2 border-opacity-10 border-white rounded-xl border-solid md:py-4 md:px-8 md:gap-5">
+      {#if i}
         <Flame />
-        <div class="meme burned">
+      {:else}
+        <Penny />
+      {/if}
+        <div class="meme {i ? "burned": ""}">
             <img
-                class="memeImg burned"
+                class="memeImg {i ? "burned": "issued"}"
                 draggable="false"
-                alt="this is fine meme"
+                alt={i ? "this is fine meme" : "doge meme"}
             />
         </div>
-        <div class="valueContainer">
-            <span class="value valueBurned" bind:this={objBurned}>
-                {#if $stat.loading}
-                    <div class="skeleton" style="opacity: 1;">
-                        <div class="thickLine"></div>
-                    </div>
-                {:else}
-                    {animateValue(objBurned, $stat.burnedCoins)}
-                {/if}
-            </span>
-            <span class="title">total burned</span>
+        <div class="valueContainer gap-1 flex flex-col">
+            {#if i}
+              <span class="value valueBurned" bind:this={objBurned}>
+                  {#if $stat.loading}
+                      <div class="skeleton">
+                          <div class="thickLine"></div>
+                      </div>
+                  {:else}
+                      {animateValue(objBurned, $stat.burnedCoins)}
+                  {/if}
+              </span>
+            {:else}
+              <span class="value valueIssued" bind:this={objIssued}>
+                  {#if $stat.loading}
+                      <div class="skeleton">
+                          <div class="thickLine"></div>
+                      </div>
+                  {:else}
+                      {animateValue(objIssued, $stat.balanceCoins + $stat.burnedCoins)}
+                  {/if}
+              </span>
+            {/if}
+            <span class="title">total {i ? "burned": "issued"}</span>
         </div>
     </div>
+  {/each}
 </div>
 
 <style lang="sass">
-  .totalSection
-    display: grid
-    grid-template-rows: repeat(2, minmax(0, 1fr))
-    grid-template-columns: none
-    gap: 1rem
-    margin-bottom: 1rem
-  
-  .stat-container
-    position: relative
-    display: flex
-    padding: 1rem
-    align-items: center
-    gap: 1.5rem
-    border-width: 2px
-    border-color: #ffffff1a
-    border-radius: 1rem
-    border-style: solid
-    backdrop-filter: blur(3px)
-    z-index: 2
-  
   div
     &.meme
       > .memeImg
@@ -96,10 +72,6 @@
         border-radius: 7px
   
     &.valueContainer
-      gap: .25rem
-      display: flex
-      flex-direction: column
-  
       > span
         &.value
           font-size: 1.375rem
@@ -124,14 +96,6 @@
   
   @media (min-width: 768px)
     div
-      &.totalSection
-        grid-template-columns: repeat(2, minmax(0, 1fr))
-        grid-template-rows: none
-  
-        > div.stat-container
-          padding: 1rem 2rem
-          gap: 20px
-  
       &.meme
         &.burned
           padding: 4px

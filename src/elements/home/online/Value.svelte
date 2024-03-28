@@ -4,44 +4,13 @@
     export let index: number, objValues: any, stat: object | any;
 </script>
 
-<span class="value {index === 0 ? 'totalPlayers' : index === 1 ? 'onlineToday' : 'onlineNow'}" bind:this={objValues[index]}>
+<span class="ml-3 lining-nums tabular-nums" bind:this={objValues[index]}>
     {#if stat.loading}
-        <div class="skeleton" style="opacity: 1;">
+        <div class="skeleton h-5 md:h-8 {index === 0 ? 'w-32 md:w-40' : index === 1 ? 'w-28 md:w-36' : 'w-24 md:w-28'}">
             <div class="thickLine"></div>
         </div>
     {:else}
-        {animateValue(objValues[index], [stat.users, stat.onlineToday, stat.online][index])}
+        {@const variable = [stat.users, stat.onlineToday, stat.online][index]}
+        { variable ? animateValue(objValues[index], variable) : 0 }
     {/if}
 </span>
-
-<style lang="sass">
-    .skeleton
-      height: 1.3rem
-
-    .value
-      font-variant-numeric: lining-nums tabular-nums
-      margin-left: 12px
-
-    .totalPlayers > .skeleton
-      width: 130px
-
-    .onlineToday > .skeleton
-      width: 110px
-
-    .onlineNow > .skeleton
-      width: 90px
-
-    @media (min-width: 768px)
-      .skeleton
-        height: 2rem
-
-      .totalPlayers > .skeleton
-        width: 160px
-
-      .onlineToday > .skeleton
-        width: 140px
-
-      .onlineNow > .skeleton
-        width: 110px
-
-</style>

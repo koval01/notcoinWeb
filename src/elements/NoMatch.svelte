@@ -9,8 +9,8 @@
 <div class="relative top-0 left-0 w-full h-full flex justify-center items-center">
     <div class="mt-[20vh] flex flex-col items-center">
         <Stars count={4} />
-        <div class="logo-container pb-8">
-            <div class="w-[200px] h-[200px] md:w-[240px] md:h-[240px] lg:w-[300px] lg:h-[300px] bg-cover rounded-full cursor-pointer will-change-transform origin-center logo"></div>
+        <div class="pb-8">
+            <div class="logo w-[200px] h-[200px] md:w-[240px] md:h-[240px] lg:w-[300px] lg:h-[300px] object-cover relative"></div>
         </div>
         <p>It seems... <span>{window.location.pathname}</span> does not exist</p>
         <div class="flex mt-4">
@@ -34,35 +34,24 @@
   span
     color: #ffc632
 
-  .logo-container
-    perspective: 400px
-
   .logo
-    background-image: url(/images/coin.webp)
-    transition: transform .1s ease-out
-    animation: tapCoin 1.6s ease infinite
+    mask-image: url(/images/notlogo.webp)
+    mask-size: cover
+    background: linear-gradient(-32deg, #fff 25%, #ffc632 50%, #fff 60%)
+    background-size: 400%
+    background-position-x: -50%
+    animation: shine 6s cubic-bezier(.3, 1, 1, 1) infinite
 
   @media (min-width: 768px)
     p span
       font-size: 1.2rem
 
-  @keyframes tapCoin
+  @keyframes shine
     0%
-      transform: rotateX(0deg) rotateY(0deg)
-
+        background-position-x: -50%
     50%
-      transform: rotateX(0deg) rotateY(0deg)
-
-    65%
-      transform: rotateX(-18deg) rotateY(-16deg)
-
-    70%
-      transform: rotateX(0deg) rotateY(0deg)
-
-    85%
-      transform: rotateX(-18deg) rotateY(16deg)
-
+        background-position-x: 120%
     100%
-      transform: rotateX(0deg) rotateY(0deg)
+        background-position-x: -50%
   
 </style>
