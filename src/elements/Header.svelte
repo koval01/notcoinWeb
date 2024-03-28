@@ -17,10 +17,10 @@
             <div></div>
         {/if}
         <div class="justify-self-end flex items-center gap-4">
-            <a href="https://twitter.com/thenotcoin">
+            <a href="https://twitter.com/thenotcoin" aria-label="Page in X">
                 <X class="w-4 h-4" />
             </a>
-            <a href="https://t.me/notcoin">
+            <a href="https://t.me/notcoin" aria-label="Telegram channel">
                 <Telegram class="w-5 h-5" />
             </a>
         </div>
