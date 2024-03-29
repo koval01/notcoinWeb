@@ -2,6 +2,8 @@
     import { stat } from "../../store";
     import { animateValue } from "../../utils";
 
+    import Skeleton from "../misc/Skeleton.svelte";
+
     let objValue: any;
 </script>
 
@@ -11,9 +13,7 @@
         <img class="w-10 h-10 md:w-[4.5rem] md:h-[4.5rem] content-[url(/images/coin-mobile.webp)] md:content-[url(/images/coin.webp)]" draggable="false" alt="Coin" />
         <div class="font-extrabold lining-nums tabular-nums text-2xl sm:text-3xl md:text-5xl lg:text-6xl" bind:this={objValue}>
             {#if $stat.loading}
-                <div class="skeleton w-44 h-7 sm:w-72 sm:h-10 md:w-96 md:h-14 md:rounded-lg lg:w-[32rem] lg:h-16 lg:rounded-xl">
-                    <div class="thickLine"></div>
-                </div>
+                <Skeleton className="w-44 h-7 sm:w-72 sm:h-10 md:w-96 md:h-14 md:rounded-lg lg:w-[32rem] lg:h-16 lg:rounded-xl" />
             {:else}
                 {animateValue(objValue, $stat.balanceCoins)}
             {/if}

@@ -2,6 +2,8 @@
   import AppleButton from "../../misc/AppleButton.svelte";
   import OpenButton from "../../misc/OpenButton.svelte";
 
+  import Skeleton from "../../misc/Skeleton.svelte";
+
   import { squadData } from "../../../store";
   import { getAvatarByName, handleImageError, goBack, goChannel } from "../../../utils";
 
@@ -27,9 +29,7 @@
     </div>
     <div class="flex justify-center items-center font-extrabold text-4xl truncate min-w-full md:text-6xl mt-3">
         {#if $squadData.loading}
-            <div class="skeleton flex !m-auto !w-[16rem] md:!w-[30rem]">
-                <div class="thickLine"></div>
-            </div>
+            <Skeleton className="flex m-auto w-[16rem] md:w-[30rem]" />
         {:else}
             {$squadData.name}
             <OpenButton onClick={goChannel} className="h-6 w-6 md:h-10 md:w-10 md:ml-1" />

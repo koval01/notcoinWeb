@@ -1,6 +1,8 @@
 <script lang="js">
     import { getAvatarThumb, handleImageError } from "../../../utils";
 
+    import Skeleton from "../../misc/Skeleton.svelte";
+
     export let avatarSrc = undefined, onError = handleImageError;
 </script>
 
@@ -17,9 +19,7 @@
                 on:error={onError}
             />
         {:else}
-            <div class="h-6 w-6 md:h-8 md:w-8 rounded-full m-0 { avatarSrc ? "" : "skeleton" }">
-                <div class="thickLine"></div>
-            </div>
+            <Skeleton className="h-6 w-6 md:h-8 md:w-8 rounded-full m-0" isSkeleton={!avatarSrc} />
         {/if}
     </div>
 </div>
