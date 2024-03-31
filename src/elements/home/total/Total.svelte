@@ -2,8 +2,12 @@
     import Flame from "./Flame.svelte";
     import Penny from "./Penny.svelte";
 
+    import Skeleton from "../../misc/Skeleton.svelte";
+
     import { stat } from "../../../store";
     import { animateValue } from "../../../utils";
+
+    const skeletonCls = "h-5 w-44 md:h-7 md:w-56 lg:w-72"
 
     let objIssued: any, objBurned: any;
 </script>
@@ -18,18 +22,18 @@
       {/if}
         <div class="meme {i ? "burned": ""}">
             <img
-                class="memeImg {i ? "burned": "issued"}"
+                class="memeImg w-auto max-w-14 {i ? "burned": "issued"}"
                 draggable="false"
                 alt={i ? "this is fine meme" : "doge meme"}
+                width="64"
+                height="64"
             />
         </div>
         <div class="valueContainer gap-1 flex flex-col">
             {#if i}
               <span class="value valueBurned" bind:this={objBurned}>
                   {#if $stat.loading}
-                      <div class="skeleton">
-                          <div class="thickLine"></div>
-                      </div>
+                      <Skeleton className={skeletonCls} />
                   {:else}
                       {animateValue(objBurned, $stat.burnedCoins)}
                   {/if}
@@ -37,9 +41,7 @@
             {:else}
               <span class="value valueIssued" bind:this={objIssued}>
                   {#if $stat.loading}
-                      <div class="skeleton">
-                          <div class="thickLine"></div>
-                      </div>
+                      <Skeleton className={skeletonCls} />
                   {:else}
                       {animateValue(objIssued, $stat.balanceCoins + $stat.burnedCoins)}
                   {/if}
@@ -55,9 +57,6 @@
   div
     &.meme
       > .memeImg
-        width: auto
-        max-width: 57px
-  
         &.issued
           content: url(/images/memes/doge-mobile.webp)
           transform: scaleX(-1)
@@ -77,10 +76,6 @@
           font-size: 1.375rem
           font-weight: 800
           font-variant-numeric: lining-nums tabular-nums
-
-          > .skeleton
-            height: 1.4rem
-            width: 360px
   
         &.valueIssued
           color: #ffc224
@@ -113,27 +108,15 @@
   
       &.valueContainer > span.value
         font-size: 27px
-
-        > .skeleton
-            height: 29px
-            width: 300px
   
   @media (max-width: 1092px)
     div.valueContainer > span.value
       font-size: 23px
-
-      > .skeleton
-            height: 25px
-            width: 260px
   
   @media (max-width: 960px)
     div
       &.valueContainer > span.value
         font-size: 21px
-
-        > .skeleton
-            height: 23px
-            width: 200px
   
       &.meme > .memeImg
         width: auto
@@ -142,9 +125,5 @@
   @media (max-width: 878px)
     div.valueContainer > span.value
       font-size: 18px
-
-      > .skeleton
-            height: 20px
-            width: 160px
   
 </style>

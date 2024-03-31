@@ -32,7 +32,7 @@
   div    
     *
       transition: filter 3s
-      animation: star 8s cubic-bezier(.88, 1.25, 0, 1.2) infinite
+      animation: star 8s cubic-bezier(.9, 1.2, 0, 1.2) infinite
   
   .small
     width: .5rem
