@@ -57,7 +57,7 @@ To set up the application for local development, follow these steps:
 
 ## Contributing
 
-Contributions are welcome! If you'd like to contribute to this project, please fork the repository and submit a pull request with your changes.
+Contributions are welcome! If you'd like to contribute to this project, please see our [contributing guidelines](CONTRIBUTING.md) for more information.
 
 ## License
 
