@@ -21,7 +21,7 @@
   "dependencies": {
     "cssnano": "^7.0.6",
     "dotenv": "^16.4.4",
-    "sass": "^1.78.0",
+    "sass": "^1.79.4",
     "svelte-routing": "^2.13.0"
   }
 }
