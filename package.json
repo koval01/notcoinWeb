@@ -15,7 +15,7 @@
     "svelte": "^4.2.20",
     "tailwindcss": "^3.4.17",
     "terser": "^5.43.1",
-    "vite": "^5.4.14",
+    "vite": "^5.4.19",
     "vite-plugin-pwa": "^0.21.1"
   },
   "dependencies": {
