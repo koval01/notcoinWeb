@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "cssnano": "^7.0.6",
-    "dotenv": "^16.4.7",
+    "dotenv": "^17.2.0",
     "sass": "^1.89.2",
     "svelte-routing": "^2.13.0"
   }
