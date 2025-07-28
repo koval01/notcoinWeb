@@ -16,7 +16,7 @@
     "tailwindcss": "^3.4.17",
     "terser": "^5.43.1",
     "vite": "^7.0.6",
-    "vite-plugin-pwa": "^0.21.1"
+    "vite-plugin-pwa": "^1.0.2"
   },
   "dependencies": {
     "cssnano": "^7.0.6",
