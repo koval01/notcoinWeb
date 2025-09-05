@@ -19,7 +19,7 @@
     "vite-plugin-pwa": "^0.21.2"
   },
   "dependencies": {
-    "cssnano": "^7.0.6",
+    "cssnano": "^7.1.1",
     "dotenv": "^17.2.1",
     "sass": "^1.90.0",
     "svelte-routing": "^2.13.0"
